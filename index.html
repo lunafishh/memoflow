@@ -1,0 +1,3128 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memoflow v1.1 — Material You</title>
+
+  <!-- Polices Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =====================================================================
+       1. TOKENS MATERIAL DESIGN 3 (MATERIAL YOU)
+    ====================================================================== */
+    :root {
+      /* Light Mode par défaut (Seed Lavande #6750A4, recalculé dynamiquement en JS) */
+      --md-sys-color-primary: #6750A4;
+      --md-sys-color-on-primary: #FFFFFF;
+      --md-sys-color-primary-container: #EADDFF;
+      --md-sys-color-on-primary-container: #21005D;
+
+      --md-sys-color-secondary: #625B71;
+      --md-sys-color-on-secondary: #FFFFFF;
+      --md-sys-color-secondary-container: #E8DEF8;
+      --md-sys-color-on-secondary-container: #1D192B;
+
+      --md-sys-color-tertiary: #7D5260;
+      --md-sys-color-on-tertiary: #FFFFFF;
+      --md-sys-color-tertiary-container: #FFD8E4;
+      --md-sys-color-on-tertiary-container: #31111D;
+
+      --md-sys-color-error: #B3261E;
+      --md-sys-color-on-error: #FFFFFF;
+      --md-sys-color-error-container: #F9DEDC;
+      --md-sys-color-on-error-container: #410E0B;
+
+      --md-sys-color-background: #FEF7FF;
+      --md-sys-color-on-background: #1D1B20;
+      --md-sys-color-surface: #FEF7FF;
+      --md-sys-color-on-surface: #1D1B20;
+      --md-sys-color-surface-variant: #E7E0EC;
+      --md-sys-color-on-surface-variant: #49454F;
+
+      --md-sys-color-surface-container-lowest: #FFFFFF;
+      --md-sys-color-surface-container-low: #F7F2FA;
+      --md-sys-color-surface-container: #F3EDF7;
+      --md-sys-color-surface-container-high: #ECE6F0;
+      --md-sys-color-surface-container-highest: #E6E0E9;
+
+      --md-sys-color-outline: #79747E;
+      --md-sys-color-outline-variant: #CAC4D0;
+
+      /* Tokens sémantiques de succès harmonisés M3 */
+      --md-sys-color-success: #146C2E;
+      --md-sys-color-on-success: #FFFFFF;
+      --md-sys-color-success-container: #C4EED0;
+      --md-sys-color-on-success-container: #072711;
+
+      /* Shape Corner Tokens M3 */
+      --md-sys-shape-corner-none: 0px;
+      --md-sys-shape-corner-extra-small: 4px;
+      --md-sys-shape-corner-small: 8px;
+      --md-sys-shape-corner-medium: 12px;
+      --md-sys-shape-corner-large: 16px;
+      --md-sys-shape-corner-extra-large: 28px;
+      --md-sys-shape-corner-full: 9999px;
+
+      /* Typographie & Mouvement M3 */
+      --md-sys-typescale-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --md-sys-typescale-body: 'Inter', system-ui, -apple-system, sans-serif;
+      --md-sys-motion-standard: cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    [data-theme="dark"] {
+      --md-sys-color-primary: #D0BCFF;
+      --md-sys-color-on-primary: #381E72;
+      --md-sys-color-primary-container: #4F378B;
+      --md-sys-color-on-primary-container: #EADDFF;
+
+      --md-sys-color-secondary: #CCC2DC;
+      --md-sys-color-on-secondary: #332D41;
+      --md-sys-color-secondary-container: #4A4458;
+      --md-sys-color-on-secondary-container: #E8DEF8;
+
+      --md-sys-color-tertiary: #EFB8C8;
+      --md-sys-color-on-tertiary: #492532;
+      --md-sys-color-tertiary-container: #633B48;
+      --md-sys-color-on-tertiary-container: #FFD8E4;
+
+      --md-sys-color-error: #F2B8B5;
+      --md-sys-color-on-error: #601410;
+      --md-sys-color-error-container: #8C1D18;
+      --md-sys-color-on-error-container: #F9DEDC;
+
+      --md-sys-color-background: #141218;
+      --md-sys-color-on-background: #E6E0E9;
+      --md-sys-color-surface: #141218;
+      --md-sys-color-on-surface: #E6E0E9;
+      --md-sys-color-surface-variant: #49454F;
+      --md-sys-color-on-surface-variant: #CAC4D0;
+
+      --md-sys-color-surface-container-lowest: #0F0D13;
+      --md-sys-color-surface-container-low: #1D1B20;
+      --md-sys-color-surface-container: #211F26;
+      --md-sys-color-surface-container-high: #2B2930;
+      --md-sys-color-surface-container-highest: #36343B;
+
+      --md-sys-color-outline: #938F99;
+      --md-sys-color-outline-variant: #49454F;
+
+      --md-sys-color-success: #6DD58C;
+      --md-sys-color-on-success: #003919;
+      --md-sys-color-success-container: #0F5223;
+      --md-sys-color-on-success-container: #C4EED0;
+    }
+
+    /* =====================================================================
+       2. BASE & RESET
+    ====================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--md-sys-color-background);
+      color: var(--md-sys-color-on-background);
+      font-family: var(--md-sys-typescale-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background-color 0.28s var(--md-sys-motion-standard), color 0.28s var(--md-sys-motion-standard);
+    }
+
+    h1, h2, h3, h4, .font-display {
+      font-family: var(--md-sys-typescale-display);
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      color: inherit;
+    }
+
+    .tabular-nums {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* =====================================================================
+       3. HALO D'AMBIANCE RADIAL SUBTIL M3 & ARCHITECTURE LAYOUT
+    ====================================================================== */
+    .m3-ambient-halo {
+      position: fixed;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(1100px, 100vw);
+      height: 360px;
+      background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--md-sys-color-primary-container) 45%, transparent) 0%, transparent 72%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .app-shell {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (min-width: 840px) {
+      .app-shell {
+        flex-direction: row;
+      }
+    }
+
+    /* =====================================================================
+       4. NAVIGATION RAIL / DRAWER & TOP APP BAR M3
+    ====================================================================== */
+    .m3-nav-sidebar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background-color: var(--md-sys-color-surface-container-low);
+      border-bottom: 1px solid var(--md-sys-color-outline-variant);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    @media (min-width: 840px) {
+      .m3-nav-sidebar {
+        height: 100vh;
+        width: 268px;
+        flex-shrink: 0;
+        flex-direction: column;
+        align-items: stretch;
+        border-bottom: none;
+        border-right: 1px solid var(--md-sys-color-outline-variant);
+        padding: 20px 16px;
+      }
+    }
+
+    .brand-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: transparent;
+      border: none;
+      padding: 4px;
+      border-radius: var(--md-sys-shape-corner-large);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--md-sys-shape-corner-medium);
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.2s var(--md-sys-motion-standard), background-color 0.25s;
+    }
+
+    .brand-trigger:hover .brand-icon {
+      transform: scale(1.04);
+    }
+
+    .brand-title-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-name {
+      font-family: var(--md-sys-typescale-display);
+      font-weight: 800;
+      font-size: 1.08rem;
+      letter-spacing: -0.02em;
+      color: var(--md-sys-color-on-surface);
+    }
+
+    .m3-version-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: var(--md-sys-shape-corner-full);
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-drawer-list {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 840px) {
+      .nav-drawer-list {
+        display: flex;
+      }
+    }
+
+    .m3-nav-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 12px 16px;
+      border: none;
+      border-radius: var(--md-sys-shape-corner-full);
+      background: transparent;
+      color: var(--md-sys-color-on-surface-variant);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      overflow: hidden;
+      transition: background-color 0.2s var(--md-sys-motion-standard), color 0.2s var(--md-sys-motion-standard);
+    }
+
+    .m3-nav-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      opacity: 0;
+      transition: opacity 0.18s var(--md-sys-motion-standard);
+      pointer-events: none;
+    }
+
+    .m3-nav-item:hover::after {
+      opacity: 0.08;
+    }
+
+    .m3-nav-item:active::after {
+      opacity: 0.12;
+    }
+
+    .m3-nav-item.active {
+      background-color: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+      font-weight: 700;
+    }
+
+    .nav-item-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-counter-pill {
+      padding: 2px 8px;
+      border-radius: var(--md-sys-shape-corner-full);
+      font-size: 0.72rem;
+      font-weight: 700;
+      background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) 10%, transparent);
+    }
+
+    .sidebar-footer {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--md-sys-color-outline-variant);
+    }
+
+    @media (min-width: 840px) {
+      .sidebar-footer {
+        display: flex;
+      }
+    }
+
+    .mastery-summary-card {
+      padding: 12px 14px;
+      border-radius: var(--md-sys-shape-corner-large);
+      background-color: var(--md-sys-color-surface-container);
+    }
+
+    .mastery-summary-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--md-sys-color-on-surface);
+      margin-bottom: 8px;
+    }
+
+    .m3-linear-track {
+      width: 100%;
+      height: 6px;
+      border-radius: var(--md-sys-shape-corner-full);
+      background-color: var(--md-sys-color-surface-container-highest);
+      overflow: hidden;
+    }
+
+    .m3-linear-fill {
+      height: 100%;
+      border-radius: var(--md-sys-shape-corner-full);
+      background-color: var(--md-sys-color-primary);
+      transition: width 0.35s var(--md-sys-motion-standard);
+    }
+
+    /* Navigation Bottom Bar Mobile M3 */
+    .m3-bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      background-color: var(--md-sys-color-surface-container);
+      border-top: 1px solid var(--md-sys-color-outline-variant);
+      padding: 8px 16px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    @media (min-width: 840px) {
+      .m3-bottom-bar {
+        display: none;
+      }
+    }
+
+    .m3-bottom-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 6px 12px;
+      border: none;
+      background: transparent;
+      color: var(--md-sys-color-on-surface-variant);
+      font-size: 0.72rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .m3-bottom-item .icon-pill {
+      padding: 4px 20px;
+      border-radius: var(--md-sys-shape-corner-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s var(--md-sys-motion-standard);
+    }
+
+    .m3-bottom-item.active {
+      color: var(--md-sys-color-on-surface);
+    }
+
+    .m3-bottom-item.active .icon-pill {
+      background-color: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+    }
+
+    /* =====================================================================
+       5. WORKSPACE & TOP BAR AVEC SÉLECTEUR MATERIAL YOU
+    ====================================================================== */
+    .main-workspace {
+      flex: 1;
+      min-width: 0;
+      max-width: 840px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 16px 16px 96px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    @media (min-width: 840px) {
+      .main-workspace {
+        padding: 24px 32px 48px;
+        gap: 20px;
+      }
+    }
+
+    /* Top Header Bar avec Dynamic Color Picker M3 */
+    .m3-top-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--md-sys-shape-corner-large);
+      background-color: var(--md-sys-color-surface-container-low);
+      border: 1px solid var(--md-sys-color-outline-variant);
+    }
+
+    .header-context-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--md-sys-color-on-surface-variant);
+    }
+
+    /* Pilule compacte sélecteur de thème dynamique Material You */
+    .m3-theme-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 10px;
+      border-radius: var(--md-sys-shape-corner-full);
+      background-color: var(--md-sys-color-surface-container-high);
+      border: 1px solid var(--md-sys-color-outline-variant);
+    }
+
+    .seed-swatches {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .seed-swatch-btn {
+      width: 22px;
+      height: 22px;
+      border-radius: var(--md-sys-shape-corner-full);
+      border: 2px solid transparent;
+      padding: 0;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.2s var(--md-sys-motion-standard), box-shadow 0.2s var(--md-sys-motion-standard);
+    }
+
+    .seed-swatch-btn:hover {
+      transform: scale(1.12);
+    }
+
+    .seed-swatch-btn.active {
+      transform: scale(1.14);
+      box-shadow: 0 0 0 2px var(--md-sys-color-surface-container-high), 0 0 0 4px var(--md-sys-color-primary);
+    }
+
+    .custom-color-label {
+      width: 22px;
+      height: 22px;
+      border-radius: var(--md-sys-shape-corner-full);
+      background: conic-gradient(from 0deg, #ff595e, #ffca3a, #8ac926, #1982c4, #6a4c93, #ff595e);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--md-sys-color-outline-variant);
+      transition: transform 0.2s var(--md-sys-motion-standard);
+    }
+
+    .custom-color-label:hover {
+      transform: scale(1.12);
+    }
+
+    .custom-color-label input[type="color"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+    }
+
+    .pill-divider {
+      width: 1px;
+      height: 18px;
+      background-color: var(--md-sys-color-outline-variant);
+    }
+
+    .theme-mode-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--md-sys-shape-corner-full);
+      border: none;
+      background-color: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s var(--md-sys-motion-standard);
+    }
+
+    .theme-mode-btn:hover {
+      transform: scale(1.06);
+    }
+
+    /* =====================================================================
+       6. COMPOSANTS BOUTONS, CHIPS & INPUTS MATERIAL DESIGN 3
+    ====================================================================== */
+    .m3-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: var(--md-sys-shape-corner-full);
+      font-size: 0.84rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      border: none;
+      overflow: hidden;
+      transition: background-color 0.2s var(--md-sys-motion-standard), color 0.2s var(--md-sys-motion-standard), border-color 0.2s, transform 0.15s;
+    }
+
+    .m3-btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      opacity: 0;
+      transition: opacity 0.18s var(--md-sys-motion-standard);
+      pointer-events: none;
+    }
+
+    .m3-btn:hover::after {
+      opacity: 0.08;
+    }
+
+    .m3-btn:active::after {
+      opacity: 0.12;
+    }
+
+    .m3-btn:disabled {
+      opacity: 0.38;
+      cursor: not-allowed;
+    }
+
+    .m3-btn-filled {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+    }
+
+    .m3-btn-tonal {
+      background-color: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+    }
+
+    .m3-btn-outlined {
+      background-color: transparent;
+      color: var(--md-sys-color-primary);
+      border: 1px solid var(--md-sys-color-outline);
+    }
+
+    .m3-btn-text {
+      background-color: transparent;
+      color: var(--md-sys-color-primary);
+      padding: 8px 14px;
+    }
+
+    .m3-btn-danger-tonal {
+      background-color: var(--md-sys-color-error-container);
+      color: var(--md-sys-color-on-error-container);
+    }
+
+    .m3-btn-sm {
+      padding: 6px 14px;
+      font-size: 0.78rem;
+    }
+
+    .m3-icon-btn {
+      position: relative;
+      width: 34px;
+      height: 34px;
+      border-radius: var(--md-sys-shape-corner-full);
+      border: 1px solid var(--md-sys-color-outline-variant);
+      background-color: var(--md-sys-color-surface-container);
+      color: var(--md-sys-color-on-surface-variant);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .m3-icon-btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: currentColor;
+      opacity: 0;
+      transition: opacity 0.18s;
+    }
+
+    .m3-icon-btn:hover::after {
+      opacity: 0.08;
+    }
+
+    .m3-icon-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    /* Champs de saisie M3 (12px corner) */
+    .m3-field {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: var(--md-sys-shape-corner-medium);
+      background-color: var(--md-sys-color-surface-container-highest);
+      border: 1px solid var(--md-sys-color-outline-variant);
+      color: var(--md-sys-color-on-surface);
+      font-size: 0.875rem;
+      outline: none;
+      transition: border-color 0.2s var(--md-sys-motion-standard), box-shadow 0.2s var(--md-sys-motion-standard), background-color 0.2s;
+    }
+
+    .m3-field:focus {
+      border-color: var(--md-sys-color-primary);
+      box-shadow: 0 0 0 2px color-mix(in srgb, var(--md-sys-color-primary) 22%, transparent);
+      background-color: var(--md-sys-color-surface-container-lowest);
+    }
+
+    .m3-select-compact {
+      padding: 8px 14px;
+      border-radius: var(--md-sys-shape-corner-full);
+      background-color: var(--md-sys-color-surface-container-high);
+      border: 1px solid var(--md-sys-color-outline-variant);
+      color: var(--md-sys-color-on-surface);
+      font-size: 0.82rem;
+      font-weight: 600;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .m3-select-compact:focus {
+      border-color: var(--md-sys-color-primary);
+    }
+
+    /* Switch Style M3 (52px x 32px) */
+    .m3-switch {
+      position: relative;
+      display: inline-block;
+      width: 52px;
+      height: 32px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .m3-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .m3-switch-track {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--md-sys-shape-corner-full);
+      background-color: var(--md-sys-color-surface-container-highest);
+      border: 2px solid var(--md-sys-color-outline);
+      transition: background-color 0.22s var(--md-sys-motion-standard), border-color 0.22s;
+    }
+
+    .m3-switch-thumb {
+      position: absolute;
+      top: 50%;
+      left: 6px;
+      width: 16px;
+      height: 16px;
+      border-radius: var(--md-sys-shape-corner-full);
+      background-color: var(--md-sys-color-outline);
+      transform: translateY(-50%);
+      transition: all 0.22s var(--md-sys-motion-standard);
+    }
+
+    .m3-switch input:checked + .m3-switch-track {
+      background-color: var(--md-sys-color-primary);
+      border-color: var(--md-sys-color-primary);
+    }
+
+    .m3-switch input:checked + .m3-switch-track .m3-switch-thumb {
+      left: 24px;
+      width: 24px;
+      height: 24px;
+      background-color: var(--md-sys-color-on-primary);
+    }
+
+    /* =====================================================================
+       7. CARTES D'ÉLÉVATION TONALE M3 & HERO DÉGRADÉ SUBTIL
+    ====================================================================== */
+    .m3-card {
+      background-color: var(--md-sys-color-surface-container-low);
+      border: 1px solid var(--md-sys-color-outline-variant);
+      border-radius: var(--md-sys-shape-corner-large);
+      padding: 18px 20px;
+    }
+
+    .m3-hero-learning-card {
+      background: linear-gradient(
+        165deg,
+        var(--md-sys-color-surface-container-low) 0%,
+        color-mix(in srgb, var(--md-sys-color-primary-container) 25%, var(--md-sys-color-surface-container-low)) 100%
+      );
+      border: 1px solid var(--md-sys-color-outline-variant);
+      border-radius: var(--md-sys-shape-corner-extra-large);
+      overflow: hidden;
+      transition: border-color 0.25s var(--md-sys-motion-standard);
+    }
+
+    .hero-card-header {
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid var(--md-sys-color-outline-variant);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .hero-header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .course-tag-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .course-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: var(--md-sys-shape-corner-full);
+      flex-shrink: 0;
+    }
+
+    .course-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--md-sys-color-on-surface-variant);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Stepper des 4 étapes en pilules M3 */
+    .m3-stepper-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+    }
+
+    @media (min-width: 600px) {
+      .m3-stepper-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .m3-step-chip {
+      padding: 7px 10px;
+      border-radius: var(--md-sys-shape-corner-full);
+      font-size: 0.74rem;
+      font-weight: 600;
+      text-align: center;
+      border: 1px solid var(--md-sys-color-outline-variant);
+      background-color: var(--md-sys-color-surface-container);
+      color: var(--md-sys-color-on-surface-variant);
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: all 0.2s var(--md-sys-motion-standard);
+    }
+
+    .m3-step-chip.active {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+      border-color: var(--md-sys-color-primary);
+    }
+
+    .m3-step-chip.done {
+      background-color: var(--md-sys-color-success-container);
+      color: var(--md-sys-color-on-success-container);
+      border-color: transparent;
+    }
+
+    .hero-card-body {
+      padding: 22px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .stage-overline {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--md-sys-color-primary);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .notion-heading {
+      font-family: var(--md-sys-typescale-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--md-sys-color-on-surface);
+    }
+
+    .m3-inner-well {
+      background-color: var(--md-sys-color-surface-container);
+      border: 1px solid var(--md-sys-color-outline-variant);
+      border-radius: var(--md-sys-shape-corner-large);
+      padding: 18px 20px;
+    }
+
+    /* Texte à trous M3 */
+    .cloze-blank-input {
+      display: inline-block;
+      background-color: color-mix(in srgb, var(--md-sys-color-primary) 12%, var(--md-sys-color-surface-container-lowest));
+      border: none;
+      border-bottom: 2px solid var(--md-sys-color-primary);
+      border-radius: var(--md-sys-shape-corner-small) var(--md-sys-shape-corner-small) 2px 2px;
+      padding: 3px 8px;
+      margin: 3px 3px;
+      font-weight: 700;
+      color: var(--md-sys-color-on-surface);
+      outline: none;
+      transition: all 0.18s var(--md-sys-motion-standard);
+    }
+
+    .cloze-blank-input:focus {
+      background-color: color-mix(in srgb, var(--md-sys-color-primary) 20%, var(--md-sys-color-surface-container-lowest));
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--md-sys-color-primary) 25%, transparent);
+    }
+
+    /* Pastilles des notions du lot */
+    .batch-pills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .batch-notion-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: var(--md-sys-shape-corner-full);
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1px solid var(--md-sys-color-outline-variant);
+      background-color: var(--md-sys-color-surface-container);
+      color: var(--md-sys-color-on-surface-variant);
+      cursor: pointer;
+      max-width: 210px;
+      transition: all 0.18s var(--md-sys-motion-standard);
+    }
+
+    .batch-notion-chip.current {
+      background-color: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+      border-color: var(--md-sys-color-primary);
+    }
+
+    .batch-notion-chip.completed {
+      background-color: var(--md-sys-color-success-container);
+      color: var(--md-sys-color-on-success-container);
+      border-color: transparent;
+    }
+
+    /* Annotations de correction */
+    .tok-matched {
+      background-color: var(--md-sys-color-success-container);
+      color: var(--md-sys-color-on-success-container);
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 6px;
+    }
+
+    .tok-missed {
+      background-color: var(--md-sys-color-error-container);
+      color: var(--md-sys-color-on-error-container);
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      padding: 1px 6px;
+      border-radius: 6px;
+    }
+
+    /* =====================================================================
+       8. GRILLE DES COURS & MODALES M3 (28px)
+    ====================================================================== */
+    .courses-grid-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 600px) {
+      .courses-grid-layout {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .courses-grid-layout {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .courses-list-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .course-card-item {
+      background-color: var(--md-sys-color-surface-container-low);
+      border: 1px solid var(--md-sys-color-outline-variant);
+      border-radius: var(--md-sys-shape-corner-large);
+      padding: 16px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      transition: background-color 0.2s var(--md-sys-motion-standard), border-color 0.2s;
+    }
+
+    .course-card-item:hover {
+      background-color: var(--md-sys-color-surface-container);
+    }
+
+    .course-card-item.selected {
+      background-color: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+      border-color: var(--md-sys-color-primary);
+    }
+
+    .two-col-forms {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 760px) {
+      .two-col-forms {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .manage-list-row {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--md-sys-color-outline-variant);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    @media (min-width: 600px) {
+      .manage-list-row {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .manage-list-row:last-child {
+      border-bottom: none;
+    }
+
+    /* Modales M3 (28px corner) */
+    .m3-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      background-color: rgba(0, 0, 0, 0.48);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .m3-modal-dialog {
+      width: 100%;
+      max-width: 460px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background-color: var(--md-sys-color-surface-container-high);
+      color: var(--md-sys-color-on-surface);
+      border: 1px solid var(--md-sys-color-outline-variant);
+      border-radius: var(--md-sys-shape-corner-extra-large);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      animation: fadeSlide 0.22s var(--md-sys-motion-standard) forwards;
+    }
+
+    /* Onde sonore TTS */
+    @keyframes soundWave {
+      0%, 100% { transform: scaleY(0.4); }
+      50% { transform: scaleY(1); }
+    }
+    .tts-wave {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .tts-wave span {
+      display: inline-block;
+      width: 2.5px;
+      height: 11px;
+      background-color: currentColor;
+      border-radius: 9999px;
+      animation: soundWave 0.75s ease-in-out infinite;
+    }
+    .tts-wave span:nth-child(2) { animation-delay: 0.15s; }
+    .tts-wave span:nth-child(3) { animation-delay: 0.3s; }
+
+    /* Toast Snackbar M3 */
+    .m3-toast-stack {
+      position: fixed;
+      bottom: 84px;
+      right: 20px;
+      z-index: 70;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    @media (min-width: 840px) {
+      .m3-toast-stack {
+        bottom: 24px;
+      }
+    }
+
+    .m3-snackbar {
+      pointer-events: auto;
+      padding: 12px 18px;
+      border-radius: var(--md-sys-shape-corner-medium);
+      background-color: var(--md-sys-color-on-surface);
+      color: var(--md-sys-color-surface);
+      font-size: 0.82rem;
+      font-weight: 600;
+      animation: fadeSlide 0.2s var(--md-sys-motion-standard) forwards;
+    }
+
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade {
+      animation: fadeSlide 0.24s var(--md-sys-motion-standard) forwards;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Halo d'ambiance radial subtil Material You -->
+  <div class="m3-ambient-halo" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <!-- =====================================================================
+         NAVIGATION RAIL / DRAWER M3
+    ====================================================================== -->
+    <aside aria-label="Navigation principale" class="m3-nav-sidebar">
+      <div>
+        <button type="button" onclick="switchTab('revise')" class="brand-trigger">
+          <div class="brand-icon">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+            </svg>
+          </div>
+          <div>
+            <div class="brand-title-row">
+              <span class="brand-name">Memoflow</span>
+              <span class="m3-version-badge">v1.1</span>
+            </div>
+            <span style="font-size: 0.7rem; color: var(--md-sys-color-on-surface-variant);">Material You</span>
+          </div>
+        </button>
+
+        <!-- Navigation Desktop -->
+        <nav class="nav-drawer-list">
+          <button type="button" id="nav-btn-revise" onclick="switchTab('revise')" class="m3-nav-item active">
+            <span class="nav-item-left">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <span>Réviser</span>
+            </span>
+            <span id="sidebar-mastered-pill" class="nav-counter-pill tabular-nums">0/0</span>
+          </button>
+
+          <button type="button" id="nav-btn-courses" onclick="switchTab('courses')" class="m3-nav-item">
+            <span class="nav-item-left">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              <span>Mes Cours</span>
+            </span>
+            <span id="sidebar-courses-count" class="nav-counter-pill tabular-nums">0</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Bouton Paramètres Mobile -->
+      <div style="display: flex; align-items: center; gap: 8px;" class="mobile-only-actions">
+        <button type="button" onclick="openSettingsModal()" aria-label="Paramètres" class="m3-icon-btn" id="mobile-settings-btn">
+          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Pied de barre latérale Desktop -->
+      <div class="sidebar-footer">
+        <div class="mastery-summary-card">
+          <div class="mastery-summary-header">
+            <span id="sidebar-user-label" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Progression globale</span>
+            <span id="sidebar-global-pct" class="tabular-nums" style="color: var(--md-sys-color-primary);">0%</span>
+          </div>
+          <div class="m3-linear-track">
+            <div id="sidebar-global-bar" class="m3-linear-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <button type="button" onclick="openSettingsModal()" class="m3-nav-item" style="padding: 10px 14px;">
+          <span class="nav-item-left">
+            <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>Paramètres</span>
+          </span>
+          <span style="font-size: 0.7rem; color: var(--md-sys-color-on-surface-variant);">v1.1</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Navigation inférieure Mobile M3 -->
+    <nav aria-label="Navigation mobile" class="m3-bottom-bar">
+      <button type="button" id="mob-nav-btn-revise" onclick="switchTab('revise')" class="m3-bottom-item active">
+        <span class="icon-pill">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </span>
+        <span>Réviser</span>
+      </button>
+      <button type="button" id="mob-nav-btn-courses" onclick="switchTab('courses')" class="m3-bottom-item">
+        <span class="icon-pill">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          </svg>
+        </span>
+        <span>Mes Cours</span>
+      </button>
+    </nav>
+
+    <!-- =====================================================================
+         ESPACE PRINCIPAL + EN-TÊTE MATERIAL YOU DYNAMIC COLOR
+    ====================================================================== -->
+    <main class="main-workspace">
+
+      <!-- Header avec pilule compacte Material You (5 couleurs Pixel + libre + Dark Mode) -->
+      <header class="m3-top-header">
+        <div class="header-context-title">
+          <span style="font-weight: 700; color: var(--md-sys-color-on-surface);">Espace d’étude</span>
+          <span class="m3-version-badge">v1.1</span>
+        </div>
+
+        <div class="m3-theme-pill" role="group" aria-label="Thème dynamique Material You">
+          <div class="seed-swatches" id="m3-seed-swatches">
+            <button type="button" class="seed-swatch-btn" data-seed="#0B57D0" style="background-color: #0B57D0;" title="Bleu Pixel" aria-label="Bleu Pixel"></button>
+            <button type="button" class="seed-swatch-btn" data-seed="#386A20" style="background-color: #386A20;" title="Vert Sauge" aria-label="Vert Sauge"></button>
+            <button type="button" class="seed-swatch-btn" data-seed="#6750A4" style="background-color: #6750A4;" title="Lavande" aria-label="Lavande"></button>
+            <button type="button" class="seed-swatch-btn" data-seed="#9C413B" style="background-color: #9C413B;" title="Terracotta" aria-label="Terracotta"></button>
+            <button type="button" class="seed-swatch-btn" data-seed="#006874" style="background-color: #006874;" title="Cyan Océan" aria-label="Cyan Océan"></button>
+          </div>
+
+          <label class="custom-color-label" title="Couleur personnalisée">
+            <input type="color" id="m3-custom-color-input" value="#6750A4" aria-label="Couleur personnalisée" />
+          </label>
+
+          <span class="pill-divider" aria-hidden="true"></span>
+
+          <button type="button" id="m3-dark-mode-toggle" onclick="toggleDarkMode()" class="theme-mode-btn" title="Basculer clair / sombre" aria-label="Basculer clair / sombre">
+            <svg id="icon-moon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+            </svg>
+            <svg id="icon-sun" class="hidden" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="4" />
+              <path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- ===================================================================
+           VUE 1 : RÉVISER PAR LOTS & PARCOURS 4 ÉTAPES
+      ==================================================================== -->
+      <section id="view-revise" class="animate-fade" style="display: flex; flex-direction: column; gap: 16px;">
+
+        <!-- Barre de filtre cours & taille des lots -->
+        <div class="m3-card" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px;">
+          <div style="flex: 1; min-width: 180px;">
+            <select id="revise-course-filter" onchange="onCourseFilterChange(this.value)" aria-label="Choisir un cours" class="m3-select-compact" style="width: 100%; max-width: 260px;">
+              <option value="all">Tous les cours</option>
+            </select>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <label for="revise-batch-size" style="font-size: 0.78rem; font-weight: 600; color: var(--md-sys-color-on-surface-variant);">Lot :</label>
+            <select id="revise-batch-size" onchange="onBatchSizeChange(this.value)" aria-label="Taille du lot" class="m3-select-compact">
+              <option value="1">1 notion</option>
+              <option value="2">2 notions</option>
+              <option value="3" selected>3 notions</option>
+              <option value="5">5 notions</option>
+              <option value="10">10 notions</option>
+              <option value="9999">Tout le cours</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Barre de suivi du lot actif -->
+        <div id="batch-tracker-bar" class="m3-card" style="padding: 14px 18px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span id="batch-index-label" style="font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--md-sys-color-primary);">Lot 1 / 1</span>
+              <span style="color: var(--md-sys-color-outline-variant);">•</span>
+              <span id="batch-card-counter" class="tabular-nums" style="font-size: 0.78rem; font-weight: 600; color: var(--md-sys-color-on-surface-variant);">Notion 1 / 3</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <button type="button" id="btn-prev-batch" onclick="changeBatchIndex(-1)" title="Lot précédent" class="m3-icon-btn">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+              </button>
+              <button type="button" id="btn-next-batch" onclick="changeBatchIndex(1)" title="Lot suivant" class="m3-icon-btn">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+              </button>
+            </div>
+          </div>
+
+          <div id="batch-cards-pills" class="batch-pills-row"></div>
+        </div>
+
+        <!-- État vide -->
+        <div id="revise-empty-state" class="m3-card hidden" style="text-align: center; padding: 40px 24px;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 6px;">Aucune notion disponible dans cette sélection</h3>
+          <p style="font-size: 0.82rem; color: var(--md-sys-color-on-surface-variant); margin-bottom: 18px;">Ajoutez des définitions dans l’onglet Mes Cours pour démarrer votre lot.</p>
+          <button type="button" onclick="switchTab('courses')" class="m3-btn m3-btn-filled">Aller à Mes Cours</button>
+        </div>
+
+        <!-- Écran de fin de lot -->
+        <div id="batch-complete-card" class="m3-hero-learning-card hidden animate-fade" style="text-align: center; padding: 36px 24px;">
+          <div style="width: 48px; height: 48px; border-radius: var(--md-sys-shape-corner-large); background-color: var(--md-sys-color-success-container); color: var(--md-sys-color-on-success-container); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h2 id="batch-complete-title" style="font-size: 1.3rem; font-weight: 800; margin-bottom: 6px;">Lot 1 terminé !</h2>
+          <p id="batch-complete-subtitle" style="font-size: 0.85rem; color: var(--md-sys-color-on-surface-variant); margin-bottom: 22px;">Toutes les notions de ce lot ont validé les 4 étapes.</p>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+            <button type="button" onclick="repeatCurrentBatch()" class="m3-btn m3-btn-outlined">Revoir ce lot</button>
+            <button type="button" id="btn-advance-next-batch" onclick="advanceToNextBatch()" class="m3-btn m3-btn-filled">Passer au lot suivant →</button>
+          </div>
+        </div>
+
+        <!-- ===============================================================
+             CARTE PRINCIPALE D'APPRENTISSAGE (HERO DÉGRADÉ TONAL M3)
+        ================================================================ -->
+        <article id="flashcard-container" class="m3-hero-learning-card">
+          <div class="hero-card-header">
+            <div class="hero-header-top">
+              <div class="course-tag-row">
+                <span id="card-course-dot" class="course-dot" style="background-color: var(--md-sys-color-primary);"></span>
+                <span id="card-course-name" class="course-label">Cours</span>
+                <span id="card-focus-badge" class="m3-version-badge hidden">Ciblée</span>
+              </div>
+
+              <!-- Bouton TTS Écouter -->
+              <button type="button" id="btn-tts-speak" onclick="speakCurrentCard()" title="Écouter la définition" class="m3-btn m3-btn-tonal m3-btn-sm">
+                <svg id="tts-icon-static" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                </svg>
+                <span id="tts-wave-anim" class="tts-wave hidden"><span></span><span></span><span></span></span>
+                <span id="tts-btn-label">Écouter</span>
+              </button>
+
+              <!-- Badge Sans écoute (Étape 3) -->
+              <span id="tts-locked-badge" class="hidden" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: var(--md-sys-shape-corner-full); background-color: var(--md-sys-color-surface-container-highest); color: var(--md-sys-color-on-surface-variant); font-size: 0.75rem; font-weight: 600;">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                </svg>
+                <span>Sans écoute</span>
+              </span>
+            </div>
+
+            <!-- Stepper 4 étapes M3 -->
+            <div class="m3-stepper-grid" role="tablist" aria-label="Étapes de mémorisation">
+              <button type="button" id="step-pill-1" onclick="jumpToStage(1)" class="m3-step-chip active">1. Écoute</button>
+              <button type="button" id="step-pill-2" onclick="jumpToStage(2)" class="m3-step-chip">2. Trous + Audio</button>
+              <button type="button" id="step-pill-3" onclick="jumpToStage(3)" class="m3-step-chip">3. Sans écoute</button>
+              <button type="button" id="step-pill-4" onclick="jumpToStage(4)" class="m3-step-chip">4. Expert</button>
+            </div>
+          </div>
+
+          <div class="hero-card-body">
+            <div>
+              <span id="stage-subtitle-label" class="stage-overline">Étape 1 — Première écoute</span>
+              <h1 id="card-notion-title" class="notion-heading">Chargement...</h1>
+            </div>
+
+            <!-- ÉTAPE 1 : PREMIÈRE ÉCOUTE -->
+            <div id="stage-1-view" style="display: flex; flex-direction: column; gap: 16px;">
+              <div class="m3-inner-well" style="display: flex; flex-direction: column; gap: 10px;">
+                <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--md-sys-color-on-surface-variant);">Définition complète</span>
+                <p id="stage-1-definition" style="font-size: 1.05rem; font-weight: 500; line-height: 1.6;">—</p>
+                <p id="stage-1-example" class="hidden" style="font-size: 0.82rem; color: var(--md-sys-color-on-surface-variant); padding-top: 10px; border-top: 1px solid var(--md-sys-color-outline-variant);"></p>
+              </div>
+
+              <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;">
+                <button type="button" onclick="speakCurrentCard()" class="m3-btn m3-btn-tonal">Réécouter la définition</button>
+                <button type="button" id="btn-stage-1-next" onclick="advanceFromStage1()" class="m3-btn m3-btn-filled">
+                  <span>Passer au texte à trous</span>
+                  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- ÉTAPES 2 & 3 : TEXTE À TROUS -->
+            <div id="stage-cloze-view" class="hidden" style="display: flex; flex-direction: column; gap: 16px;">
+              <div class="m3-inner-well" style="display: flex; flex-direction: column; gap: 14px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+                  <span style="font-size: 0.76rem; color: var(--md-sys-color-on-surface-variant);">Appuyez sur <strong>Entrée</strong> pour passer au trou suivant</span>
+                  <button type="button" onclick="toggleClozeInitials()" id="btn-cloze-initials" class="m3-btn m3-btn-outlined m3-btn-sm">Initiales</button>
+                </div>
+                <div id="cloze-sentence-container" style="font-size: 1.05rem; line-height: 2; font-weight: 500;"></div>
+              </div>
+
+              <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;">
+                <button type="button" onclick="submitClozeExercise(true)" class="m3-btn m3-btn-text">Révéler les réponses</button>
+                <button type="button" onclick="submitClozeExercise(false)" class="m3-btn m3-btn-filled">
+                  <span>Vérifier</span>
+                  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- ÉTAPE 4 : MODE EXPERT -->
+            <div id="stage-expert-view" class="hidden" style="display: flex; flex-direction: column; gap: 14px;">
+              <div class="m3-inner-well" style="padding: 12px 16px;">
+                <p style="font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant);">Restituez l’essentiel de la définition de mémoire (<strong>Entrée</strong> pour valider, <strong>Maj+Entrée</strong> pour un saut de ligne).</p>
+              </div>
+
+              <textarea id="expert-answer-input" rows="3" placeholder="Écrivez l’essentiel de la définition..." class="m3-field" style="resize: none; line-height: 1.5;"></textarea>
+
+              <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;">
+                <button type="button" onclick="submitExpertExercise(true)" class="m3-btn m3-btn-text">Révéler la définition</button>
+                <button type="button" onclick="submitExpertExercise(false)" class="m3-btn m3-btn-filled">
+                  <span>Valider l’essentiel</span>
+                  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- RÉSULTAT D'ÉTAPE -->
+            <div id="stage-result-view" class="hidden" style="display: flex; flex-direction: column; gap: 16px;">
+              <div id="result-banner" style="border-radius: var(--md-sys-shape-corner-large); padding: 14px 18px; display: flex; align-items: center; gap: 14px;">
+                <span id="result-score-pill" class="tabular-nums" style="padding: 6px 14px; border-radius: var(--md-sys-shape-corner-full); font-weight: 800; font-size: 0.9rem;">100%</span>
+                <div>
+                  <h3 id="result-title" style="font-size: 0.95rem; font-weight: 700;">Validé</h3>
+                  <p id="result-subtitle" style="font-size: 0.8rem; opacity: 0.85;">Étape réussie</p>
+                </div>
+              </div>
+
+              <div class="m3-inner-well" style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.74rem; font-weight: 600; color: var(--md-sys-color-on-surface-variant);">
+                  <span>Correction détaillée</span>
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="color: var(--md-sys-color-success);">● Retenu</span>
+                    <span style="color: var(--md-sys-color-error);">● Manquant</span>
+                  </div>
+                </div>
+                <div id="result-annotated-text" style="font-size: 0.98rem; line-height: 1.7; font-weight: 500;"></div>
+                <p id="result-user-echo" style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant); font-style: italic; padding-top: 10px; border-top: 1px solid var(--md-sys-color-outline-variant);"></p>
+              </div>
+
+              <div id="result-actions-bar" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 10px;"></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- ===================================================================
+           VUE 2 : MES COURS & GESTION DES NOTIONS
+      ==================================================================== -->
+      <section id="view-courses" class="hidden animate-fade" style="display: flex; flex-direction: column; gap: 18px;">
+
+        <!-- En-tête Mes Cours -->
+        <div class="m3-card" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
+          <div>
+            <h2 style="font-size: 1.15rem; font-weight: 800;">Mes Cours</h2>
+            <p id="courses-summary-sub" style="font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant); margin-top: 2px;">Organisez vos matières et notions</p>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="display: inline-flex; padding: 3px; border-radius: var(--md-sys-shape-corner-full); background-color: var(--md-sys-color-surface-container-high); border: 1px solid var(--md-sys-color-outline-variant);">
+              <button type="button" id="layout-btn-grid" onclick="setCourseLayout('grid')" title="Grille" class="m3-btn m3-btn-sm" style="padding: 6px 10px;">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+              </button>
+              <button type="button" id="layout-btn-list" onclick="setCourseLayout('list')" title="Liste" class="m3-btn m3-btn-sm" style="padding: 6px 10px;">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+              </button>
+            </div>
+
+            <button type="button" onclick="openCourseModal()" class="m3-btn m3-btn-filled m3-btn-sm">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg>
+              <span>Nouveau cours</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Grille / Liste des cours -->
+        <div id="courses-grid" class="courses-grid-layout"></div>
+
+        <!-- Formulaires Ajout individuel & Import en masse -->
+        <div class="two-col-forms">
+          <div class="m3-card" style="display: flex; flex-direction: column; gap: 12px;">
+            <h3 style="font-size: 0.95rem; font-weight: 700;">Ajouter une notion</h3>
+            <form onsubmit="handleAddSingleCard(event)" style="display: flex; flex-direction: column; gap: 10px;">
+              <select id="add-card-course" required aria-label="Cours" class="m3-field"></select>
+              <input type="text" id="add-card-notion" required placeholder="Intitulé de la notion" class="m3-field" />
+              <textarea id="add-card-definition" rows="2" required placeholder="Définition complète..." class="m3-field" style="resize: none;"></textarea>
+              <input type="text" id="add-card-example" placeholder="Exemple (optionnel)" class="m3-field" />
+              <button type="submit" class="m3-btn m3-btn-filled" style="width: 100%; margin-top: 2px;">Ajouter la notion</button>
+            </form>
+          </div>
+
+          <div class="m3-card" style="display: flex; flex-direction: column; justify-content: space-between; gap: 12px;">
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <h3 style="font-size: 0.95rem; font-weight: 700;">Import en masse</h3>
+                <span class="m3-version-badge">Notion : Définition</span>
+              </div>
+              <select id="bulk-import-course" aria-label="Cours cible" class="m3-field"></select>
+              <textarea id="bulk-import-textarea" rows="4" placeholder="Notion 1 : Définition 1&#10;Notion 2 : Définition 2 | Exemple" class="m3-field" style="resize: none;"></textarea>
+            </div>
+            <button type="button" onclick="handleBulkImport()" class="m3-btn m3-btn-tonal" style="width: 100%;">Importer la liste</button>
+          </div>
+        </div>
+
+        <!-- Liste des définitions filtrables -->
+        <div class="m3-card" style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;">
+            <div>
+              <h3 style="font-size: 0.95rem; font-weight: 700;">Définitions</h3>
+              <p id="manage-cards-subtitle" style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant);">Toutes les notions</p>
+            </div>
+            <input type="text" id="manage-cards-search" oninput="renderManageCardsList()" placeholder="Filtrer..." class="m3-field" style="max-width: 240px; padding: 8px 12px;" />
+          </div>
+          <div id="manage-cards-list"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- =====================================================================
+       MODALE PARAMÈTRES M3 (28px corner)
+  ====================================================================== -->
+  <div id="modal-settings" class="m3-modal-backdrop hidden">
+    <div class="m3-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 12px; border-bottom: 1px solid var(--md-sys-color-outline-variant);">
+        <h3 id="settings-modal-title" style="font-size: 1.1rem; font-weight: 800;">Paramètres</h3>
+        <button type="button" onclick="closeModal('modal-settings')" class="m3-icon-btn" aria-label="Fermer">✕</button>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div>
+          <label for="settings-user-name" style="font-size: 0.78rem; font-weight: 600; color: var(--md-sys-color-on-surface-variant); display: block; margin-bottom: 6px;">Prénom (nom du fichier de sauvegarde)</label>
+          <input type="text" id="settings-user-name" oninput="onUserNameChange(this.value)" placeholder="Ex : Alex" class="m3-field" />
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; border-top: 1px solid var(--md-sys-color-outline-variant);">
+          <div>
+            <span style="font-size: 0.85rem; font-weight: 600; display: block;">Taille des lots par défaut</span>
+            <span style="font-size: 0.74rem; color: var(--md-sys-color-on-surface-variant);">Notions révisées en boucle par lot</span>
+          </div>
+          <select id="settings-default-batch" onchange="onBatchSizeChange(this.value)" class="m3-select-compact">
+            <option value="1">1 notion</option>
+            <option value="2">2 notions</option>
+            <option value="3">3 notions</option>
+            <option value="5">5 notions</option>
+            <option value="10">10 notions</option>
+            <option value="9999">Tout</option>
+          </select>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; border-top: 1px solid var(--md-sys-color-outline-variant);">
+          <div>
+            <span style="font-size: 0.85rem; font-weight: 600; display: block;">Lecture audio auto (Étape 1)</span>
+            <span style="font-size: 0.74rem; color: var(--md-sys-color-on-surface-variant);">Lit la définition dès l’affichage</span>
+          </div>
+          <label class="m3-switch">
+            <input type="checkbox" id="toggle-auto-tts" onchange="toggleAutoTts(this.checked)" />
+            <span class="m3-switch-track"><span class="m3-switch-thumb"></span></span>
+          </label>
+        </div>
+
+        <div style="padding-top: 12px; border-top: 1px solid var(--md-sys-color-outline-variant); display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-size: 0.85rem; font-weight: 600;">Sauvegarde locale JSON</span>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+            <button type="button" onclick="exportDataJson()" class="m3-btn m3-btn-filled m3-btn-sm">Exporter .json</button>
+            <label class="m3-btn m3-btn-tonal m3-btn-sm" style="cursor: pointer;">
+              Importer .json
+              <input type="file" accept=".json,application/json" onchange="importDataJson(event)" class="hidden" />
+            </label>
+          </div>
+          <button type="button" onclick="closeModal('modal-settings'); openResetProgressModal();" class="m3-btn m3-btn-danger-tonal m3-btn-sm" style="width: 100%;">
+            Réinitialiser la progression
+          </button>
+        </div>
+      </div>
+
+      <div style="padding-top: 10px; border-top: 1px solid var(--md-sys-color-outline-variant); display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">
+        <span>Memoflow v1.1 — Material You</span>
+        <span>made by lunafish</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODALE COURS -->
+  <div id="modal-course" class="m3-modal-backdrop hidden">
+    <div class="m3-modal-dialog" role="dialog" aria-modal="true">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <h3 id="modal-course-title" style="font-size: 1.05rem; font-weight: 800;">Nouveau cours</h3>
+        <button type="button" onclick="closeModal('modal-course')" class="m3-icon-btn">✕</button>
+      </div>
+      <form onsubmit="saveCourseForm(event)" style="display: flex; flex-direction: column; gap: 12px;">
+        <input type="hidden" id="edit-course-id" />
+        <input type="text" id="course-input-title" required placeholder="Titre du cours" class="m3-field" />
+        <input type="text" id="course-input-subtitle" placeholder="Sous-titre (optionnel)" class="m3-field" />
+        <div id="course-color-picker" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+        <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px;">
+          <button type="button" onclick="closeModal('modal-course')" class="m3-btn m3-btn-text">Annuler</button>
+          <button type="submit" class="m3-btn m3-btn-filled">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODALE ÉDITION NOTION -->
+  <div id="modal-edit-card" class="m3-modal-backdrop hidden">
+    <div class="m3-modal-dialog" role="dialog" aria-modal="true">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <h3 style="font-size: 1.05rem; font-weight: 800;">Modifier la notion</h3>
+        <button type="button" onclick="closeModal('modal-edit-card')" class="m3-icon-btn">✕</button>
+      </div>
+      <form onsubmit="saveEditCardForm(event)" style="display: flex; flex-direction: column; gap: 12px;">
+        <input type="hidden" id="edit-card-id" />
+        <select id="edit-card-course" required class="m3-field"></select>
+        <input type="text" id="edit-card-notion" required placeholder="Notion" class="m3-field" />
+        <textarea id="edit-card-definition" rows="3" required placeholder="Définition" class="m3-field" style="resize: none;"></textarea>
+        <input type="text" id="edit-card-example" placeholder="Exemple (optionnel)" class="m3-field" />
+        <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px;">
+          <button type="button" onclick="closeModal('modal-edit-card')" class="m3-btn m3-btn-text">Annuler</button>
+          <button type="submit" class="m3-btn m3-btn-filled">Sauvegarder</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODALE CONFIRMATION -->
+  <div id="modal-confirm" class="m3-modal-backdrop hidden">
+    <div class="m3-modal-dialog" style="max-width: 380px;" role="dialog" aria-modal="true">
+      <h3 id="confirm-modal-title" style="font-size: 1.05rem; font-weight: 800;">Confirmation</h3>
+      <p id="confirm-modal-message" style="font-size: 0.85rem; color: var(--md-sys-color-on-surface-variant);">Confirmer cette action ?</p>
+      <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px;">
+        <button type="button" onclick="closeModal('modal-confirm')" class="m3-btn m3-btn-text">Annuler</button>
+        <button type="button" id="confirm-modal-action-btn" class="m3-btn m3-btn-danger-tonal">Confirmer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENEUR SNACKBARS M3 -->
+  <div id="toast-container" class="m3-toast-stack"></div>
+
+  <!-- =====================================================================
+       LOGIQUE JAVASCRIPT — MEMOFLOW V1.1 & MOTEUR MATERIAL YOU
+  ====================================================================== -->
+  <script>
+    const STORAGE_KEY = 'memoflow_v1_1_state';
+    const M3_SEED_KEY = 'm3-seed';
+    const M3_THEME_KEY = 'm3-theme';
+
+    const COURSE_COLORS = [
+      { id: 'lavender', hex: '#6750A4' },
+      { id: 'pixel-blue', hex: '#0B57D0' },
+      { id: 'sage', hex: '#386A20' },
+      { id: 'terracotta', hex: '#9C413B' },
+      { id: 'ocean', hex: '#006874' },
+      { id: 'amber', hex: '#8F4E00' }
+    ];
+
+    const STAGE_META = {
+      1: { label: 'Étape 1 — Première écoute', pill: '1. Écoute' },
+      2: { label: 'Étape 2 — Texte à trous (avec écoute)', pill: '2. Trous + Audio' },
+      3: { label: 'Étape 3 — Texte à trous (sans écoute)', pill: '3. Sans écoute' },
+      4: { label: 'Étape 4 — Mode Expert (réécrire l’essentiel)', pill: '4. Expert' }
+    };
+
+    /* =====================================================================
+       1. MOTEUR DE COULEUR DYNAMIQUE MATERIAL YOU (HCT-INSPIRED TONAL ENGINE)
+    ====================================================================== */
+    function hexToHue(hex) {
+      let clean = (hex || '#6750A4').replace('#', '').trim();
+      if (clean.length === 3) {
+        clean = clean.split('').map(c => c + c).join('');
+      }
+      const r = parseInt(clean.substring(0, 2), 16) / 255;
+      const g = parseInt(clean.substring(2, 4), 16) / 255;
+      const b = parseInt(clean.substring(4, 6), 16) / 255;
+
+      const max = Math.max(r, g, b);
+      const min = Math.min(r, g, b);
+      const delta = max - min;
+
+      if (delta === 0) return 265;
+      let h = 0;
+      if (max === r) {
+        h = ((g - b) / delta) % 6;
+      } else if (max === g) {
+        h = (b - r) / delta + 2;
+      } else {
+        h = (r - g) / delta + 4;
+      }
+      h = Math.round(h * 60);
+      return h < 0 ? h + 360 : h;
+    }
+
+    function applyMaterialYouTheme(seedHex, isDark) {
+      const hue = hexToHue(seedHex);
+      const secondaryHue = (hue + 14) % 360;
+      const tertiaryHue = (hue + 56) % 360;
+      const neutralHue = hue;
+      const root = document.documentElement;
+
+      root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+
+      const tokens = isDark ? {
+        '--md-sys-color-primary': `hsl(${hue}, 82%, 82%)`,
+        '--md-sys-color-on-primary': `hsl(${hue}, 62%, 22%)`,
+        '--md-sys-color-primary-container': `hsl(${hue}, 48%, 32%)`,
+        '--md-sys-color-on-primary-container': `hsl(${hue}, 90%, 92%)`,
+
+        '--md-sys-color-secondary': `hsl(${secondaryHue}, 34%, 78%)`,
+        '--md-sys-color-on-secondary': `hsl(${secondaryHue}, 32%, 22%)`,
+        '--md-sys-color-secondary-container': `hsl(${secondaryHue}, 28%, 30%)`,
+        '--md-sys-color-on-secondary-container': `hsl(${secondaryHue}, 45%, 90%)`,
+
+        '--md-sys-color-tertiary': `hsl(${tertiaryHue}, 58%, 80%)`,
+        '--md-sys-color-on-tertiary': `hsl(${tertiaryHue}, 45%, 22%)`,
+        '--md-sys-color-tertiary-container': `hsl(${tertiaryHue}, 38%, 31%)`,
+        '--md-sys-color-on-tertiary-container': `hsl(${tertiaryHue}, 75%, 92%)`,
+
+        '--md-sys-color-background': `hsl(${neutralHue}, 14%, 8%)`,
+        '--md-sys-color-on-background': `hsl(${neutralHue}, 14%, 90%)`,
+        '--md-sys-color-surface': `hsl(${neutralHue}, 14%, 8%)`,
+        '--md-sys-color-on-surface': `hsl(${neutralHue}, 14%, 90%)`,
+        '--md-sys-color-surface-variant': `hsl(${neutralHue}, 12%, 29%)`,
+        '--md-sys-color-on-surface-variant': `hsl(${neutralHue}, 14%, 78%)`,
+
+        '--md-sys-color-surface-container-lowest': `hsl(${neutralHue}, 16%, 6%)`,
+        '--md-sys-color-surface-container-low': `hsl(${neutralHue}, 13%, 11%)`,
+        '--md-sys-color-surface-container': `hsl(${neutralHue}, 13%, 13%)`,
+        '--md-sys-color-surface-container-high': `hsl(${neutralHue}, 12%, 17%)`,
+        '--md-sys-color-surface-container-highest': `hsl(${neutralHue}, 12%, 22%)`,
+
+        '--md-sys-color-outline': `hsl(${neutralHue}, 10%, 58%)`,
+        '--md-sys-color-outline-variant': `hsl(${neutralHue}, 12%, 28%)`
+      } : {
+        '--md-sys-color-primary': `hsl(${hue}, 56%, 44%)`,
+        '--md-sys-color-on-primary': '#FFFFFF',
+        '--md-sys-color-primary-container': `hsl(${hue}, 88%, 92%)`,
+        '--md-sys-color-on-primary-container': `hsl(${hue}, 76%, 16%)`,
+
+        '--md-sys-color-secondary': `hsl(${secondaryHue}, 22%, 40%)`,
+        '--md-sys-color-on-secondary': '#FFFFFF',
+        '--md-sys-color-secondary-container': `hsl(${secondaryHue}, 45%, 90%)`,
+        '--md-sys-color-on-secondary-container': `hsl(${secondaryHue}, 45%, 16%)`,
+
+        '--md-sys-color-tertiary': `hsl(${tertiaryHue}, 36%, 40%)`,
+        '--md-sys-color-on-tertiary': '#FFFFFF',
+        '--md-sys-color-tertiary-container': `hsl(${tertiaryHue}, 72%, 91%)`,
+        '--md-sys-color-on-tertiary-container': `hsl(${tertiaryHue}, 58%, 16%)`,
+
+        '--md-sys-color-background': `hsl(${neutralHue}, 35%, 98%)`,
+        '--md-sys-color-on-background': `hsl(${neutralHue}, 14%, 11%)`,
+        '--md-sys-color-surface': `hsl(${neutralHue}, 35%, 98%)`,
+        '--md-sys-color-on-surface': `hsl(${neutralHue}, 14%, 11%)`,
+        '--md-sys-color-surface-variant': `hsl(${neutralHue}, 18%, 90%)`,
+        '--md-sys-color-on-surface-variant': `hsl(${neutralHue}, 12%, 29%)`,
+
+        '--md-sys-color-surface-container-lowest': '#FFFFFF',
+        '--md-sys-color-surface-container-low': `hsl(${neutralHue}, 28%, 96%)`,
+        '--md-sys-color-surface-container': `hsl(${neutralHue}, 25%, 94%)`,
+        '--md-sys-color-surface-container-high': `hsl(${neutralHue}, 22%, 91%)`,
+        '--md-sys-color-surface-container-highest': `hsl(${neutralHue}, 20%, 88%)`,
+
+        '--md-sys-color-outline': `hsl(${neutralHue}, 8%, 47%)`,
+        '--md-sys-color-outline-variant': `hsl(${neutralHue}, 14%, 79%)`
+      };
+
+      Object.entries(tokens).forEach(([prop, value]) => {
+        root.style.setProperty(prop, value);
+      });
+
+      // Persistance dans localStorage
+      try {
+        localStorage.setItem(M3_SEED_KEY, seedHex);
+        localStorage.setItem(M3_THEME_KEY, isDark ? 'dark' : 'light');
+      } catch (e) {}
+
+      // Mise à jour visuelle des pastilles et icônes du header
+      const normalizedSeed = seedHex.toUpperCase();
+      document.querySelectorAll('.seed-swatch-btn').forEach(btn => {
+        const btnHex = (btn.getAttribute('data-seed') || '').toUpperCase();
+        btn.classList.toggle('active', btnHex === normalizedSeed);
+      });
+
+      const colorPicker = document.getElementById('m3-custom-color-input');
+      if (colorPicker) colorPicker.value = seedHex;
+
+      const moonIcon = document.getElementById('icon-moon');
+      const sunIcon = document.getElementById('icon-sun');
+      if (moonIcon && sunIcon) {
+        moonIcon.classList.toggle('hidden', isDark);
+        sunIcon.classList.toggle('hidden', !isDark);
+      }
+    }
+
+    function selectSeedColor(hex) {
+      appState.m3Seed = hex;
+      const isDark = appState.theme === 'dark';
+      applyMaterialYouTheme(hex, isDark);
+      saveState();
+    }
+
+    function toggleDarkMode() {
+      const nextIsDark = appState.theme !== 'dark';
+      appState.theme = nextIsDark ? 'dark' : 'light';
+      applyMaterialYouTheme(appState.m3Seed || '#6750A4', nextIsDark);
+      saveState();
+    }
+
+    /* =====================================================================
+       2. ÉTAT APPLICATIF & PERSISTANCE
+    ====================================================================== */
+    let appState = {
+      version: '1.1',
+      userName: '',
+      theme: 'light',
+      m3Seed: '#6750A4',
+      courseLayout: 'grid',
+      autoTts: false,
+      batchSize: 3,
+      selectedCourseFilter: 'all',
+      selectedManageCourseId: 'all',
+      courses: [
+        { id: 'c-droit', title: 'Droit Civil', subtitle: 'Obligations & Contrats', color: '#6750A4' },
+        { id: 'c-bio', title: 'Biologie Cellulaire', subtitle: 'Métabolisme', color: '#386A20' },
+        { id: 'c-eco', title: 'Économie', subtitle: 'Concepts clés', color: '#006874' }
+      ],
+      cards: [
+        {
+          id: 'card-1', courseId: 'c-droit', notion: 'Contrat synallagmatique',
+          definition: 'Contrat qui fait naître des obligations réciproques et interdépendantes à la charge de chacune des parties.',
+          example: 'Ex : La vente oblige le vendeur à livrer et l’acheteur à payer.',
+          mastered: false
+        },
+        {
+          id: 'card-2', courseId: 'c-droit', notion: 'Force majeure',
+          definition: 'Événement échappant au contrôle du débiteur, imprévisible lors de la conclusion du contrat et irrésistible dans son exécution.',
+          example: 'Ex : Tempête exceptionnelle bloquant tout transport.',
+          mastered: false
+        },
+        {
+          id: 'card-3', courseId: 'c-bio', notion: 'Homéostasie',
+          definition: 'Capacité d’un organisme vivant à maintenir l’équilibre dynamique de son milieu intérieur malgré les variations de l’environnement extérieur.',
+          example: 'Ex : Régulation de la température corporelle à 37°C.',
+          mastered: false
+        },
+        {
+          id: 'card-4', courseId: 'c-bio', notion: 'Respiration cellulaire aérobie',
+          definition: 'Ensemble des réactions métaboliques permettant aux cellules de produire de l’énergie chimique sous forme d’ATP en consommant du dioxygène.',
+          example: 'Se déroule dans les mitochondries.',
+          mastered: false
+        },
+        {
+          id: 'card-5', courseId: 'c-eco', notion: 'Coût d’opportunité',
+          definition: 'Valeur de la meilleure alternative à laquelle un agent économique renonce lorsqu’il effectue un choix parmi plusieurs options.',
+          example: 'Ex : Étudier plutôt que percevoir un salaire immédiat.',
+          mastered: false
+        }
+      ]
+    };
+
+    let batchSession = {
+      batchIndex: 0,
+      singleFocusCardId: null,
+      progressMap: {},
+      activeCardId: null,
+      tokens: [],
+      clozeShowInitials: false
+    };
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {}
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('memoflow_v1_state');
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed && Array.isArray(parsed.courses) && Array.isArray(parsed.cards)) {
+            appState = { ...appState, ...parsed, version: '1.1' };
+          }
+        }
+        const savedSeed = localStorage.getItem(M3_SEED_KEY);
+        const savedTheme = localStorage.getItem(M3_THEME_KEY);
+        if (savedSeed) appState.m3Seed = savedSeed;
+        if (savedTheme === 'dark' || savedTheme === 'light') appState.theme = savedTheme;
+      } catch (e) {}
+    }
+
+    /* =====================================================================
+       3. SYNTHÈSE VOCALE (TTS)
+    ====================================================================== */
+    let preferredFrenchVoice = null;
+    let isSpeakingNow = false;
+
+    function initSpeechVoices() {
+      if (!('speechSynthesis' in window)) return;
+      const loadVoices = () => {
+        const voices = window.speechSynthesis.getVoices();
+        preferredFrenchVoice = voices.find(v => v.lang.startsWith('fr') && (v.name.includes('Thomas') || v.name.includes('Google') || v.name.includes('Natural')))
+          || voices.find(v => v.lang.startsWith('fr'))
+          || null;
+      };
+      loadVoices();
+      window.speechSynthesis.onvoiceschanged = loadVoices;
+    }
+
+    function speakText(text) {
+      if (!('speechSynthesis' in window)) return;
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'fr-FR';
+      if (preferredFrenchVoice) utterance.voice = preferredFrenchVoice;
+      utterance.rate = 0.97;
+
+      const staticIcon = document.getElementById('tts-icon-static');
+      const waveAnim = document.getElementById('tts-wave-anim');
+      const label = document.getElementById('tts-btn-label');
+
+      utterance.onstart = () => {
+        isSpeakingNow = true;
+        if (staticIcon) staticIcon.classList.add('hidden');
+        if (waveAnim) waveAnim.classList.remove('hidden');
+        if (label) label.textContent = 'Arrêter';
+      };
+
+      const resetTtsUI = () => {
+        isSpeakingNow = false;
+        if (staticIcon) staticIcon.classList.remove('hidden');
+        if (waveAnim) waveAnim.classList.add('hidden');
+        if (label) label.textContent = 'Écouter';
+      };
+
+      utterance.onend = resetTtsUI;
+      utterance.onerror = resetTtsUI;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function stopSpeech() {
+      isSpeakingNow = false;
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      const staticIcon = document.getElementById('tts-icon-static');
+      const waveAnim = document.getElementById('tts-wave-anim');
+      const label = document.getElementById('tts-btn-label');
+      if (staticIcon) staticIcon.classList.remove('hidden');
+      if (waveAnim) waveAnim.classList.add('hidden');
+      if (label) label.textContent = 'Écouter';
+    }
+
+    function speakCurrentCard() {
+      const card = getCurrentActiveCard();
+      if (!card) return;
+      const state = getCardBatchState(card.id);
+      if (state.stage >= 3) return;
+      if (isSpeakingNow) {
+        stopSpeech();
+        return;
+      }
+      speakText(`${card.notion}. ${card.definition}`);
+    }
+
+    /* =====================================================================
+       4. RÉVISION PAR LOTS PERSONNALISABLES (BATCH LEARNING)
+    ====================================================================== */
+    function getFilteredCards() {
+      if (batchSession.singleFocusCardId) {
+        const single = appState.cards.find(c => c.id === batchSession.singleFocusCardId);
+        return single ? [single] : [];
+      }
+      return appState.selectedCourseFilter === 'all'
+        ? appState.cards
+        : appState.cards.filter(c => c.courseId === appState.selectedCourseFilter);
+    }
+
+    function getAllBatches() {
+      const pool = getFilteredCards();
+      if (pool.length === 0) return [];
+      const size = Math.max(1, parseInt(appState.batchSize, 10) || 3);
+      const batches = [];
+      for (let i = 0; i < pool.length; i += size) {
+        batches.push(pool.slice(i, i + size));
+      }
+      return batches;
+    }
+
+    function getCurrentBatch() {
+      const batches = getAllBatches();
+      if (batches.length === 0) return [];
+      if (batchSession.batchIndex >= batches.length) {
+        batchSession.batchIndex = Math.max(0, batches.length - 1);
+      }
+      return batches[batchSession.batchIndex];
+    }
+
+    function getCardBatchState(cardId) {
+      if (!batchSession.progressMap[cardId]) {
+        batchSession.progressMap[cardId] = { stage: 1, completed: false };
+      }
+      return batchSession.progressMap[cardId];
+    }
+
+    function getCurrentActiveCard() {
+      const batch = getCurrentBatch();
+      if (batch.length === 0) return null;
+      const found = batch.find(c => c.id === batchSession.activeCardId);
+      return found || batch[0];
+    }
+
+    function onBatchSizeChange(val) {
+      appState.batchSize = parseInt(val, 10) || 3;
+      batchSession.batchIndex = 0;
+      batchSession.singleFocusCardId = null;
+      const topSelect = document.getElementById('revise-batch-size');
+      const setSelect = document.getElementById('settings-default-batch');
+      if (topSelect) topSelect.value = String(appState.batchSize);
+      if (setSelect) setSelect.value = String(appState.batchSize);
+      saveState();
+      selectNextPendingCardInBatch(true);
+    }
+
+    function onCourseFilterChange(val) {
+      appState.selectedCourseFilter = val;
+      batchSession.batchIndex = 0;
+      batchSession.singleFocusCardId = null;
+      saveState();
+      selectNextPendingCardInBatch(true);
+    }
+
+    function changeBatchIndex(delta) {
+      const batches = getAllBatches();
+      if (batches.length === 0) return;
+      const nextIdx = batchSession.batchIndex + delta;
+      if (nextIdx < 0 || nextIdx >= batches.length) return;
+      batchSession.batchIndex = nextIdx;
+      selectNextPendingCardInBatch(true);
+    }
+
+    function selectNextPendingCardInBatch(preferFirst = false) {
+      stopSpeech();
+      const batches = getAllBatches();
+      const batch = getCurrentBatch();
+
+      const emptyEl = document.getElementById('revise-empty-state');
+      const trackerEl = document.getElementById('batch-tracker-bar');
+      const completeEl = document.getElementById('batch-complete-card');
+      const cardEl = document.getElementById('flashcard-container');
+
+      if (batch.length === 0) {
+        emptyEl.classList.remove('hidden');
+        trackerEl.classList.add('hidden');
+        completeEl.classList.add('hidden');
+        cardEl.classList.add('hidden');
+        updateGlobalMasteryUI();
+        return;
+      }
+
+      emptyEl.classList.add('hidden');
+      trackerEl.classList.remove('hidden');
+
+      const pendingCards = batch.filter(c => !getCardBatchState(c.id).completed);
+
+      if (pendingCards.length === 0) {
+        cardEl.classList.add('hidden');
+        completeEl.classList.remove('hidden');
+        const isLastBatch = batchSession.batchIndex >= batches.length - 1;
+        document.getElementById('batch-complete-title').textContent = batchSession.singleFocusCardId
+          ? 'Notion maîtrisée !'
+          : `Lot ${batchSession.batchIndex + 1} terminé !`;
+        document.getElementById('batch-complete-subtitle').textContent = isLastBatch
+          ? 'Vous avez terminé tous les lots de cette sélection.'
+          : `Toutes les notions de ce lot (${batch.length}) ont validé les 4 étapes.`;
+        const nextBtn = document.getElementById('btn-advance-next-batch');
+        nextBtn.textContent = isLastBatch ? 'Recommencer depuis le Lot 1' : `Passer au lot ${batchSession.batchIndex + 2} →`;
+        renderBatchTrackerUI();
+        updateGlobalMasteryUI();
+        return;
+      }
+
+      completeEl.classList.add('hidden');
+      cardEl.classList.remove('hidden');
+
+      if (preferFirst || !batchSession.activeCardId) {
+        batchSession.activeCardId = pendingCards[0].id;
+      } else {
+        const currentIdxInBatch = batch.findIndex(c => c.id === batchSession.activeCardId);
+        let chosen = null;
+        for (let offset = 1; offset <= batch.length; offset++) {
+          const candidate = batch[(currentIdxInBatch + offset) % batch.length];
+          if (!getCardBatchState(candidate.id).completed) {
+            chosen = candidate;
+            break;
+          }
+        }
+        batchSession.activeCardId = chosen ? chosen.id : pendingCards[0].id;
+      }
+
+      renderBatchTrackerUI();
+      renderActiveCardStage();
+      updateGlobalMasteryUI();
+    }
+
+    function repeatCurrentBatch() {
+      const batch = getCurrentBatch();
+      batch.forEach(c => {
+        batchSession.progressMap[c.id] = { stage: 1, completed: false };
+      });
+      selectNextPendingCardInBatch(true);
+    }
+
+    function advanceToNextBatch() {
+      const batches = getAllBatches();
+      if (batchSession.singleFocusCardId) {
+        batchSession.singleFocusCardId = null;
+        batchSession.batchIndex = 0;
+      } else if (batchSession.batchIndex < batches.length - 1) {
+        batchSession.batchIndex++;
+      } else {
+        batchSession.batchIndex = 0;
+        getFilteredCards().forEach(c => {
+          batchSession.progressMap[c.id] = { stage: 1, completed: false };
+        });
+      }
+      selectNextPendingCardInBatch(true);
+    }
+
+    function renderBatchTrackerUI() {
+      const batches = getAllBatches();
+      const batch = getCurrentBatch();
+      const activeCard = getCurrentActiveCard();
+
+      document.getElementById('batch-index-label').textContent = batchSession.singleFocusCardId
+        ? 'Révision ciblée'
+        : `Lot ${batchSession.batchIndex + 1} / ${batches.length}`;
+
+      const activeIdx = activeCard ? batch.findIndex(c => c.id === activeCard.id) + 1 : 1;
+      document.getElementById('batch-card-counter').textContent = `Notion ${activeIdx} / ${batch.length}`;
+
+      document.getElementById('btn-prev-batch').disabled = batchSession.batchIndex <= 0 || !!batchSession.singleFocusCardId;
+      document.getElementById('btn-next-batch').disabled = batchSession.batchIndex >= batches.length - 1 || !!batchSession.singleFocusCardId;
+
+      const pillsContainer = document.getElementById('batch-cards-pills');
+      pillsContainer.innerHTML = batch.map(card => {
+        const st = getCardBatchState(card.id);
+        const isCurrent = activeCard && card.id === activeCard.id;
+        let cls = 'batch-notion-chip';
+        if (st.completed) cls += ' completed';
+        else if (isCurrent) cls += ' current';
+        const statusMark = st.completed ? '✓' : `É.${st.stage}`;
+        return `
+          <button type="button" onclick="focusBatchCard('${card.id}')" class="${cls}">
+            <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHtml(card.notion)}</span>
+            <span style="font-size: 0.68rem; opacity: 0.85; flex-shrink: 0;">${statusMark}</span>
+          </button>`;
+      }).join('');
+    }
+
+    function focusBatchCard(cardId) {
+      stopSpeech();
+      batchSession.activeCardId = cardId;
+      renderBatchTrackerUI();
+      renderActiveCardStage();
+    }
+
+    /* =====================================================================
+       5. PARCOURS D'APPRENTISSAGE EN 4 ÉTAPES
+    ====================================================================== */
+    function renderActiveCardStage() {
+      const card = getCurrentActiveCard();
+      if (!card) return;
+      const state = getCardBatchState(card.id);
+      const stage = state.stage;
+      const course = getCourseById(card.courseId);
+
+      document.getElementById('card-course-dot').style.backgroundColor = course.color;
+      document.getElementById('card-course-name').textContent = course.title;
+      document.getElementById('card-focus-badge').classList.toggle('hidden', !batchSession.singleFocusCardId);
+      document.getElementById('card-notion-title').textContent = card.notion;
+      document.getElementById('stage-subtitle-label').textContent = STAGE_META[stage].label;
+
+      const ttsBtn = document.getElementById('btn-tts-speak');
+      const ttsLocked = document.getElementById('tts-locked-badge');
+      if (stage === 1 || stage === 2) {
+        ttsBtn.classList.remove('hidden');
+        ttsLocked.classList.add('hidden');
+      } else {
+        ttsBtn.classList.add('hidden');
+        ttsLocked.classList.toggle('hidden', stage !== 3);
+      }
+
+      [1, 2, 3, 4].forEach(s => {
+        const pill = document.getElementById(`step-pill-${s}`);
+        if (!pill) return;
+        pill.className = 'm3-step-chip';
+        if (s === stage) pill.classList.add('active');
+        else if (s < stage || state.completed) pill.classList.add('done');
+      });
+
+      document.getElementById('stage-1-view').classList.add('hidden');
+      document.getElementById('stage-cloze-view').classList.add('hidden');
+      document.getElementById('stage-expert-view').classList.add('hidden');
+      document.getElementById('stage-result-view').classList.add('hidden');
+
+      if (stage === 1) {
+        document.getElementById('stage-1-view').classList.remove('hidden');
+        document.getElementById('stage-1-definition').textContent = card.definition;
+        const exEl = document.getElementById('stage-1-example');
+        if (card.example) {
+          exEl.textContent = card.example;
+          exEl.classList.remove('hidden');
+        } else {
+          exEl.classList.add('hidden');
+        }
+        if (appState.autoTts) {
+          speakText(`${card.notion}. ${card.definition}`);
+        }
+      } else if (stage === 2 || stage === 3) {
+        document.getElementById('stage-cloze-view').classList.remove('hidden');
+        batchSession.clozeShowInitials = false;
+        batchSession.tokens = tokenizeDefinition(card.definition);
+        renderClozeSentence(stage === 3);
+        setTimeout(() => {
+          const firstInput = document.querySelector('#cloze-sentence-container input');
+          if (firstInput) firstInput.focus();
+        }, 40);
+      } else if (stage === 4) {
+        document.getElementById('stage-expert-view').classList.remove('hidden');
+        const textarea = document.getElementById('expert-answer-input');
+        textarea.value = '';
+        setTimeout(() => textarea.focus(), 40);
+      }
+    }
+
+    function jumpToStage(targetStage) {
+      const card = getCurrentActiveCard();
+      if (!card) return;
+      stopSpeech();
+      const st = getCardBatchState(card.id);
+      st.stage = targetStage;
+      if (targetStage < 4) st.completed = false;
+      renderBatchTrackerUI();
+      renderActiveCardStage();
+    }
+
+    function advanceFromStage1() {
+      const card = getCurrentActiveCard();
+      if (!card) return;
+      stopSpeech();
+      const st = getCardBatchState(card.id);
+      st.stage = 2;
+      renderBatchTrackerUI();
+      renderActiveCardStage();
+    }
+
+    /* =====================================================================
+       6. TEXTE À TROUS & NAVIGATION CLAVIER "ENTRÉE"
+    ====================================================================== */
+    const STOP_WORDS = new Set([
+      'les', 'des', 'une', 'aux', 'par', 'pour', 'dans', 'sur', 'avec', 'sous',
+      'vers', 'chez', 'entre', 'dont', 'que', 'qui', 'est', 'sont', 'etre', 'avoir',
+      'ont', 'fait', 'plus', 'moins', 'tres', 'bien', 'tout', 'tous', 'toute', 'elle', 'elles', 'ils'
+    ]);
+
+    function normalizeWord(str) {
+      return str.toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/[’']/g, ' ')
+        .replace(/[^a-z0-9]/g, '')
+        .trim();
+    }
+
+    function extractNormalizedWords(text) {
+      return text.toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/[’']/g, ' ')
+        .split(/[^a-z0-9]+/)
+        .filter(Boolean);
+    }
+
+    function tokenizeDefinition(text) {
+      return text.trim().split(/\s+/).map((raw, index) => {
+        const clean = normalizeWord(raw);
+        return {
+          index,
+          raw,
+          clean,
+          isKeyword: clean.length >= 3 && !STOP_WORDS.has(clean)
+        };
+      });
+    }
+
+    function renderClozeSentence(randomizeVariation = false) {
+      const container = document.getElementById('cloze-sentence-container');
+      if (!container) return;
+
+      const keywords = batchSession.tokens.filter(t => t.isKeyword).map(t => t.index);
+      const blankSet = new Set();
+
+      if (keywords.length <= 3) {
+        keywords.forEach(idx => blankSet.add(idx));
+      } else if (randomizeVariation) {
+        const shuffled = [...keywords].sort(() => Math.random() - 0.5);
+        const count = Math.max(2, Math.ceil(keywords.length * 0.6));
+        shuffled.slice(0, count).forEach(idx => blankSet.add(idx));
+      } else {
+        keywords.forEach((idx, pos) => {
+          if (pos % 2 === 0) blankSet.add(idx);
+        });
+      }
+
+      container.innerHTML = batchSession.tokens.map(tok => {
+        if (!blankSet.has(tok.index)) {
+          return `<span>${escapeHtml(tok.raw)}</span>`;
+        }
+        const match = tok.raw.match(/^([^a-zA-ZÀ-ÿ0-9]*)([a-zA-ZÀ-ÿ0-9'-]+)([^a-zA-ZÀ-ÿ0-9]*)$/);
+        const pre = match ? match[1] : '';
+        const core = match ? match[2] : tok.raw;
+        const suf = match ? match[3] : '';
+        const width = Math.max(5, Math.min(18, core.length + 2));
+        const placeholder = batchSession.clozeShowInitials ? `${core[0].toUpperCase()}…` : '';
+
+        return `${escapeHtml(pre)}<input type="text" autocomplete="off" autocorrect="off" spellcheck="false" data-token-idx="${tok.index}" data-target="${escapeHtml(core)}" placeholder="${escapeHtml(placeholder)}" style="width: ${width}ch" class="cloze-blank-input" />${escapeHtml(suf)}`;
+      }).join(' ');
+    }
+
+    function toggleClozeInitials() {
+      batchSession.clozeShowInitials = !batchSession.clozeShowInitials;
+      document.querySelectorAll('#cloze-sentence-container input').forEach(inp => {
+        const target = inp.getAttribute('data-target') || '';
+        inp.placeholder = batchSession.clozeShowInitials && target ? `${target[0].toUpperCase()}…` : '';
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter') return;
+
+      if (e.target && e.target.classList && e.target.classList.contains('cloze-blank-input')) {
+        e.preventDefault();
+        const inputs = Array.from(document.querySelectorAll('#cloze-sentence-container input'));
+        const currentIdx = inputs.indexOf(e.target);
+        if (currentIdx !== -1 && currentIdx < inputs.length - 1) {
+          inputs[currentIdx + 1].focus();
+          inputs[currentIdx + 1].select();
+        } else {
+          submitClozeExercise(false);
+        }
+        return;
+      }
+
+      if (e.target && e.target.id === 'expert-answer-input' && !e.shiftKey) {
+        e.preventDefault();
+        submitExpertExercise(false);
+      }
+    });
+
+    /* =====================================================================
+       7. CORRECTION SÉMANTIQUE LEVENSHTEIN & RÉSULTATS
+    ====================================================================== */
+    function levenshteinDistance(a, b) {
+      if (a === b) return 0;
+      const alen = a.length, blen = b.length;
+      if (!alen) return blen;
+      if (!blen) return alen;
+      const matrix = Array.from({ length: alen + 1 }, () => new Array(blen + 1).fill(0));
+      for (let i = 0; i <= alen; i++) matrix[i][0] = i;
+      for (let j = 0; j <= blen; j++) matrix[0][j] = j;
+      for (let i = 1; i <= alen; i++) {
+        for (let j = 1; j <= blen; j++) {
+          const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+          matrix[i][j] = Math.min(matrix[i - 1][j] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j - 1] + cost);
+        }
+      }
+      return matrix[alen][blen];
+    }
+
+    function isWordMatched(targetNorm, userWords) {
+      if (!targetNorm) return true;
+      for (const u of userWords) {
+        if (u === targetNorm) return true;
+        const maxDist = targetNorm.length >= 8 ? 2 : targetNorm.length >= 5 ? 1 : 0;
+        if (maxDist > 0 && Math.abs(u.length - targetNorm.length) <= maxDist && levenshteinDistance(targetNorm, u) <= maxDist) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function submitClozeExercise(gaveUp = false) {
+      const card = getCurrentActiveCard();
+      if (!card) return;
+      const inputs = Array.from(document.querySelectorAll('#cloze-sentence-container input'));
+      const inputMap = new Map();
+      let matchedCount = 0;
+
+      inputs.forEach(inp => {
+        const idx = parseInt(inp.getAttribute('data-token-idx'), 10);
+        const targetNorm = normalizeWord(inp.getAttribute('data-target') || '');
+        const userVal = gaveUp ? '' : (inp.value || '').trim();
+        const isCorrect = !gaveUp && userVal && isWordMatched(targetNorm, [normalizeWord(userVal)]);
+        if (isCorrect) matchedCount++;
+        inputMap.set(idx, { userVal, isCorrect });
+      });
+
+      const annotated = batchSession.tokens.map(tok => {
+        if (!inputMap.has(tok.index)) return { ...tok, status: 'neutral' };
+        return { ...tok, status: inputMap.get(tok.index).isCorrect ? 'matched' : 'missed' };
+      });
+
+      const score = inputs.length > 0 ? Math.round((matchedCount / inputs.length) * 100) : 100;
+      const userEcho = gaveUp
+        ? ''
+        : batchSession.tokens.map(tok => inputMap.has(tok.index) ? (inputMap.get(tok.index).userVal || '___') : tok.raw).join(' ');
+
+      displayStageResult(card, score, annotated, userEcho);
+    }
+
+    function submitExpertExercise(gaveUp = false) {
+      const card = getCurrentActiveCard();
+      if (!card) return;
+      const textarea = document.getElementById('expert-answer-input');
+      const rawUserAnswer = gaveUp ? '' : textarea.value.trim();
+
+      if (!gaveUp && !rawUserAnswer) {
+        showToast('Écrivez l’essentiel ou cliquez sur Révéler.');
+        textarea.focus();
+        return;
+      }
+
+      const refTokens = tokenizeDefinition(card.definition);
+      const userWords = extractNormalizedWords(rawUserAnswer);
+      let kwTotal = 0;
+      let kwMatched = 0;
+
+      const annotated = refTokens.map(tok => {
+        if (!tok.isKeyword) return { ...tok, status: 'neutral' };
+        kwTotal++;
+        const matched = userWords.length > 0 && isWordMatched(tok.clean, userWords);
+        if (matched) kwMatched++;
+        return { ...tok, status: matched ? 'matched' : 'missed' };
+      });
+
+      const score = kwTotal === 0 ? 100 : Math.round((kwMatched / kwTotal) * 100);
+      displayStageResult(card, score, annotated, rawUserAnswer);
+    }
+
+    function displayStageResult(card, score, annotatedTokens, userEcho) {
+      stopSpeech();
+      const state = getCardBatchState(card.id);
+      const currentStage = state.stage;
+      const passed = score >= 75;
+
+      document.getElementById('stage-1-view').classList.add('hidden');
+      document.getElementById('stage-cloze-view').classList.add('hidden');
+      document.getElementById('stage-expert-view').classList.add('hidden');
+      document.getElementById('stage-result-view').classList.remove('hidden');
+
+      const banner = document.getElementById('result-banner');
+      const scorePill = document.getElementById('result-score-pill');
+      const titleEl = document.getElementById('result-title');
+      const subEl = document.getElementById('result-subtitle');
+
+      scorePill.textContent = `${score}%`;
+
+      if (passed) {
+        banner.style.backgroundColor = 'var(--md-sys-color-success-container)';
+        banner.style.color = 'var(--md-sys-color-on-success-container)';
+        scorePill.style.backgroundColor = 'var(--md-sys-color-success)';
+        scorePill.style.color = 'var(--md-sys-color-on-success)';
+        titleEl.textContent = currentStage === 4 ? 'Notion validée !' : 'Étape réussie';
+        subEl.textContent = currentStage === 4
+          ? 'Cette notion est validée pour ce lot.'
+          : 'Vous pouvez passer à l’étape suivante.';
+      } else {
+        banner.style.backgroundColor = 'var(--md-sys-color-tertiary-container)';
+        banner.style.color = 'var(--md-sys-color-on-tertiary-container)';
+        scorePill.style.backgroundColor = 'var(--md-sys-color-tertiary)';
+        scorePill.style.color = 'var(--md-sys-color-on-tertiary)';
+        titleEl.textContent = 'À consolider';
+        subEl.textContent = 'Relisez la correction ci-dessous avant de continuer.';
+      }
+
+      document.getElementById('result-annotated-text').innerHTML = annotatedTokens.map(tok => {
+        if (tok.status === 'matched') return `<span class="tok-matched">${escapeHtml(tok.raw)}</span>`;
+        if (tok.status === 'missed') return `<span class="tok-missed">${escapeHtml(tok.raw)}</span>`;
+        return `<span>${escapeHtml(tok.raw)}</span>`;
+      }).join(' ');
+
+      document.getElementById('result-user-echo').textContent = userEcho ? `Votre réponse : « ${userEcho} »` : 'Réponse révélée';
+
+      const actionsBar = document.getElementById('result-actions-bar');
+      if (currentStage === 2) {
+        actionsBar.innerHTML = `
+          <button type="button" onclick="retryCurrentStage()" class="m3-btn m3-btn-outlined">Refaire avec écoute</button>
+          <button type="button" id="btn-result-continue" onclick="confirmStageProgression(3)" class="m3-btn m3-btn-filled">Passer au texte à trous sans écoute →</button>`;
+      } else if (currentStage === 3) {
+        actionsBar.innerHTML = `
+          <button type="button" onclick="retryCurrentStage()" class="m3-btn m3-btn-tonal">↻ Répéter sans écoute</button>
+          <button type="button" id="btn-result-continue" onclick="confirmStageProgression(4)" class="m3-btn m3-btn-filled">Passer au mode Expert →</button>`;
+      } else if (currentStage === 4) {
+        actionsBar.innerHTML = `
+          <button type="button" onclick="retryCurrentStage()" class="m3-btn m3-btn-outlined">Refaire le mode Expert</button>
+          <button type="button" id="btn-result-continue" onclick="completeCardInBatch(${passed})" class="m3-btn m3-btn-filled">${passed ? 'Valider et continuer →' : 'Continuer le lot →'}</button>`;
+      }
+
+      setTimeout(() => {
+        const nextBtn = document.getElementById('btn-result-continue');
+        if (nextBtn) nextBtn.focus();
+      }, 40);
+    }
+
+    function retryCurrentStage() {
+      renderActiveCardStage();
+    }
+
+    function confirmStageProgression(nextStage) {
+      const card = getCurrentActiveCard();
+      if (!card) return;
+      const st = getCardBatchState(card.id);
+      st.stage = nextStage;
+      renderBatchTrackerUI();
+      renderActiveCardStage();
+    }
+
+    function completeCardInBatch(passed) {
+      const card = getCurrentActiveCard();
+      if (!card) return;
+      const st = getCardBatchState(card.id);
+      if (passed) {
+        st.completed = true;
+        card.mastered = true;
+        saveState();
+      } else {
+        st.stage = 3;
+      }
+      selectNextPendingCardInBatch(false);
+    }
+
+    /* =====================================================================
+       8. NAVIGATION, STATISTIQUES GLOBALES & MODALES
+    ====================================================================== */
+    function switchTab(tabName) {
+      stopSpeech();
+      ['revise', 'courses'].forEach(v => {
+        document.getElementById(`view-${v}`).classList.toggle('hidden', v !== tabName);
+        const deskBtn = document.getElementById(`nav-btn-${v}`);
+        if (deskBtn) deskBtn.classList.toggle('active', v === tabName);
+        const mobBtn = document.getElementById(`mob-nav-btn-${v}`);
+        if (mobBtn) mobBtn.classList.toggle('active', v === tabName);
+      });
+
+      if (tabName === 'revise') {
+        populateCourseSelects();
+        selectNextPendingCardInBatch(false);
+      } else if (tabName === 'courses') {
+        renderCoursesView();
+      }
+    }
+
+    function updateGlobalMasteryUI() {
+      const total = appState.cards.length;
+      const mastered = appState.cards.filter(c => c.mastered).length;
+      const pct = total > 0 ? Math.round((mastered / total) * 100) : 0;
+
+      document.getElementById('sidebar-mastered-pill').textContent = `${mastered}/${total}`;
+      document.getElementById('sidebar-courses-count').textContent = appState.courses.length;
+      document.getElementById('sidebar-global-pct').textContent = `${pct}%`;
+      document.getElementById('sidebar-global-bar').style.width = `${pct}%`;
+
+      const name = (appState.userName || '').trim();
+      document.getElementById('sidebar-user-label').textContent = name || 'Progression globale';
+    }
+
+    function showToast(message) {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'm3-snackbar';
+      toast.textContent = message;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.22s';
+        setTimeout(() => toast.remove(), 220);
+      }, 2400);
+    }
+
+    function openModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('hidden');
+    }
+
+    function openConfirmModal(title, message, onConfirm) {
+      document.getElementById('confirm-modal-title').textContent = title;
+      document.getElementById('confirm-modal-message').textContent = message;
+      document.getElementById('confirm-modal-action-btn').onclick = () => {
+        closeModal('modal-confirm');
+        onConfirm();
+      };
+      openModal('modal-confirm');
+    }
+
+    function openSettingsModal() {
+      document.getElementById('settings-user-name').value = appState.userName || '';
+      document.getElementById('settings-default-batch').value = String(appState.batchSize || 3);
+      document.getElementById('toggle-auto-tts').checked = !!appState.autoTts;
+      openModal('modal-settings');
+    }
+
+    function onUserNameChange(val) {
+      appState.userName = val;
+      saveState();
+      updateGlobalMasteryUI();
+    }
+
+    function toggleAutoTts(checked) {
+      appState.autoTts = checked;
+      saveState();
+    }
+
+    function exportDataJson() {
+      const raw = (appState.userName || '').trim();
+      const slug = raw ? raw.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9_-]+/g, '_') : 'memoflow';
+      const dateStr = new Date().toISOString().slice(0, 10);
+      const filename = `${slug}_v1_1_${dateStr}.json`;
+
+      const payload = {
+        app: 'Memoflow',
+        version: '1.1',
+        exportedAt: new Date().toISOString(),
+        userName: appState.userName,
+        m3Seed: appState.m3Seed,
+        theme: appState.theme,
+        batchSize: appState.batchSize,
+        courses: appState.courses,
+        cards: appState.cards
+      };
+
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      showToast('Sauvegarde exportée.');
+    }
+
+    function importDataJson(event) {
+      const file = event.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          if (!parsed || !Array.isArray(parsed.courses) || !Array.isArray(parsed.cards)) throw new Error();
+          appState.courses = parsed.courses;
+          appState.cards = parsed.cards;
+          if (parsed.userName !== undefined) appState.userName = parsed.userName;
+          if (parsed.batchSize) appState.batchSize = parsed.batchSize;
+          if (parsed.m3Seed) appState.m3Seed = parsed.m3Seed;
+          if (parsed.theme) appState.theme = parsed.theme;
+          batchSession.batchIndex = 0;
+          batchSession.progressMap = {};
+          saveState();
+          applyMaterialYouTheme(appState.m3Seed, appState.theme === 'dark');
+          populateCourseSelects();
+          renderCoursesView();
+          selectNextPendingCardInBatch(true);
+          showToast('Données importées avec succès.');
+        } catch (err) {
+          showToast('Fichier JSON invalide.');
+        } finally {
+          event.target.value = '';
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function openResetProgressModal() {
+      openConfirmModal('Réinitialiser la progression ?', 'Toutes les notions repasseront à l’étape 1.', () => {
+        appState.cards.forEach(c => { c.mastered = false; });
+        batchSession.batchIndex = 0;
+        batchSession.progressMap = {};
+        saveState();
+        selectNextPendingCardInBatch(true);
+        showToast('Progression réinitialisée.');
+      });
+    }
+
+    /* =====================================================================
+       9. GESTION DES COURS & NOTIONS
+    ====================================================================== */
+    function getCourseById(courseId) {
+      return appState.courses.find(c => c.id === courseId) || { id: 'unknown', title: 'Sans cours', color: '#6750A4' };
+    }
+
+    function populateCourseSelects() {
+      const opts = appState.courses.map(c => `<option value="${c.id}">${escapeHtml(c.title)}</option>`).join('');
+      const filter = document.getElementById('revise-course-filter');
+      if (filter) {
+        filter.innerHTML = `<option value="all">Tous les cours (${appState.cards.length})</option>` + opts;
+        filter.value = appState.selectedCourseFilter;
+      }
+      ['add-card-course', 'bulk-import-course', 'edit-card-course'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = opts;
+      });
+    }
+
+    function setCourseLayout(layout) {
+      appState.courseLayout = layout;
+      saveState();
+      renderCoursesView();
+    }
+
+    function updateLayoutButtons() {
+      const isList = appState.courseLayout === 'list';
+      const gridBtn = document.getElementById('layout-btn-grid');
+      const listBtn = document.getElementById('layout-btn-list');
+      if (!gridBtn || !listBtn) return;
+      gridBtn.className = !isList ? 'm3-btn m3-btn-filled m3-btn-sm' : 'm3-btn m3-btn-text m3-btn-sm';
+      listBtn.className = isList ? 'm3-btn m3-btn-filled m3-btn-sm' : 'm3-btn m3-btn-text m3-btn-sm';
+    }
+
+    function renderCoursesView() {
+      populateCourseSelects();
+      updateGlobalMasteryUI();
+      updateLayoutButtons();
+
+      const grid = document.getElementById('courses-grid');
+      const isList = appState.courseLayout === 'list';
+      grid.className = isList ? 'courses-list-layout' : 'courses-grid-layout';
+
+      document.getElementById('courses-summary-sub').textContent = `${appState.courses.length} cours • ${appState.cards.length} notions`;
+
+      let html = `
+        <div onclick="selectManageCourse('all')" class="course-card-item ${appState.selectedManageCourseId === 'all' ? 'selected' : ''}" style="${isList ? 'flex-direction: row; align-items: center;' : ''}">
+          <div>
+            <span style="font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.8;">Vue globale</span>
+            <h3 style="font-size: 0.98rem; font-weight: 700; margin-top: 2px;">Tous les cours</h3>
+          </div>
+          <span class="tabular-nums" style="font-size: 0.78rem; font-weight: 600; opacity: 0.85;">${appState.cards.length} notions</span>
+        </div>`;
+
+      html += appState.courses.map(c => {
+        const cCards = appState.cards.filter(card => card.courseId === c.id);
+        const masteredCount = cCards.filter(card => card.mastered).length;
+        const isSel = appState.selectedManageCourseId === c.id;
+
+        if (isList) {
+          return `
+            <div onclick="selectManageCourse('${c.id}')" class="course-card-item ${isSel ? 'selected' : ''}" style="flex-direction: row; align-items: center;">
+              <div style="display: flex; align-items: center; gap: 10px; min-width: 0;">
+                <span class="course-dot" style="background-color: ${c.color};"></span>
+                <span style="font-weight: 700; font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHtml(c.title)}</span>
+                <span class="tabular-nums" style="font-size: 0.75rem; opacity: 0.75;">(${masteredCount}/${cCards.length})</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 6px;" onclick="event.stopPropagation()">
+                <button type="button" onclick="reviseCourseDirectly('${c.id}')" class="m3-btn m3-btn-tonal m3-btn-sm">Réviser</button>
+                <button type="button" onclick="openCourseModal('${c.id}')" class="m3-icon-btn" title="Modifier">✎</button>
+                <button type="button" onclick="confirmDeleteCourse('${c.id}')" class="m3-icon-btn" title="Supprimer">✕</button>
+              </div>
+            </div>`;
+        }
+
+        return `
+          <div onclick="selectManageCourse('${c.id}')" class="course-card-item ${isSel ? 'selected' : ''}">
+            <div>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <span class="course-dot" style="background-color: ${c.color};"></span>
+                <div style="display: flex; align-items: center; gap: 4px;" onclick="event.stopPropagation()">
+                  <button type="button" onclick="openCourseModal('${c.id}')" title="Modifier" class="m3-icon-btn" style="width: 28px; height: 28px; font-size: 0.75rem;">✎</button>
+                  <button type="button" onclick="confirmDeleteCourse('${c.id}')" title="Supprimer" class="m3-icon-btn" style="width: 28px; height: 28px; font-size: 0.75rem;">✕</button>
+                </div>
+              </div>
+              <h3 style="font-size: 1rem; font-weight: 700; margin-top: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHtml(c.title)}</h3>
+              ${c.subtitle ? `<p style="font-size: 0.76rem; opacity: 0.78; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 2px;">${escapeHtml(c.subtitle)}</p>` : ''}
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--md-sys-color-outline-variant); font-size: 0.78rem;">
+              <span class="tabular-nums" style="opacity: 0.8;">${masteredCount}/${cCards.length} validées</span>
+              <button type="button" onclick="event.stopPropagation(); reviseCourseDirectly('${c.id}')" class="m3-btn m3-btn-text m3-btn-sm" style="padding: 2px 8px;">Réviser →</button>
+            </div>
+          </div>`;
+      }).join('');
+
+      grid.innerHTML = html;
+      renderManageCardsList();
+    }
+
+    function selectManageCourse(id) {
+      appState.selectedManageCourseId = id;
+      renderCoursesView();
+    }
+
+    function reviseCourseDirectly(courseId) {
+      appState.selectedCourseFilter = courseId;
+      batchSession.batchIndex = 0;
+      batchSession.singleFocusCardId = null;
+      saveState();
+      switchTab('revise');
+    }
+
+    function reviseSingleCardDirectly(cardId) {
+      batchSession.singleFocusCardId = cardId;
+      batchSession.batchIndex = 0;
+      batchSession.progressMap[cardId] = { stage: 1, completed: false };
+      switchTab('revise');
+    }
+
+    function renderManageCardsList() {
+      const listEl = document.getElementById('manage-cards-list');
+      const query = (document.getElementById('manage-cards-search')?.value || '').toLowerCase().trim();
+      let cards = appState.selectedManageCourseId === 'all'
+        ? appState.cards
+        : appState.cards.filter(c => c.courseId === appState.selectedManageCourseId);
+
+      const courseName = appState.selectedManageCourseId === 'all'
+        ? 'Toutes les matières'
+        : getCourseById(appState.selectedManageCourseId).title;
+      document.getElementById('manage-cards-subtitle').textContent = `${courseName} (${cards.length})`;
+
+      if (query) {
+        cards = cards.filter(c => c.notion.toLowerCase().includes(query) || c.definition.toLowerCase().includes(query));
+      }
+
+      if (cards.length === 0) {
+        listEl.innerHTML = `<div style="padding: 24px 0; text-align: center; font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant);">Aucune notion trouvée</div>`;
+        return;
+      }
+
+      listEl.innerHTML = cards.map(card => {
+        const course = getCourseById(card.courseId);
+        return `
+          <div class="manage-list-row">
+            <div style="min-width: 0; flex: 1;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="course-dot" style="background-color: ${course.color};"></span>
+                <span style="font-weight: 700; font-size: 0.88rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHtml(card.notion)}</span>
+                ${card.mastered ? `<span style="font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 9999px; background-color: var(--md-sys-color-success-container); color: var(--md-sys-color-on-success-container);">Validée</span>` : ''}
+              </div>
+              <p style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 3px;">${escapeHtml(card.definition)}</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+              <button type="button" onclick="reviseSingleCardDirectly('${card.id}')" class="m3-btn m3-btn-tonal m3-btn-sm">Réviser</button>
+              <button type="button" onclick="openEditCardModal('${card.id}')" title="Modifier" class="m3-icon-btn" style="width: 30px; height: 30px;">✎</button>
+              <button type="button" onclick="confirmDeleteCard('${card.id}')" title="Supprimer" class="m3-icon-btn" style="width: 30px; height: 30px;">✕</button>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    let selectedModalColor = COURSE_COLORS[0].hex;
+    function openCourseModal(courseId = null) {
+      const titleEl = document.getElementById('modal-course-title');
+      const idInput = document.getElementById('edit-course-id');
+      const nameInput = document.getElementById('course-input-title');
+      const subInput = document.getElementById('course-input-subtitle');
+
+      if (courseId) {
+        const c = getCourseById(courseId);
+        titleEl.textContent = 'Modifier le cours';
+        idInput.value = c.id;
+        nameInput.value = c.title;
+        subInput.value = c.subtitle || '';
+        selectedModalColor = c.color;
+      } else {
+        titleEl.textContent = 'Nouveau cours';
+        idInput.value = '';
+        nameInput.value = '';
+        subInput.value = '';
+        selectedModalColor = COURSE_COLORS[appState.courses.length % COURSE_COLORS.length].hex;
+      }
+      renderColorPicker();
+      openModal('modal-course');
+      setTimeout(() => nameInput.focus(), 40);
+    }
+
+    function renderColorPicker() {
+      document.getElementById('course-color-picker').innerHTML = COURSE_COLORS.map(c => {
+        const isSel = c.hex.toLowerCase() === selectedModalColor.toLowerCase();
+        return `<button type="button" onclick="selectCourseColor('${c.hex}')" class="seed-swatch-btn ${isSel ? 'active' : ''}" style="background-color: ${c.hex}; width: 28px; height: 28px;"></button>`;
+      }).join('');
+    }
+
+    function selectCourseColor(hex) {
+      selectedModalColor = hex;
+      renderColorPicker();
+    }
+
+    function saveCourseForm(e) {
+      e.preventDefault();
+      const id = document.getElementById('edit-course-id').value;
+      const title = document.getElementById('course-input-title').value.trim();
+      const subtitle = document.getElementById('course-input-subtitle').value.trim();
+      if (!title) return;
+
+      if (id) {
+        const c = getCourseById(id);
+        if (c) {
+          c.title = title;
+          c.subtitle = subtitle;
+          c.color = selectedModalColor;
+          showToast('Cours mis à jour.');
+        }
+      } else {
+        const nc = { id: 'c-' + Date.now(), title, subtitle, color: selectedModalColor };
+        appState.courses.push(nc);
+        appState.selectedManageCourseId = nc.id;
+        showToast('Cours créé.');
+      }
+      saveState();
+      closeModal('modal-course');
+      renderCoursesView();
+    }
+
+    function confirmDeleteCourse(id) {
+      if (appState.courses.length <= 1) {
+        showToast('Conservez au moins un cours.');
+        return;
+      }
+      openConfirmModal('Supprimer ce cours ?', 'Les notions de ce cours seront également supprimées.', () => {
+        appState.courses = appState.courses.filter(c => c.id !== id);
+        appState.cards = appState.cards.filter(c => c.courseId !== id);
+        if (appState.selectedCourseFilter === id) appState.selectedCourseFilter = 'all';
+        if (appState.selectedManageCourseId === id) appState.selectedManageCourseId = 'all';
+        saveState();
+        renderCoursesView();
+        showToast('Cours supprimé.');
+      });
+    }
+
+    function handleAddSingleCard(e) {
+      e.preventDefault();
+      const courseId = document.getElementById('add-card-course').value;
+      const notion = document.getElementById('add-card-notion').value.trim();
+      const definition = document.getElementById('add-card-definition').value.trim();
+      const example = document.getElementById('add-card-example').value.trim();
+      if (!courseId || !notion || !definition) return;
+
+      appState.cards.push({
+        id: 'card-' + Date.now(),
+        courseId,
+        notion,
+        definition,
+        example,
+        mastered: false
+      });
+
+      document.getElementById('add-card-notion').value = '';
+      document.getElementById('add-card-definition').value = '';
+      document.getElementById('add-card-example').value = '';
+      saveState();
+      renderCoursesView();
+      showToast('Notion ajoutée.');
+    }
+
+    function handleBulkImport() {
+      const courseId = document.getElementById('bulk-import-course').value;
+      const lines = document.getElementById('bulk-import-textarea').value
+        .split(/\r?\n/)
+        .map(l => l.trim())
+        .filter(Boolean);
+
+      if (lines.length === 0) {
+        showToast('Collez au moins une ligne Notion : Définition.');
+        return;
+      }
+
+      let addedCount = 0;
+      lines.forEach((line, idx) => {
+        const sep = line.indexOf(':');
+        if (sep > 0 && sep < line.length - 1) {
+          const notion = line.slice(0, sep).trim();
+          const rest = line.slice(sep + 1).trim();
+          const pipe = rest.indexOf('|');
+          const definition = pipe > 0 ? rest.slice(0, pipe).trim() : rest;
+          const example = pipe > 0 ? rest.slice(pipe + 1).trim() : '';
+          if (notion && definition) {
+            appState.cards.push({
+              id: `card-${Date.now()}-${idx}`,
+              courseId,
+              notion,
+              definition,
+              example,
+              mastered: false
+            });
+            addedCount++;
+          }
+        }
+      });
+
+      document.getElementById('bulk-import-textarea').value = '';
+      saveState();
+      renderCoursesView();
+      showToast(`${addedCount} notion${addedCount > 1 ? 's' : ''} importée${addedCount > 1 ? 's' : ''}.`);
+    }
+
+    function openEditCardModal(cardId) {
+      const card = appState.cards.find(c => c.id === cardId);
+      if (!card) return;
+      populateCourseSelects();
+      document.getElementById('edit-card-id').value = card.id;
+      document.getElementById('edit-card-course').value = card.courseId;
+      document.getElementById('edit-card-notion').value = card.notion;
+      document.getElementById('edit-card-definition').value = card.definition;
+      document.getElementById('edit-card-example').value = card.example || '';
+      openModal('modal-edit-card');
+    }
+
+    function saveEditCardForm(e) {
+      e.preventDefault();
+      const card = appState.cards.find(c => c.id === document.getElementById('edit-card-id').value);
+      if (!card) return;
+      card.courseId = document.getElementById('edit-card-course').value;
+      card.notion = document.getElementById('edit-card-notion').value.trim();
+      card.definition = document.getElementById('edit-card-definition').value.trim();
+      card.example = document.getElementById('edit-card-example').value.trim();
+      saveState();
+      closeModal('modal-edit-card');
+      renderCoursesView();
+      showToast('Notion mise à jour.');
+    }
+
+    function confirmDeleteCard(cardId) {
+      openConfirmModal('Supprimer cette notion ?', 'Cette action est définitive.', () => {
+        appState.cards = appState.cards.filter(c => c.id !== cardId);
+        delete batchSession.progressMap[cardId];
+        saveState();
+        renderCoursesView();
+        showToast('Notion supprimée.');
+      });
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    /* =====================================================================
+       10. INITIALISATION AU CHARGEMENT
+    ====================================================================== */
+    window.addEventListener('DOMContentLoaded', () => {
+      loadState();
+      applyMaterialYouTheme(appState.m3Seed || '#6750A4', appState.theme === 'dark');
+
+      // Écouteurs des pastilles de couleur Material You dans le header
+      document.querySelectorAll('.seed-swatch-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const seed = btn.getAttribute('data-seed');
+          if (seed) selectSeedColor(seed);
+        });
+      });
+
+      const customColorInput = document.getElementById('m3-custom-color-input');
+      if (customColorInput) {
+        customColorInput.addEventListener('input', (e) => {
+          selectSeedColor(e.target.value);
+        });
+      }
+
+      // Adaptation responsive bouton paramètres mobile
+      const syncMobileBtnVisibility = () => {
+        const mobBtn = document.getElementById('mobile-settings-btn');
+        if (mobBtn) mobBtn.style.display = window.innerWidth >= 840 ? 'none' : 'inline-flex';
+      };
+      syncMobileBtnVisibility();
+      window.addEventListener('resize', syncMobileBtnVisibility);
+
+      initSpeechVoices();
+      populateCourseSelects();
+
+      const topBatchSelect = document.getElementById('revise-batch-size');
+      if (topBatchSelect) topBatchSelect.value = String(appState.batchSize || 3);
+
+      updateGlobalMasteryUI();
+      selectNextPendingCardInBatch(true);
+    });
+  </script>
+</body>
+</html>
