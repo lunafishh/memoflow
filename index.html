@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Memoflow</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%236750A4'/%3E%3Cpath d='M46 35.4A18 18 0 0 1 26.4 16a14 14 0 1 0 19.6 19.4z' fill='none' stroke='%23FFFFFF' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
 
   <!-- Polices Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1805,6 +1806,13 @@
       Object.entries(tokens).forEach(([prop, value]) => {
         root.style.setProperty(prop, value);
       });
+
+      // Synchronisation dynamique du favicon avec la couleur seed choisie
+      const faviconEl = document.querySelector("link[rel='icon']");
+      if (faviconEl) {
+        const cleanHex = seedHex.replace('#', '');
+        faviconEl.href = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23${cleanHex}'/%3E%3Cpath d='M46 35.4A18 18 0 0 1 26.4 16a14 14 0 1 0 19.6 19.4z' fill='none' stroke='%23FFFFFF' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E`;
+      }
 
       // Persistance dans localStorage
       try {
