@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Memoflow</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%236750A4'/%3E%3Cpath d='M46 35.4A18 18 0 0 1 26.4 16a14 14 0 1 0 19.6 19.4z' fill='none' stroke='%23FFFFFF' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='20' fill='%23C24B78'/%3E%3Cpath d='M46 35.4A18 18 0 0 1 26.4 16a14 14 0 1 0 19.6 19.4z' fill='none' stroke='%23FFFFFF' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
 
   <!-- Polices Plus Jakarta Sans & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,108 +13,104 @@
 
   <style>
     /* =====================================================================
-       1. TOKENS MATERIAL DESIGN 3 (MATERIAL YOU)
+       1. TOKENS MATERIAL 3 EXPRESSIVE (LIGHT PINKY RED V1.112)
     ====================================================================== */
     :root {
-      /* Light Mode par défaut (Seed Lavande #6750A4, recalculé dynamiquement en JS) */
-      --md-sys-color-primary: #6750A4;
+      /* Palette Light Pinky Red Expressive par défaut (v1.112) */
+      --md-sys-color-primary: #B23B69;
       --md-sys-color-on-primary: #FFFFFF;
-      --md-sys-color-primary-container: #EADDFF;
-      --md-sys-color-on-primary-container: #21005D;
+      --md-sys-color-primary-container: #FFD9E4;
+      --md-sys-color-on-primary-container: #3B001F;
 
-      --md-sys-color-secondary: #625B71;
+      --md-sys-color-secondary: #7B5263;
       --md-sys-color-on-secondary: #FFFFFF;
-      --md-sys-color-secondary-container: #E8DEF8;
-      --md-sys-color-on-secondary-container: #1D192B;
+      --md-sys-color-secondary-container: #FFD9E4;
+      --md-sys-color-on-secondary-container: #31111E;
 
-      --md-sys-color-tertiary: #7D5260;
+      --md-sys-color-tertiary: #845330;
       --md-sys-color-on-tertiary: #FFFFFF;
-      --md-sys-color-tertiary-container: #FFD8E4;
-      --md-sys-color-on-tertiary-container: #31111D;
+      --md-sys-color-tertiary-container: #FFDCB9;
+      --md-sys-color-on-tertiary-container: #2C1500;
 
-      --md-sys-color-error: #B3261E;
+      --md-sys-color-error: #BA1A1A;
       --md-sys-color-on-error: #FFFFFF;
-      --md-sys-color-error-container: #F9DEDC;
-      --md-sys-color-on-error-container: #410E0B;
+      --md-sys-color-error-container: #FFDAD6;
+      --md-sys-color-on-error-container: #410002;
 
-      --md-sys-color-background: #FEF7FF;
-      --md-sys-color-on-background: #1D1B20;
-      --md-sys-color-surface: #FEF7FF;
-      --md-sys-color-on-surface: #1D1B20;
-      --md-sys-color-surface-variant: #E7E0EC;
-      --md-sys-color-on-surface-variant: #49454F;
+      /* Dégradés et fonds mode clair plus prononcés (v1.112) */
+      --md-sys-color-background: #FFF5F7;
+      --md-sys-color-on-background: #23191D;
+      --md-sys-color-surface: #FFF5F7;
+      --md-sys-color-on-surface: #23191D;
+      --md-sys-color-surface-variant: #F2DDE3;
+      --md-sys-color-on-surface-variant: #524348;
 
       --md-sys-color-surface-container-lowest: #FFFFFF;
-      --md-sys-color-surface-container-low: #F7F2FA;
-      --md-sys-color-surface-container: #F3EDF7;
-      --md-sys-color-surface-container-high: #ECE6F0;
-      --md-sys-color-surface-container-highest: #E6E0E9;
+      --md-sys-color-surface-container-low: #FCEAEF;
+      --md-sys-color-surface-container: #F6E2E8;
+      --md-sys-color-surface-container-high: #F0D9E2;
+      --md-sys-color-surface-container-highest: #EAD0DB;
 
-      --md-sys-color-outline: #79747E;
-      --md-sys-color-outline-variant: #CAC4D0;
+      --md-sys-color-outline: #857379;
+      --md-sys-color-outline-variant: #D7C1C8;
 
-      /* Tokens sémantiques de succès harmonisés M3 */
-      --md-sys-color-success: #146C2E;
+      --md-sys-color-success: #1B6D32;
       --md-sys-color-on-success: #FFFFFF;
-      --md-sys-color-success-container: #C4EED0;
-      --md-sys-color-on-success-container: #072711;
+      --md-sys-color-success-container: #C4F1CC;
+      --md-sys-color-on-success-container: #002109;
 
-      /* Shape Corner Tokens M3 */
-      --md-sys-shape-corner-none: 0px;
-      --md-sys-shape-corner-extra-small: 4px;
-      --md-sys-shape-corner-small: 8px;
-      --md-sys-shape-corner-medium: 12px;
-      --md-sys-shape-corner-large: 16px;
-      --md-sys-shape-corner-extra-large: 28px;
+      /* Shape Corner Tokens M3 Expressive */
+      --md-sys-shape-corner-small: 10px;
+      --md-sys-shape-corner-medium: 16px;
+      --md-sys-shape-corner-large: 24px;
+      --md-sys-shape-corner-extra-large: 32px;
       --md-sys-shape-corner-full: 9999px;
 
-      /* Typographie & Mouvement M3 */
       --md-sys-typescale-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       --md-sys-typescale-body: 'Inter', system-ui, -apple-system, sans-serif;
-      --md-sys-motion-standard: cubic-bezier(0.2, 0, 0, 1);
     }
 
     [data-theme="dark"] {
-      --md-sys-color-primary: #D0BCFF;
-      --md-sys-color-on-primary: #381E72;
-      --md-sys-color-primary-container: #4F378B;
-      --md-sys-color-on-primary-container: #EADDFF;
+      --md-sys-color-primary: #FFB0CD;
+      --md-sys-color-on-primary: #650035;
+      --md-sys-color-primary-container: #8C1C4E;
+      --md-sys-color-on-primary-container: #FFD9E4;
 
-      --md-sys-color-secondary: #CCC2DC;
-      --md-sys-color-on-secondary: #332D41;
-      --md-sys-color-secondary-container: #4A4458;
-      --md-sys-color-on-secondary-container: #E8DEF8;
+      --md-sys-color-secondary: #E5B8CB;
+      --md-sys-color-on-secondary: #432534;
+      --md-sys-color-secondary-container: #5C3B4A;
+      --md-sys-color-on-secondary-container: #FFD9E4;
 
-      --md-sys-color-tertiary: #EFB8C8;
-      --md-sys-color-on-tertiary: #492532;
-      --md-sys-color-tertiary-container: #633B48;
-      --md-sys-color-on-tertiary-container: #FFD8E4;
+      --md-sys-color-tertiary: #F7B98E;
+      --md-sys-color-on-tertiary: #4A2807;
+      --md-sys-color-tertiary-container: #653D1C;
+      --md-sys-color-on-tertiary-container: #FFDCB9;
 
-      --md-sys-color-error: #F2B8B5;
-      --md-sys-color-on-error: #601410;
-      --md-sys-color-error-container: #8C1D18;
-      --md-sys-color-on-error-container: #F9DEDC;
+      --md-sys-color-error: #FFB4AB;
+      --md-sys-color-on-error: #690005;
+      --md-sys-color-error-container: #93000A;
+      --md-sys-color-on-error-container: #FFDAD6;
 
-      --md-sys-color-background: #141218;
-      --md-sys-color-on-background: #E6E0E9;
-      --md-sys-color-surface: #141218;
-      --md-sys-color-on-surface: #E6E0E9;
-      --md-sys-color-surface-variant: #49454F;
-      --md-sys-color-on-surface-variant: #CAC4D0;
+      --md-sys-color-background: #1A1115;
+      --md-sys-color-on-background: #F1D9E1;
+      --md-sys-color-surface: #1A1115;
+      --md-sys-color-on-surface: #F1D9E1;
+      --md-sys-color-surface-variant: #524348;
+      --md-sys-color-on-surface-variant: #D7C1C8;
 
-      --md-sys-color-surface-container-lowest: #0F0D13;
-      --md-sys-color-surface-container-low: #1D1B20;
-      --md-sys-color-surface-container: #211F26;
-      --md-sys-color-surface-container-high: #2B2930;
-      --md-sys-color-surface-container-highest: #36343B;
+      --md-sys-color-surface-container-lowest: #140C0F;
+      --md-sys-color-surface-container-low: #23191D;
+      --md-sys-color-surface-container: #281D22;
+      --md-sys-color-surface-container-high: #33272D;
+      --md-sys-color-surface-container-highest: #3F3238;
 
-      --md-sys-color-outline: #938F99;
-      --md-sys-color-outline-variant: #49454F;
+      --md-sys-color-outline: #9F8C93;
+      --md-sys-color-outline-variant: #524348;
 
-      --md-sys-color-success: #6DD58C;
-      --md-sys-color-on-success: #003919;
-      --md-sys-color-success-container: #0F5223;
-      --md-sys-color-on-success-container: #C4EED0;
+      --md-sys-color-success: #79DC8D;
+      --md-sys-color-on-success: #003913;
+      --md-sys-color-success-container: #00531F;
+      --md-sys-color-on-success-container: #C4F1CC;
     }
 
     /* =====================================================================
@@ -132,7 +128,6 @@
       font-family: var(--md-sys-typescale-body);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      transition: background-color 0.28s var(--md-sys-motion-standard), color 0.28s var(--md-sys-motion-standard);
     }
 
     h1, h2, h3, h4, .font-display {
@@ -158,18 +153,33 @@
     }
 
     /* =====================================================================
-       3. HALO D'AMBIANCE RADIAL SUBTIL M3 & ARCHITECTURE LAYOUT
+       3. DÉGRADÉS ANIMÉS LENTS (PLUS PRONONCÉS EN MODE CLAIR)
     ====================================================================== */
+    @keyframes slowHaloShift {
+      0% { transform: translate3d(-53%, 0px, 0) scale(1); }
+      50% { transform: translate3d(-47%, 30px, 0) scale(1.12); }
+      100% { transform: translate3d(-53%, 0px, 0) scale(1); }
+    }
+
+    @keyframes slowGradientPan {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     .m3-ambient-halo {
       position: fixed;
-      top: -120px;
+      top: -160px;
       left: 50%;
-      transform: translateX(-50%);
-      width: min(1100px, 100vw);
-      height: 360px;
-      background: radial-gradient(ellipse at 50% 0%, color-mix(in srgb, var(--md-sys-color-primary-container) 45%, transparent) 0%, transparent 72%);
+      width: min(1400px, 130vw);
+      height: 500px;
+      background:
+        radial-gradient(ellipse at 28% 20%, color-mix(in srgb, var(--md-sys-color-primary-container) 82%, transparent) 0%, transparent 64%),
+        radial-gradient(ellipse at 72% 25%, color-mix(in srgb, var(--md-sys-color-tertiary-container) 68%, transparent) 0%, transparent 66%),
+        radial-gradient(ellipse at 50% 45%, color-mix(in srgb, var(--md-sys-color-secondary-container) 65%, transparent) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
+      animation: slowHaloShift 22s ease-in-out infinite;
     }
 
     .app-shell {
@@ -187,14 +197,13 @@
     }
 
     /* =====================================================================
-       4. NAVIGATION RAIL / DRAWER & TOP APP BAR M3
+       4. NAVIGATION RAIL / DRAWER EXPRESSIVE
     ====================================================================== */
     .m3-nav-sidebar {
       position: sticky;
       top: 0;
       z-index: 40;
       background-color: var(--md-sys-color-surface-container-low);
-      border-bottom: 1px solid var(--md-sys-color-outline-variant);
       padding: 12px 16px;
       display: flex;
       align-items: center;
@@ -205,13 +214,11 @@
     @media (min-width: 840px) {
       .m3-nav-sidebar {
         height: 100vh;
-        width: 268px;
+        width: 244px;
         flex-shrink: 0;
         flex-direction: column;
         align-items: stretch;
-        border-bottom: none;
-        border-right: 1px solid var(--md-sys-color-outline-variant);
-        padding: 20px 16px;
+        padding: 22px 14px;
       }
     }
 
@@ -221,60 +228,49 @@
       gap: 12px;
       background: transparent;
       border: none;
-      padding: 4px;
+      padding: 6px 8px;
       border-radius: var(--md-sys-shape-corner-large);
       cursor: pointer;
       text-align: left;
     }
 
     .brand-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: var(--md-sys-shape-corner-medium);
+      width: 40px;
+      height: 40px;
+      border-radius: 15px;
       background-color: var(--md-sys-color-primary);
       color: var(--md-sys-color-on-primary);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      transition: transform 0.2s var(--md-sys-motion-standard), background-color 0.25s;
-    }
-
-    .brand-trigger:hover .brand-icon {
-      transform: scale(1.04);
-    }
-
-    .brand-title-row {
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
 
     .brand-name {
       font-family: var(--md-sys-typescale-display);
       font-weight: 800;
-      font-size: 1.08rem;
+      font-size: 1.12rem;
       letter-spacing: -0.02em;
       color: var(--md-sys-color-on-surface);
     }
 
-    .m3-version-badge {
+    .m3-badge-pill {
       display: inline-flex;
       align-items: center;
-      padding: 2px 8px;
+      padding: 4px 11px;
       border-radius: var(--md-sys-shape-corner-full);
       background-color: var(--md-sys-color-primary-container);
       color: var(--md-sys-color-on-primary-container);
-      font-size: 0.68rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
     }
 
     .nav-drawer-list {
       display: none;
       flex-direction: column;
-      gap: 6px;
-      margin-top: 20px;
+      gap: 8px;
+      margin-top: 24px;
     }
 
     @media (min-width: 840px) {
@@ -294,29 +290,13 @@
       border-radius: var(--md-sys-shape-corner-full);
       background: transparent;
       color: var(--md-sys-color-on-surface-variant);
-      font-size: 0.875rem;
-      font-weight: 500;
+      font-size: 0.88rem;
+      font-weight: 600;
       cursor: pointer;
-      overflow: hidden;
-      transition: background-color 0.2s var(--md-sys-motion-standard), color 0.2s var(--md-sys-motion-standard);
     }
 
-    .m3-nav-item::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-color: currentColor;
-      opacity: 0;
-      transition: opacity 0.18s var(--md-sys-motion-standard);
-      pointer-events: none;
-    }
-
-    .m3-nav-item:hover::after {
-      opacity: 0.08;
-    }
-
-    .m3-nav-item:active::after {
-      opacity: 0.12;
+    .m3-nav-item:hover {
+      background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 6%, transparent);
     }
 
     .m3-nav-item.active {
@@ -332,11 +312,11 @@
     }
 
     .nav-counter-pill {
-      padding: 2px 8px;
+      padding: 3px 9px;
       border-radius: var(--md-sys-shape-corner-full);
       font-size: 0.72rem;
       font-weight: 700;
-      background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) 10%, transparent);
+      background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) 12%, transparent);
     }
 
     .sidebar-footer {
@@ -344,8 +324,7 @@
       flex-direction: column;
       gap: 10px;
       margin-top: auto;
-      padding-top: 14px;
-      border-top: 1px solid var(--md-sys-color-outline-variant);
+      padding-top: 12px;
     }
 
     @media (min-width: 840px) {
@@ -355,46 +334,52 @@
     }
 
     .mastery-summary-card {
-      padding: 12px 14px;
+      padding: 14px;
       border-radius: var(--md-sys-shape-corner-large);
       background-color: var(--md-sys-color-surface-container);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .mastery-summary-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 0.75rem;
-      font-weight: 600;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
       color: var(--md-sys-color-on-surface);
-      margin-bottom: 8px;
     }
 
-    .m3-linear-track {
+    .sidebar-course-select {
+      flex: 1;
+      min-width: 0;
+      background: transparent;
+      border: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--md-sys-color-on-surface);
+      outline: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .m3-wavy-progress {
       width: 100%;
-      height: 6px;
-      border-radius: var(--md-sys-shape-corner-full);
-      background-color: var(--md-sys-color-surface-container-highest);
-      overflow: hidden;
+      height: 14px;
+      display: block;
+      overflow: visible;
     }
 
-    .m3-linear-fill {
-      height: 100%;
-      border-radius: var(--md-sys-shape-corner-full);
-      background-color: var(--md-sys-color-primary);
-      transition: width 0.35s var(--md-sys-motion-standard);
-    }
-
-    /* Navigation Bottom Bar Mobile M3 */
     .m3-bottom-bar {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
       z-index: 40;
-      background-color: var(--md-sys-color-surface-container);
-      border-top: 1px solid var(--md-sys-color-outline-variant);
-      padding: 8px 16px;
+      background-color: var(--md-sys-color-surface-container-low);
+      padding: 10px 16px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
@@ -412,26 +397,26 @@
       align-items: center;
       justify-content: center;
       gap: 4px;
-      padding: 6px 12px;
+      padding: 4px 12px;
       border: none;
       background: transparent;
       color: var(--md-sys-color-on-surface-variant);
-      font-size: 0.72rem;
+      font-size: 0.74rem;
       font-weight: 600;
       cursor: pointer;
     }
 
     .m3-bottom-item .icon-pill {
-      padding: 4px 20px;
+      padding: 6px 24px;
       border-radius: var(--md-sys-shape-corner-full);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background-color 0.2s var(--md-sys-motion-standard);
     }
 
     .m3-bottom-item.active {
       color: var(--md-sys-color-on-surface);
+      font-weight: 700;
     }
 
     .m3-bottom-item.active .icon-pill {
@@ -440,103 +425,101 @@
     }
 
     /* =====================================================================
-       5. WORKSPACE & TOP BAR AVEC SÉLECTEUR MATERIAL YOU
+       5. WORKSPACE & PLEIN ÉCRAN
     ====================================================================== */
     .main-workspace {
       flex: 1;
       min-width: 0;
-      max-width: 840px;
+      max-width: 1100px;
       width: 100%;
       margin: 0 auto;
       padding: 16px 16px 96px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
     }
 
     @media (min-width: 840px) {
       .main-workspace {
-        padding: 24px 32px 48px;
-        gap: 20px;
+        padding: 22px 28px 36px;
+        gap: 16px;
       }
     }
 
-    /* Top Header Bar avec Dynamic Color Picker M3 */
-    .m3-top-header {
+    body.focus-fullscreen .m3-nav-sidebar,
+    body.focus-fullscreen .m3-bottom-bar,
+    body.focus-fullscreen #revise-controls-bar,
+    body.focus-fullscreen #batch-tracker-bar {
+      display: none !important;
+    }
+
+    body.focus-fullscreen .main-workspace {
+      max-width: 100%;
+      min-height: 100vh;
+      padding: 16px;
+      justify-content: center;
+    }
+
+    body.focus-fullscreen #view-revise {
+      flex: 1;
+      max-width: 1140px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    body.focus-fullscreen .m3-hero-learning-card {
+      flex: 1;
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+      flex-direction: column;
+    }
+
+    body.focus-fullscreen .hero-card-body {
+      flex: 1;
       justify-content: space-between;
-      gap: 12px;
-      padding: 10px 14px;
-      border-radius: var(--md-sys-shape-corner-large);
-      background-color: var(--md-sys-color-surface-container-low);
-      border: 1px solid var(--md-sys-color-outline-variant);
     }
 
-    .header-context-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--md-sys-color-on-surface-variant);
-    }
-
-    /* Pilule compacte sélecteur de thème dynamique Material You */
     .m3-theme-pill {
       display: inline-flex;
       align-items: center;
+      justify-content: space-between;
+      width: 100%;
       gap: 8px;
-      padding: 5px 10px;
+      padding: 8px 12px;
       border-radius: var(--md-sys-shape-corner-full);
-      background-color: var(--md-sys-color-surface-container-high);
-      border: 1px solid var(--md-sys-color-outline-variant);
+      background-color: var(--md-sys-color-surface-container-lowest);
     }
 
     .seed-swatches {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
 
     .seed-swatch-btn {
-      width: 22px;
-      height: 22px;
+      width: 26px;
+      height: 26px;
       border-radius: var(--md-sys-shape-corner-full);
       border: 2px solid transparent;
       padding: 0;
       cursor: pointer;
       position: relative;
-      transition: transform 0.2s var(--md-sys-motion-standard), box-shadow 0.2s var(--md-sys-motion-standard);
-    }
-
-    .seed-swatch-btn:hover {
-      transform: scale(1.12);
     }
 
     .seed-swatch-btn.active {
-      transform: scale(1.14);
-      box-shadow: 0 0 0 2px var(--md-sys-color-surface-container-high), 0 0 0 4px var(--md-sys-color-primary);
+      box-shadow: 0 0 0 2px var(--md-sys-color-surface-container-lowest), 0 0 0 4px var(--md-sys-color-primary);
     }
 
     .custom-color-label {
-      width: 22px;
-      height: 22px;
+      width: 26px;
+      height: 26px;
       border-radius: var(--md-sys-shape-corner-full);
-      background: conic-gradient(from 0deg, #ff595e, #ffca3a, #8ac926, #1982c4, #6a4c93, #ff595e);
+      background: conic-gradient(from 0deg, #ff595e, #ffca3a, #8ac926, #1982c4, #b23b69, #ff595e);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       position: relative;
       overflow: hidden;
-      border: 1px solid var(--md-sys-color-outline-variant);
-      transition: transform 0.2s var(--md-sys-motion-standard);
-    }
-
-    .custom-color-label:hover {
-      transform: scale(1.12);
     }
 
     .custom-color-label input[type="color"] {
@@ -550,32 +533,23 @@
       padding: 0;
     }
 
-    .pill-divider {
-      width: 1px;
-      height: 18px;
-      background-color: var(--md-sys-color-outline-variant);
-    }
-
     .theme-mode-btn {
-      width: 28px;
-      height: 28px;
+      height: 32px;
+      padding: 0 14px;
       border-radius: var(--md-sys-shape-corner-full);
       border: none;
       background-color: var(--md-sys-color-secondary-container);
       color: var(--md-sys-color-on-secondary-container);
       display: inline-flex;
       align-items: center;
-      justify-content: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
       cursor: pointer;
-      transition: transform 0.2s var(--md-sys-motion-standard);
-    }
-
-    .theme-mode-btn:hover {
-      transform: scale(1.06);
     }
 
     /* =====================================================================
-       6. COMPOSANTS BOUTONS, CHIPS & INPUTS MATERIAL DESIGN 3
+       6. BOUTONS & COMPOSANTS
     ====================================================================== */
     .m3-btn {
       position: relative;
@@ -583,33 +557,18 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 10px 20px;
+      padding: 11px 22px;
       border-radius: var(--md-sys-shape-corner-full);
-      font-size: 0.84rem;
-      font-weight: 600;
+      font-size: 0.85rem;
+      font-weight: 700;
       letter-spacing: 0.01em;
       cursor: pointer;
       border: none;
       overflow: hidden;
-      transition: background-color 0.2s var(--md-sys-motion-standard), color 0.2s var(--md-sys-motion-standard), border-color 0.2s, transform 0.15s;
     }
 
-    .m3-btn::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-color: currentColor;
-      opacity: 0;
-      transition: opacity 0.18s var(--md-sys-motion-standard);
-      pointer-events: none;
-    }
-
-    .m3-btn:hover::after {
-      opacity: 0.08;
-    }
-
-    .m3-btn:active::after {
-      opacity: 0.12;
+    .m3-btn:hover {
+      filter: brightness(0.96);
     }
 
     .m3-btn:disabled {
@@ -623,20 +582,24 @@
     }
 
     .m3-btn-tonal {
-      background-color: var(--md-sys-color-secondary-container);
-      color: var(--md-sys-color-on-secondary-container);
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
+    }
+
+    .m3-btn-expressive {
+      background-color: var(--md-sys-color-tertiary-container);
+      color: var(--md-sys-color-on-tertiary-container);
     }
 
     .m3-btn-outlined {
-      background-color: transparent;
+      background-color: var(--md-sys-color-surface-container-lowest);
       color: var(--md-sys-color-primary);
-      border: 1px solid var(--md-sys-color-outline);
     }
 
     .m3-btn-text {
       background-color: transparent;
       color: var(--md-sys-color-primary);
-      padding: 8px 14px;
+      padding: 9px 16px;
     }
 
     .m3-btn-danger-tonal {
@@ -645,79 +608,56 @@
     }
 
     .m3-btn-sm {
-      padding: 6px 14px;
+      padding: 7px 15px;
       font-size: 0.78rem;
     }
 
     .m3-icon-btn {
       position: relative;
-      width: 34px;
-      height: 34px;
-      border-radius: var(--md-sys-shape-corner-full);
-      border: 1px solid var(--md-sys-color-outline-variant);
-      background-color: var(--md-sys-color-surface-container);
+      width: 36px;
+      height: 36px;
+      border-radius: 14px;
+      border: none;
+      background-color: var(--md-sys-color-surface-container-lowest);
       color: var(--md-sys-color-on-surface-variant);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      overflow: hidden;
     }
 
-    .m3-icon-btn::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-color: currentColor;
-      opacity: 0;
-      transition: opacity 0.18s;
+    .m3-icon-btn:hover {
+      background-color: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
     }
 
-    .m3-icon-btn:hover::after {
-      opacity: 0.08;
-    }
-
-    .m3-icon-btn:disabled {
-      opacity: 0.35;
-      cursor: not-allowed;
-    }
-
-    /* Champs de saisie M3 (12px corner) */
     .m3-field {
       width: 100%;
-      padding: 11px 14px;
+      padding: 12px 16px;
       border-radius: var(--md-sys-shape-corner-medium);
-      background-color: var(--md-sys-color-surface-container-highest);
-      border: 1px solid var(--md-sys-color-outline-variant);
+      background-color: var(--md-sys-color-surface-container-lowest);
+      border: 2px solid transparent;
       color: var(--md-sys-color-on-surface);
-      font-size: 0.875rem;
+      font-size: 0.88rem;
       outline: none;
-      transition: border-color 0.2s var(--md-sys-motion-standard), box-shadow 0.2s var(--md-sys-motion-standard), background-color 0.2s;
     }
 
     .m3-field:focus {
       border-color: var(--md-sys-color-primary);
-      box-shadow: 0 0 0 2px color-mix(in srgb, var(--md-sys-color-primary) 22%, transparent);
-      background-color: var(--md-sys-color-surface-container-lowest);
     }
 
     .m3-select-compact {
-      padding: 8px 14px;
+      padding: 9px 16px;
       border-radius: var(--md-sys-shape-corner-full);
-      background-color: var(--md-sys-color-surface-container-high);
-      border: 1px solid var(--md-sys-color-outline-variant);
+      background-color: var(--md-sys-color-surface-container-lowest);
+      border: none;
       color: var(--md-sys-color-on-surface);
       font-size: 0.82rem;
-      font-weight: 600;
+      font-weight: 700;
       outline: none;
       cursor: pointer;
     }
 
-    .m3-select-compact:focus {
-      border-color: var(--md-sys-color-primary);
-    }
-
-    /* Switch Style M3 (52px x 32px) */
     .m3-switch {
       position: relative;
       display: inline-block;
@@ -739,7 +679,6 @@
       border-radius: var(--md-sys-shape-corner-full);
       background-color: var(--md-sys-color-surface-container-highest);
       border: 2px solid var(--md-sys-color-outline);
-      transition: background-color 0.22s var(--md-sys-motion-standard), border-color 0.22s;
     }
 
     .m3-switch-thumb {
@@ -751,7 +690,6 @@
       border-radius: var(--md-sys-shape-corner-full);
       background-color: var(--md-sys-color-outline);
       transform: translateY(-50%);
-      transition: all 0.22s var(--md-sys-motion-standard);
     }
 
     .m3-switch input:checked + .m3-switch-track {
@@ -767,30 +705,35 @@
     }
 
     /* =====================================================================
-       7. CARTES D'ÉLÉVATION TONALE M3 & HERO DÉGRADÉ SUBTIL
+       7. CARTES & DÉGRADÉ HÉRO PLUS PRONONCÉ EN MODE CLAIR
     ====================================================================== */
     .m3-card {
       background-color: var(--md-sys-color-surface-container-low);
-      border: 1px solid var(--md-sys-color-outline-variant);
+      border: none;
       border-radius: var(--md-sys-shape-corner-large);
       padding: 18px 20px;
     }
 
     .m3-hero-learning-card {
       background: linear-gradient(
-        165deg,
+        135deg,
         var(--md-sys-color-surface-container-low) 0%,
-        color-mix(in srgb, var(--md-sys-color-primary-container) 25%, var(--md-sys-color-surface-container-low)) 100%
+        color-mix(in srgb, var(--md-sys-color-primary-container) 68%, var(--md-sys-color-surface-container-low)) 48%,
+        color-mix(in srgb, var(--md-sys-color-tertiary-container) 55%, var(--md-sys-color-surface-container-low)) 100%
       );
-      border: 1px solid var(--md-sys-color-outline-variant);
+      background-size: 240% 240%;
+      animation: slowGradientPan 16s ease-in-out infinite;
+      border: none;
       border-radius: var(--md-sys-shape-corner-extra-large);
       overflow: hidden;
-      transition: border-color 0.25s var(--md-sys-motion-standard);
+      min-height: 450px;
+      display: flex;
+      flex-direction: column;
     }
 
     .hero-card-header {
       padding: 20px 24px 16px;
-      border-bottom: 1px solid var(--md-sys-color-outline-variant);
+      background-color: color-mix(in srgb, var(--md-sys-color-surface-container-lowest) 55%, transparent);
       display: flex;
       flex-direction: column;
       gap: 14px;
@@ -806,31 +749,33 @@
     .course-tag-row {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 9px;
       min-width: 0;
     }
 
     .course-dot {
-      width: 10px;
-      height: 10px;
+      width: 11px;
+      height: 11px;
       border-radius: var(--md-sys-shape-corner-full);
       flex-shrink: 0;
     }
 
     .course-label {
-      font-size: 0.8rem;
-      font-weight: 600;
+      font-size: 0.84rem;
+      font-weight: 700;
       color: var(--md-sys-color-on-surface-variant);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    /* Stepper des 4 étapes en pilules M3 */
     .m3-stepper-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 6px;
+      gap: 4px;
+      padding: 4px;
+      border-radius: var(--md-sys-shape-corner-full);
+      background-color: var(--md-sys-color-surface-container-lowest);
     }
 
     @media (min-width: 600px) {
@@ -840,43 +785,45 @@
     }
 
     .m3-step-chip {
-      padding: 7px 10px;
+      padding: 8px 12px;
       border-radius: var(--md-sys-shape-corner-full);
-      font-size: 0.74rem;
-      font-weight: 600;
+      font-size: 0.76rem;
+      font-weight: 700;
       text-align: center;
-      border: 1px solid var(--md-sys-color-outline-variant);
-      background-color: var(--md-sys-color-surface-container);
+      border: none;
+      background-color: transparent;
       color: var(--md-sys-color-on-surface-variant);
       cursor: pointer;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      transition: all 0.2s var(--md-sys-motion-standard);
+    }
+
+    .m3-step-chip:hover:not(.active):not(.done) {
+      background-color: var(--md-sys-color-surface-container-low);
     }
 
     .m3-step-chip.active {
       background-color: var(--md-sys-color-primary);
       color: var(--md-sys-color-on-primary);
-      border-color: var(--md-sys-color-primary);
     }
 
     .m3-step-chip.done {
       background-color: var(--md-sys-color-success-container);
       color: var(--md-sys-color-on-success-container);
-      border-color: transparent;
     }
 
     .hero-card-body {
-      padding: 22px 24px 24px;
+      padding: 24px 28px 28px;
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 20px;
+      flex: 1;
     }
 
     .stage-overline {
-      font-size: 0.72rem;
-      font-weight: 700;
+      font-size: 0.74rem;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--md-sys-color-primary);
@@ -886,40 +833,32 @@
 
     .notion-heading {
       font-family: var(--md-sys-typescale-display);
-      font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+      font-size: clamp(1.38rem, 2.8vw, 1.9rem);
       font-weight: 800;
       line-height: 1.25;
       color: var(--md-sys-color-on-surface);
     }
 
     .m3-inner-well {
-      background-color: var(--md-sys-color-surface-container);
-      border: 1px solid var(--md-sys-color-outline-variant);
+      background-color: color-mix(in srgb, var(--md-sys-color-surface-container-lowest) 88%, transparent);
+      border: none;
       border-radius: var(--md-sys-shape-corner-large);
-      padding: 18px 20px;
+      padding: 22px 24px;
     }
 
-    /* Texte à trous M3 */
     .cloze-blank-input {
       display: inline-block;
-      background-color: color-mix(in srgb, var(--md-sys-color-primary) 12%, var(--md-sys-color-surface-container-lowest));
+      background-color: var(--md-sys-color-primary-container);
       border: none;
-      border-bottom: 2px solid var(--md-sys-color-primary);
-      border-radius: var(--md-sys-shape-corner-small) var(--md-sys-shape-corner-small) 2px 2px;
-      padding: 3px 8px;
+      border-bottom: 2.5px solid var(--md-sys-color-primary);
+      border-radius: 10px 10px 4px 4px;
+      padding: 3px 9px;
       margin: 3px 3px;
       font-weight: 700;
-      color: var(--md-sys-color-on-surface);
+      color: var(--md-sys-color-on-primary-container);
       outline: none;
-      transition: all 0.18s var(--md-sys-motion-standard);
     }
 
-    .cloze-blank-input:focus {
-      background-color: color-mix(in srgb, var(--md-sys-color-primary) 20%, var(--md-sys-color-surface-container-lowest));
-      box-shadow: 0 0 0 3px color-mix(in srgb, var(--md-sys-color-primary) 25%, transparent);
-    }
-
-    /* Pastilles des notions du lot */
     .batch-pills-row {
       display: flex;
       flex-wrap: wrap;
@@ -931,37 +870,33 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 5px 12px;
+      padding: 6px 13px;
       border-radius: var(--md-sys-shape-corner-full);
-      font-size: 0.75rem;
-      font-weight: 600;
-      border: 1px solid var(--md-sys-color-outline-variant);
-      background-color: var(--md-sys-color-surface-container);
+      font-size: 0.76rem;
+      font-weight: 700;
+      border: none;
+      background-color: var(--md-sys-color-surface-container-lowest);
       color: var(--md-sys-color-on-surface-variant);
       cursor: pointer;
-      max-width: 210px;
-      transition: all 0.18s var(--md-sys-motion-standard);
+      max-width: 220px;
     }
 
     .batch-notion-chip.current {
-      background-color: var(--md-sys-color-secondary-container);
-      color: var(--md-sys-color-on-secondary-container);
-      border-color: var(--md-sys-color-primary);
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
     }
 
     .batch-notion-chip.completed {
       background-color: var(--md-sys-color-success-container);
       color: var(--md-sys-color-on-success-container);
-      border-color: transparent;
     }
 
-    /* Annotations de correction */
     .tok-matched {
       background-color: var(--md-sys-color-success-container);
       color: var(--md-sys-color-on-success-container);
       font-weight: 700;
-      padding: 1px 6px;
-      border-radius: 6px;
+      padding: 2px 7px;
+      border-radius: 8px;
     }
 
     .tok-missed {
@@ -970,17 +905,17 @@
       font-weight: 700;
       text-decoration: underline;
       text-decoration-thickness: 2px;
-      padding: 1px 6px;
-      border-radius: 6px;
+      padding: 2px 7px;
+      border-radius: 8px;
     }
 
     /* =====================================================================
-       8. GRILLE DES COURS & MODALES M3 (28px)
+       8. COURS & GRILLES
     ====================================================================== */
     .courses-grid-layout {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 12px;
+      gap: 14px;
     }
 
     @media (min-width: 600px) {
@@ -998,20 +933,19 @@
     .courses-list-layout {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .course-card-item {
       background-color: var(--md-sys-color-surface-container-low);
-      border: 1px solid var(--md-sys-color-outline-variant);
-      border-radius: var(--md-sys-shape-corner-large);
-      padding: 16px;
+      border: none;
+      border-radius: var(--md-sys-shape-corner-extra-large);
+      padding: 20px;
       cursor: pointer;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 12px;
-      transition: background-color 0.2s var(--md-sys-motion-standard), border-color 0.2s;
+      gap: 14px;
     }
 
     .course-card-item:hover {
@@ -1021,7 +955,6 @@
     .course-card-item.selected {
       background-color: var(--md-sys-color-secondary-container);
       color: var(--md-sys-color-on-secondary-container);
-      border-color: var(--md-sys-color-primary);
     }
 
     .two-col-forms {
@@ -1037,8 +970,9 @@
     }
 
     .manage-list-row {
-      padding: 12px 0;
-      border-bottom: 1px solid var(--md-sys-color-outline-variant);
+      padding: 13px 16px;
+      border-radius: var(--md-sys-shape-corner-medium);
+      background-color: var(--md-sys-color-surface-container-lowest);
       display: flex;
       flex-direction: column;
       gap: 8px;
@@ -1052,16 +986,11 @@
       }
     }
 
-    .manage-list-row:last-child {
-      border-bottom: none;
-    }
-
-    /* Modales M3 (28px corner) */
     .m3-modal-backdrop {
       position: fixed;
       inset: 0;
       z-index: 60;
-      background-color: rgba(0, 0, 0, 0.48);
+      background-color: rgba(26, 17, 21, 0.48);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1073,18 +1002,16 @@
       max-width: 460px;
       max-height: 90vh;
       overflow-y: auto;
-      background-color: var(--md-sys-color-surface-container-high);
+      background-color: var(--md-sys-color-surface-container-low);
       color: var(--md-sys-color-on-surface);
-      border: 1px solid var(--md-sys-color-outline-variant);
+      border: none;
       border-radius: var(--md-sys-shape-corner-extra-large);
-      padding: 24px;
+      padding: 26px;
       display: flex;
       flex-direction: column;
       gap: 18px;
-      animation: fadeSlide 0.22s var(--md-sys-motion-standard) forwards;
     }
 
-    /* Onde sonore TTS */
     @keyframes soundWave {
       0%, 100% { transform: scaleY(0.4); }
       50% { transform: scaleY(1); }
@@ -1105,7 +1032,6 @@
     .tts-wave span:nth-child(2) { animation-delay: 0.15s; }
     .tts-wave span:nth-child(3) { animation-delay: 0.3s; }
 
-    /* Toast Snackbar M3 */
     .m3-toast-stack {
       position: fixed;
       bottom: 84px;
@@ -1125,55 +1051,37 @@
 
     .m3-snackbar {
       pointer-events: auto;
-      padding: 12px 18px;
-      border-radius: var(--md-sys-shape-corner-medium);
+      padding: 12px 20px;
+      border-radius: var(--md-sys-shape-corner-full);
       background-color: var(--md-sys-color-on-surface);
       color: var(--md-sys-color-surface);
       font-size: 0.82rem;
-      font-weight: 600;
-      animation: fadeSlide 0.2s var(--md-sys-motion-standard) forwards;
-    }
-
-    @keyframes fadeSlide {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .animate-fade {
-      animation: fadeSlide 0.24s var(--md-sys-motion-standard) forwards;
+      font-weight: 700;
     }
   </style>
 </head>
 
 <body>
-  <!-- Halo d'ambiance radial subtil Material You -->
+  <!-- Halo d'ambiance radial à dégradé animé prononcé -->
   <div class="m3-ambient-halo" aria-hidden="true"></div>
 
   <div class="app-shell">
-    <!-- =====================================================================
-         NAVIGATION RAIL / DRAWER M3
-    ====================================================================== -->
+    <!-- NAVIGATION RAIL / DRAWER -->
     <aside aria-label="Navigation principale" class="m3-nav-sidebar">
       <div>
         <button type="button" onclick="switchTab('revise')" class="brand-trigger">
           <div class="brand-icon">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
+            <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
             </svg>
           </div>
-          <div>
-            <div class="brand-title-row">
-              <span class="brand-name">Memoflow</span>
-              <span class="m3-version-badge">v1.1</span>
-            </div>
-            <span style="font-size: 0.7rem; color: var(--md-sys-color-on-surface-variant);">Material You</span>
-          </div>
+          <span class="brand-name">Memoflow</span>
         </button>
 
-        <!-- Navigation Desktop -->
         <nav class="nav-drawer-list">
           <button type="button" id="nav-btn-revise" onclick="switchTab('revise')" class="m3-nav-item active">
             <span class="nav-item-left">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
               <span>Réviser</span>
@@ -1183,7 +1091,7 @@
 
           <button type="button" id="nav-btn-courses" onclick="switchTab('courses')" class="m3-nav-item">
             <span class="nav-item-left">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
               </svg>
               <span>Mes Cours</span>
@@ -1193,46 +1101,47 @@
         </nav>
       </div>
 
-      <!-- Bouton Paramètres Mobile -->
       <div style="display: flex; align-items: center; gap: 8px;" class="mobile-only-actions">
         <button type="button" onclick="openSettingsModal()" aria-label="Paramètres" class="m3-icon-btn" id="mobile-settings-btn">
-          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
         </button>
       </div>
 
-      <!-- Pied de barre latérale Desktop -->
       <div class="sidebar-footer">
         <div class="mastery-summary-card">
           <div class="mastery-summary-header">
-            <span id="sidebar-user-label" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Progression globale</span>
-            <span id="sidebar-global-pct" class="tabular-nums" style="color: var(--md-sys-color-primary);">0%</span>
+            <select id="sidebar-progress-course-select" onchange="onSidebarProgressCourseChange(this.value)" aria-label="Progression par matière" class="sidebar-course-select"></select>
+            <span id="sidebar-course-pct" class="tabular-nums" style="color: var(--md-sys-color-primary); flex-shrink: 0;">0%</span>
           </div>
-          <div class="m3-linear-track">
-            <div id="sidebar-global-bar" class="m3-linear-fill" style="width: 0%;"></div>
-          </div>
+
+          <svg class="m3-wavy-progress" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true">
+            <line id="sidebar-wavy-track" x1="0" y1="7" x2="200" y2="7" stroke="var(--md-sys-color-surface-container-highest)" stroke-width="3.5" stroke-linecap="round" />
+            <path id="sidebar-wavy-fill" d="" fill="none" stroke="var(--md-sys-color-primary)" stroke-width="3.5" stroke-linecap="round" />
+            <circle cx="197" cy="7" r="2.2" fill="var(--md-sys-color-primary)" />
+          </svg>
+
+          <span id="sidebar-course-detail" class="tabular-nums" style="font-size: 0.72rem; font-weight: 600; color: var(--md-sys-color-on-surface-variant);">0 / 0 validées</span>
         </div>
 
-        <button type="button" onclick="openSettingsModal()" class="m3-nav-item" style="padding: 10px 14px;">
+        <button type="button" onclick="openSettingsModal()" class="m3-nav-item" style="padding: 11px 14px;">
           <span class="nav-item-left">
-            <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
             <span>Paramètres</span>
           </span>
-          <span style="font-size: 0.7rem; color: var(--md-sys-color-on-surface-variant);">v1.1</span>
         </button>
       </div>
     </aside>
 
-    <!-- Navigation inférieure Mobile M3 -->
     <nav aria-label="Navigation mobile" class="m3-bottom-bar">
       <button type="button" id="mob-nav-btn-revise" onclick="switchTab('revise')" class="m3-bottom-item active">
         <span class="icon-pill">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
         </span>
@@ -1240,7 +1149,7 @@
       </button>
       <button type="button" id="mob-nav-btn-courses" onclick="switchTab('courses')" class="m3-bottom-item">
         <span class="icon-pill">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
           </svg>
         </span>
@@ -1248,52 +1157,12 @@
       </button>
     </nav>
 
-    <!-- =====================================================================
-         ESPACE PRINCIPAL + EN-TÊTE MATERIAL YOU DYNAMIC COLOR
-    ====================================================================== -->
+    <!-- ESPACE PRINCIPAL -->
     <main class="main-workspace">
 
-      <!-- Header avec pilule compacte Material You (5 couleurs Pixel + libre + Dark Mode) -->
-      <header class="m3-top-header">
-        <div class="header-context-title">
-          <span style="font-weight: 700; color: var(--md-sys-color-on-surface);">Espace d’étude</span>
-          <span class="m3-version-badge">v1.1</span>
-        </div>
-
-        <div class="m3-theme-pill" role="group" aria-label="Thème dynamique Material You">
-          <div class="seed-swatches" id="m3-seed-swatches">
-            <button type="button" class="seed-swatch-btn" data-seed="#0B57D0" style="background-color: #0B57D0;" title="Bleu Pixel" aria-label="Bleu Pixel"></button>
-            <button type="button" class="seed-swatch-btn" data-seed="#386A20" style="background-color: #386A20;" title="Vert Sauge" aria-label="Vert Sauge"></button>
-            <button type="button" class="seed-swatch-btn" data-seed="#6750A4" style="background-color: #6750A4;" title="Lavande" aria-label="Lavande"></button>
-            <button type="button" class="seed-swatch-btn" data-seed="#9C413B" style="background-color: #9C413B;" title="Terracotta" aria-label="Terracotta"></button>
-            <button type="button" class="seed-swatch-btn" data-seed="#006874" style="background-color: #006874;" title="Cyan Océan" aria-label="Cyan Océan"></button>
-          </div>
-
-          <label class="custom-color-label" title="Couleur personnalisée">
-            <input type="color" id="m3-custom-color-input" value="#6750A4" aria-label="Couleur personnalisée" />
-          </label>
-
-          <span class="pill-divider" aria-hidden="true"></span>
-
-          <button type="button" id="m3-dark-mode-toggle" onclick="toggleDarkMode()" class="theme-mode-btn" title="Basculer clair / sombre" aria-label="Basculer clair / sombre">
-            <svg id="icon-moon" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
-            </svg>
-            <svg id="icon-sun" class="hidden" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="4" />
-              <path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-            </svg>
-          </button>
-        </div>
-      </header>
-
-      <!-- ===================================================================
-           VUE 1 : RÉVISER PAR LOTS & PARCOURS 4 ÉTAPES
-      ==================================================================== -->
-      <section id="view-revise" class="animate-fade" style="display: flex; flex-direction: column; gap: 16px;">
-
-        <!-- Barre de filtre cours & taille des lots -->
-        <div class="m3-card" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px;">
+      <!-- VUE 1 : RÉVISER -->
+      <section id="view-revise" style="display: flex; flex-direction: column; gap: 14px;">
+        <div id="revise-controls-bar" class="m3-card" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px;">
           <div style="flex: 1; min-width: 180px;">
             <select id="revise-course-filter" onchange="onCourseFilterChange(this.value)" aria-label="Choisir un cours" class="m3-select-compact" style="width: 100%; max-width: 260px;">
               <option value="all">Tous les cours</option>
@@ -1301,7 +1170,7 @@
           </div>
 
           <div style="display: flex; align-items: center; gap: 8px;">
-            <label for="revise-batch-size" style="font-size: 0.78rem; font-weight: 600; color: var(--md-sys-color-on-surface-variant);">Lot :</label>
+            <label for="revise-batch-size" style="font-size: 0.78rem; font-weight: 700; color: var(--md-sys-color-on-surface-variant);">Lot :</label>
             <select id="revise-batch-size" onchange="onBatchSizeChange(this.value)" aria-label="Taille du lot" class="m3-select-compact">
               <option value="1">1 notion</option>
               <option value="2">2 notions</option>
@@ -1313,21 +1182,20 @@
           </div>
         </div>
 
-        <!-- Barre de suivi du lot actif -->
-        <div id="batch-tracker-bar" class="m3-card" style="padding: 14px 18px;">
+        <div id="batch-tracker-bar" class="m3-card" style="padding: 12px 16px;">
           <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
             <div style="display: flex; align-items: center; gap: 8px;">
               <span id="batch-index-label" style="font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; color: var(--md-sys-color-primary);">Lot 1 / 1</span>
               <span style="color: var(--md-sys-color-outline-variant);">•</span>
-              <span id="batch-card-counter" class="tabular-nums" style="font-size: 0.78rem; font-weight: 600; color: var(--md-sys-color-on-surface-variant);">Notion 1 / 3</span>
+              <span id="batch-card-counter" class="tabular-nums" style="font-size: 0.78rem; font-weight: 700; color: var(--md-sys-color-on-surface-variant);">1 / 3</span>
             </div>
 
             <div style="display: flex; align-items: center; gap: 6px;">
               <button type="button" id="btn-prev-batch" onclick="changeBatchIndex(-1)" title="Lot précédent" class="m3-icon-btn">
-                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
               </button>
               <button type="button" id="btn-next-batch" onclick="changeBatchIndex(1)" title="Lot suivant" class="m3-icon-btn">
-                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
               </button>
             </div>
           </div>
@@ -1335,60 +1203,62 @@
           <div id="batch-cards-pills" class="batch-pills-row"></div>
         </div>
 
-        <!-- État vide -->
-        <div id="revise-empty-state" class="m3-card hidden" style="text-align: center; padding: 40px 24px;">
-          <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 6px;">Aucune notion disponible dans cette sélection</h3>
-          <p style="font-size: 0.82rem; color: var(--md-sys-color-on-surface-variant); margin-bottom: 18px;">Ajoutez des définitions dans l’onglet Mes Cours pour démarrer votre lot.</p>
+        <div id="revise-empty-state" class="m3-card hidden" style="text-align: center; padding: 48px 24px;">
+          <h3 style="font-size: 1.05rem; font-weight: 700; margin-bottom: 14px;">Aucune notion dans cette sélection</h3>
           <button type="button" onclick="switchTab('courses')" class="m3-btn m3-btn-filled">Aller à Mes Cours</button>
         </div>
 
-        <!-- Écran de fin de lot -->
-        <div id="batch-complete-card" class="m3-hero-learning-card hidden animate-fade" style="text-align: center; padding: 36px 24px;">
-          <div style="width: 48px; height: 48px; border-radius: var(--md-sys-shape-corner-large); background-color: var(--md-sys-color-success-container); color: var(--md-sys-color-on-success-container); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;">
-            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <div id="batch-complete-card" class="m3-hero-learning-card hidden" style="text-align: center; padding: 44px 24px; justify-content: center; align-items: center;">
+          <div style="width: 52px; height: 52px; border-radius: 18px; background-color: var(--md-sys-color-success-container); color: var(--md-sys-color-on-success-container); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px;">
+            <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h2 id="batch-complete-title" style="font-size: 1.3rem; font-weight: 800; margin-bottom: 6px;">Lot 1 terminé !</h2>
-          <p id="batch-complete-subtitle" style="font-size: 0.85rem; color: var(--md-sys-color-on-surface-variant); margin-bottom: 22px;">Toutes les notions de ce lot ont validé les 4 étapes.</p>
+          <h2 id="batch-complete-title" style="font-size: 1.35rem; font-weight: 800; margin-bottom: 18px;">Lot 1 terminé</h2>
           <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
             <button type="button" onclick="repeatCurrentBatch()" class="m3-btn m3-btn-outlined">Revoir ce lot</button>
-            <button type="button" id="btn-advance-next-batch" onclick="advanceToNextBatch()" class="m3-btn m3-btn-filled">Passer au lot suivant →</button>
+            <button type="button" id="btn-advance-next-batch" onclick="advanceToNextBatch()" class="m3-btn m3-btn-filled">Lot suivant →</button>
           </div>
         </div>
 
-        <!-- ===============================================================
-             CARTE PRINCIPALE D'APPRENTISSAGE (HERO DÉGRADÉ TONAL M3)
-        ================================================================ -->
+        <!-- CARTE D'APPRENTISSAGE HÉRO -->
         <article id="flashcard-container" class="m3-hero-learning-card">
           <div class="hero-card-header">
             <div class="hero-header-top">
               <div class="course-tag-row">
                 <span id="card-course-dot" class="course-dot" style="background-color: var(--md-sys-color-primary);"></span>
                 <span id="card-course-name" class="course-label">Cours</span>
-                <span id="card-focus-badge" class="m3-version-badge hidden">Ciblée</span>
+                <span id="card-focus-badge" class="m3-badge-pill hidden">Ciblée</span>
               </div>
 
-              <!-- Bouton TTS Écouter -->
-              <button type="button" id="btn-tts-speak" onclick="speakCurrentCard()" title="Écouter la définition" class="m3-btn m3-btn-tonal m3-btn-sm">
-                <svg id="tts-icon-static" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                </svg>
-                <span id="tts-wave-anim" class="tts-wave hidden"><span></span><span></span><span></span></span>
-                <span id="tts-btn-label">Écouter</span>
-              </button>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button type="button" id="btn-tts-speak" onclick="speakCurrentCard()" title="Écouter la définition" class="m3-btn m3-btn-tonal m3-btn-sm">
+                  <svg id="tts-icon-static" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                  </svg>
+                  <span id="tts-wave-anim" class="tts-wave hidden"><span></span><span></span><span></span></span>
+                  <span id="tts-btn-label">Écouter</span>
+                </button>
 
-              <!-- Badge Sans écoute (Étape 3) -->
-              <span id="tts-locked-badge" class="hidden" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: var(--md-sys-shape-corner-full); background-color: var(--md-sys-color-surface-container-highest); color: var(--md-sys-color-on-surface-variant); font-size: 0.75rem; font-weight: 600;">
-                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-                </svg>
-                <span>Sans écoute</span>
-              </span>
+                <span id="tts-locked-badge" class="hidden" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: var(--md-sys-shape-corner-full); background-color: var(--md-sys-color-surface-container-lowest); color: var(--md-sys-color-on-surface-variant); font-size: 0.75rem; font-weight: 700;">
+                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                  </svg>
+                  <span>Sans écoute</span>
+                </span>
+
+                <button type="button" id="btn-toggle-fullscreen" onclick="toggleFocusFullscreen()" title="Mode plein écran" aria-label="Mode plein écran" class="m3-icon-btn">
+                  <svg id="icon-fs-enter" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-5v4m0-4h-4m4 4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                  </svg>
+                  <svg id="icon-fs-exit" class="hidden" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 9V4H4m5 5L3 3m12 6h5V4m-5 5l6-6M9 15v5H4m5-5l-6 6m12-6h5v5m-5-5l6 6" />
+                  </svg>
+                </button>
+              </div>
             </div>
 
-            <!-- Stepper 4 étapes M3 -->
             <div class="m3-stepper-grid" role="tablist" aria-label="Étapes de mémorisation">
               <button type="button" id="step-pill-1" onclick="jumpToStage(1)" class="m3-step-chip active">1. Écoute</button>
               <button type="button" id="step-pill-2" onclick="jumpToStage(2)" class="m3-step-chip">2. Trous + Audio</button>
@@ -1399,39 +1269,37 @@
 
           <div class="hero-card-body">
             <div>
-              <span id="stage-subtitle-label" class="stage-overline">Étape 1 — Première écoute</span>
+              <span id="stage-subtitle-label" class="stage-overline">Étape 1</span>
               <h1 id="card-notion-title" class="notion-heading">Chargement...</h1>
             </div>
 
-            <!-- ÉTAPE 1 : PREMIÈRE ÉCOUTE -->
-            <div id="stage-1-view" style="display: flex; flex-direction: column; gap: 16px;">
-              <div class="m3-inner-well" style="display: flex; flex-direction: column; gap: 10px;">
-                <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--md-sys-color-on-surface-variant);">Définition complète</span>
-                <p id="stage-1-definition" style="font-size: 1.05rem; font-weight: 500; line-height: 1.6;">—</p>
-                <p id="stage-1-example" class="hidden" style="font-size: 0.82rem; color: var(--md-sys-color-on-surface-variant); padding-top: 10px; border-top: 1px solid var(--md-sys-color-outline-variant);"></p>
+            <!-- ÉTAPE 1 -->
+            <div id="stage-1-view" style="display: flex; flex-direction: column; gap: 18px; flex: 1; justify-content: space-between;">
+              <div class="m3-inner-well" style="display: flex; flex-direction: column; gap: 12px;">
+                <p id="stage-1-definition" style="font-size: 1.1rem; font-weight: 500; line-height: 1.65;">—</p>
+                <p id="stage-1-example" class="hidden" style="font-size: 0.85rem; color: var(--md-sys-color-on-surface-variant); padding-top: 10px; border-top: 1px solid color-mix(in srgb, var(--md-sys-color-outline-variant) 45%, transparent);"></p>
               </div>
 
               <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;">
-                <button type="button" onclick="speakCurrentCard()" class="m3-btn m3-btn-tonal">Réécouter la définition</button>
+                <button type="button" onclick="speakCurrentCard()" class="m3-btn m3-btn-tonal">Réécouter</button>
                 <button type="button" id="btn-stage-1-next" onclick="advanceFromStage1()" class="m3-btn m3-btn-filled">
-                  <span>Passer au texte à trous</span>
+                  <span>Texte à trous</span>
                   <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                 </button>
               </div>
             </div>
 
-            <!-- ÉTAPES 2 & 3 : TEXTE À TROUS -->
-            <div id="stage-cloze-view" class="hidden" style="display: flex; flex-direction: column; gap: 16px;">
+            <!-- ÉTAPES 2 & 3 -->
+            <div id="stage-cloze-view" class="hidden" style="display: flex; flex-direction: column; gap: 18px; flex: 1; justify-content: space-between;">
               <div class="m3-inner-well" style="display: flex; flex-direction: column; gap: 14px;">
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-                  <span style="font-size: 0.76rem; color: var(--md-sys-color-on-surface-variant);">Appuyez sur <strong>Entrée</strong> pour passer au trou suivant</span>
-                  <button type="button" onclick="toggleClozeInitials()" id="btn-cloze-initials" class="m3-btn m3-btn-outlined m3-btn-sm">Initiales</button>
+                <div style="display: flex; align-items: center; justify-content: flex-end;">
+                  <button type="button" onclick="toggleClozeInitials()" id="btn-cloze-initials" class="m3-btn m3-btn-tonal m3-btn-sm">Initiales</button>
                 </div>
-                <div id="cloze-sentence-container" style="font-size: 1.05rem; line-height: 2; font-weight: 500;"></div>
+                <div id="cloze-sentence-container" style="font-size: 1.1rem; line-height: 2.08; font-weight: 500;"></div>
               </div>
 
               <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;">
-                <button type="button" onclick="submitClozeExercise(true)" class="m3-btn m3-btn-text">Révéler les réponses</button>
+                <button type="button" onclick="submitClozeExercise(true)" class="m3-btn m3-btn-text">Révéler</button>
                 <button type="button" onclick="submitClozeExercise(false)" class="m3-btn m3-btn-filled">
                   <span>Vérifier</span>
                   <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
@@ -1439,43 +1307,37 @@
               </div>
             </div>
 
-            <!-- ÉTAPE 4 : MODE EXPERT -->
-            <div id="stage-expert-view" class="hidden" style="display: flex; flex-direction: column; gap: 14px;">
-              <div class="m3-inner-well" style="padding: 12px 16px;">
-                <p style="font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant);">Restituez l’essentiel de la définition de mémoire (<strong>Entrée</strong> pour valider, <strong>Maj+Entrée</strong> pour un saut de ligne).</p>
-              </div>
-
-              <textarea id="expert-answer-input" rows="3" placeholder="Écrivez l’essentiel de la définition..." class="m3-field" style="resize: none; line-height: 1.5;"></textarea>
+            <!-- ÉTAPE 4 -->
+            <div id="stage-expert-view" class="hidden" style="display: flex; flex-direction: column; gap: 16px; flex: 1; justify-content: space-between;">
+              <textarea id="expert-answer-input" rows="5" placeholder="Restituez l’essentiel de la définition..." class="m3-field" style="resize: none; line-height: 1.65; font-size: 1.02rem;"></textarea>
 
               <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;">
-                <button type="button" onclick="submitExpertExercise(true)" class="m3-btn m3-btn-text">Révéler la définition</button>
+                <button type="button" onclick="submitExpertExercise(true)" class="m3-btn m3-btn-text">Révéler</button>
                 <button type="button" onclick="submitExpertExercise(false)" class="m3-btn m3-btn-filled">
-                  <span>Valider l’essentiel</span>
+                  <span>Valider</span>
                   <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
                 </button>
               </div>
             </div>
 
-            <!-- RÉSULTAT D'ÉTAPE -->
-            <div id="stage-result-view" class="hidden" style="display: flex; flex-direction: column; gap: 16px;">
-              <div id="result-banner" style="border-radius: var(--md-sys-shape-corner-large); padding: 14px 18px; display: flex; align-items: center; gap: 14px;">
-                <span id="result-score-pill" class="tabular-nums" style="padding: 6px 14px; border-radius: var(--md-sys-shape-corner-full); font-weight: 800; font-size: 0.9rem;">100%</span>
-                <div>
-                  <h3 id="result-title" style="font-size: 0.95rem; font-weight: 700;">Validé</h3>
-                  <p id="result-subtitle" style="font-size: 0.8rem; opacity: 0.85;">Étape réussie</p>
+            <!-- RÉSULTAT -->
+            <div id="stage-result-view" class="hidden" style="display: flex; flex-direction: column; gap: 16px; flex: 1; justify-content: space-between;">
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <div id="result-banner" style="border-radius: var(--md-sys-shape-corner-large); padding: 14px 18px; display: flex; align-items: center; gap: 14px;">
+                  <span id="result-score-pill" class="tabular-nums" style="padding: 6px 14px; border-radius: var(--md-sys-shape-corner-full); font-weight: 800; font-size: 0.9rem;">100%</span>
+                  <h3 id="result-title" style="font-size: 0.98rem; font-weight: 800;">Validé</h3>
                 </div>
-              </div>
 
-              <div class="m3-inner-well" style="display: flex; flex-direction: column; gap: 12px;">
-                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.74rem; font-weight: 600; color: var(--md-sys-color-on-surface-variant);">
-                  <span>Correction détaillée</span>
-                  <div style="display: flex; align-items: center; gap: 12px;">
-                    <span style="color: var(--md-sys-color-success);">● Retenu</span>
-                    <span style="color: var(--md-sys-color-error);">● Manquant</span>
+                <div class="m3-inner-well" style="display: flex; flex-direction: column; gap: 12px;">
+                  <div style="display: flex; align-items: center; justify-content: flex-end; font-size: 0.74rem; font-weight: 700;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                      <span style="color: var(--md-sys-color-success);">● Retenu</span>
+                      <span style="color: var(--md-sys-color-error);">● Manquant</span>
+                    </div>
                   </div>
+                  <div id="result-annotated-text" style="font-size: 1.04rem; line-height: 1.78; font-weight: 500;"></div>
+                  <p id="result-user-echo" style="font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant); font-style: italic; padding-top: 10px; border-top: 1px solid color-mix(in srgb, var(--md-sys-color-outline-variant) 45%, transparent);"></p>
                 </div>
-                <div id="result-annotated-text" style="font-size: 0.98rem; line-height: 1.7; font-weight: 500;"></div>
-                <p id="result-user-echo" style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant); font-style: italic; padding-top: 10px; border-top: 1px solid var(--md-sys-color-outline-variant);"></p>
               </div>
 
               <div id="result-actions-bar" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 10px;"></div>
@@ -1484,100 +1346,116 @@
         </article>
       </section>
 
-      <!-- ===================================================================
-           VUE 2 : MES COURS & GESTION DES NOTIONS
-      ==================================================================== -->
-      <section id="view-courses" class="hidden animate-fade" style="display: flex; flex-direction: column; gap: 18px;">
-
-        <!-- En-tête Mes Cours -->
+      <!-- VUE 2 : MES COURS -->
+      <section id="view-courses" class="hidden" style="display: flex; flex-direction: column; gap: 16px;">
         <div class="m3-card" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
-          <div>
-            <h2 style="font-size: 1.15rem; font-weight: 800;">Mes Cours</h2>
-            <p id="courses-summary-sub" style="font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant); margin-top: 2px;">Organisez vos matières et notions</p>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <h2 style="font-size: 1.18rem; font-weight: 800;">Mes Cours</h2>
+            <span id="courses-summary-sub" class="m3-badge-pill tabular-nums">0 cours</span>
           </div>
 
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <div style="display: inline-flex; padding: 3px; border-radius: var(--md-sys-shape-corner-full); background-color: var(--md-sys-color-surface-container-high); border: 1px solid var(--md-sys-color-outline-variant);">
-              <button type="button" id="layout-btn-grid" onclick="setCourseLayout('grid')" title="Grille" class="m3-btn m3-btn-sm" style="padding: 6px 10px;">
-                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="display: inline-flex; padding: 3px; border-radius: var(--md-sys-shape-corner-full); background-color: var(--md-sys-color-surface-container-lowest);">
+              <button type="button" id="layout-btn-grid" onclick="setCourseLayout('grid')" title="Grille" class="m3-btn m3-btn-sm" style="padding: 6px 12px;">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
               </button>
-              <button type="button" id="layout-btn-list" onclick="setCourseLayout('list')" title="Liste" class="m3-btn m3-btn-sm" style="padding: 6px 10px;">
-                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+              <button type="button" id="layout-btn-list" onclick="setCourseLayout('list')" title="Liste" class="m3-btn m3-btn-sm" style="padding: 6px 12px;">
+                <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
               </button>
             </div>
 
-            <button type="button" onclick="openCourseModal()" class="m3-btn m3-btn-filled m3-btn-sm">
-              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg>
+            <button type="button" onclick="openCourseModal()" class="m3-btn m3-btn-expressive m3-btn-sm">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg>
               <span>Nouveau cours</span>
             </button>
           </div>
         </div>
 
-        <!-- Grille / Liste des cours -->
         <div id="courses-grid" class="courses-grid-layout"></div>
 
-        <!-- Formulaires Ajout individuel & Import en masse -->
         <div class="two-col-forms">
           <div class="m3-card" style="display: flex; flex-direction: column; gap: 12px;">
-            <h3 style="font-size: 0.95rem; font-weight: 700;">Ajouter une notion</h3>
+            <h3 style="font-size: 0.98rem; font-weight: 800;">Ajouter une notion</h3>
             <form onsubmit="handleAddSingleCard(event)" style="display: flex; flex-direction: column; gap: 10px;">
               <select id="add-card-course" required aria-label="Cours" class="m3-field"></select>
-              <input type="text" id="add-card-notion" required placeholder="Intitulé de la notion" class="m3-field" />
-              <textarea id="add-card-definition" rows="2" required placeholder="Définition complète..." class="m3-field" style="resize: none;"></textarea>
+              <input type="text" id="add-card-notion" required placeholder="Notion" class="m3-field" />
+              <textarea id="add-card-definition" rows="2" required placeholder="Définition" class="m3-field" style="resize: none;"></textarea>
               <input type="text" id="add-card-example" placeholder="Exemple (optionnel)" class="m3-field" />
-              <button type="submit" class="m3-btn m3-btn-filled" style="width: 100%; margin-top: 2px;">Ajouter la notion</button>
+              <button type="submit" class="m3-btn m3-btn-filled" style="width: 100%; margin-top: 2px;">Ajouter</button>
             </form>
           </div>
 
           <div class="m3-card" style="display: flex; flex-direction: column; justify-content: space-between; gap: 12px;">
             <div style="display: flex; flex-direction: column; gap: 10px;">
               <div style="display: flex; align-items: center; justify-content: space-between;">
-                <h3 style="font-size: 0.95rem; font-weight: 700;">Import en masse</h3>
-                <span class="m3-version-badge">Notion : Définition</span>
+                <h3 style="font-size: 0.98rem; font-weight: 800;">Import en masse</h3>
+                <span class="m3-badge-pill">Notion : Définition</span>
               </div>
               <select id="bulk-import-course" aria-label="Cours cible" class="m3-field"></select>
               <textarea id="bulk-import-textarea" rows="4" placeholder="Notion 1 : Définition 1&#10;Notion 2 : Définition 2 | Exemple" class="m3-field" style="resize: none;"></textarea>
             </div>
-            <button type="button" onclick="handleBulkImport()" class="m3-btn m3-btn-tonal" style="width: 100%;">Importer la liste</button>
+            <button type="button" onclick="handleBulkImport()" class="m3-btn m3-btn-tonal" style="width: 100%;">Importer</button>
           </div>
         </div>
 
-        <!-- Liste des définitions filtrables -->
         <div class="m3-card" style="display: flex; flex-direction: column; gap: 14px;">
           <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;">
-            <div>
-              <h3 style="font-size: 0.95rem; font-weight: 700;">Définitions</h3>
-              <p id="manage-cards-subtitle" style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant);">Toutes les notions</p>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <h3 style="font-size: 0.98rem; font-weight: 800;">Définitions</h3>
+              <span id="manage-cards-subtitle" style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant); font-weight: 600;"></span>
             </div>
-            <input type="text" id="manage-cards-search" oninput="renderManageCardsList()" placeholder="Filtrer..." class="m3-field" style="max-width: 240px; padding: 8px 12px;" />
+            <input type="text" id="manage-cards-search" oninput="renderManageCardsList()" placeholder="Filtrer..." class="m3-field" style="max-width: 240px; padding: 9px 14px;" />
           </div>
-          <div id="manage-cards-list"></div>
+          <div id="manage-cards-list" style="display: flex; flex-direction: column; gap: 8px;"></div>
         </div>
       </section>
     </main>
   </div>
 
-  <!-- =====================================================================
-       MODALE PARAMÈTRES M3 (28px corner)
-  ====================================================================== -->
+  <!-- MODALE PARAMÈTRES -->
   <div id="modal-settings" class="m3-modal-backdrop hidden">
     <div class="m3-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
-      <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 12px; border-bottom: 1px solid var(--md-sys-color-outline-variant);">
-        <h3 id="settings-modal-title" style="font-size: 1.1rem; font-weight: 800;">Paramètres</h3>
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <h3 id="settings-modal-title" style="font-size: 1.15rem; font-weight: 800;">Paramètres</h3>
         <button type="button" onclick="closeModal('modal-settings')" class="m3-icon-btn" aria-label="Fermer">✕</button>
       </div>
 
       <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <span style="font-size: 0.78rem; font-weight: 700; color: var(--md-sys-color-on-surface-variant);">Apparence & Couleur</span>
+          <div class="m3-theme-pill" role="group" aria-label="Thème dynamique">
+            <div class="seed-swatches" id="m3-seed-swatches">
+              <button type="button" class="seed-swatch-btn" data-seed="#B23B69" style="background-color: #B23B69;" title="Light Pinky Red" aria-label="Pinky Red"></button>
+              <button type="button" class="seed-swatch-btn" data-seed="#664998" style="background-color: #664998;" title="Lavande" aria-label="Lavande"></button>
+              <button type="button" class="seed-swatch-btn" data-seed="#3B5BA9" style="background-color: #3B5BA9;" title="Pervenche" aria-label="Pervenche"></button>
+              <button type="button" class="seed-swatch-btn" data-seed="#2E6B3E" style="background-color: #2E6B3E;" title="Sauge" aria-label="Sauge"></button>
+              <button type="button" class="seed-swatch-btn" data-seed="#006876" style="background-color: #006876;" title="Lagune" aria-label="Lagune"></button>
+            </div>
+
+            <label class="custom-color-label" title="Couleur libre">
+              <input type="color" id="m3-custom-color-input" value="#B23B69" aria-label="Couleur libre" />
+            </label>
+
+            <button type="button" id="m3-dark-mode-toggle" onclick="toggleDarkMode()" class="theme-mode-btn" aria-label="Basculer clair / sombre">
+              <svg id="icon-moon" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+              </svg>
+              <svg id="icon-sun" class="hidden" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="4" />
+                <path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+              </svg>
+              <span id="theme-mode-label">Sombre</span>
+            </button>
+          </div>
+        </div>
+
         <div>
-          <label for="settings-user-name" style="font-size: 0.78rem; font-weight: 600; color: var(--md-sys-color-on-surface-variant); display: block; margin-bottom: 6px;">Prénom (nom du fichier de sauvegarde)</label>
+          <label for="settings-user-name" style="font-size: 0.78rem; font-weight: 700; color: var(--md-sys-color-on-surface-variant); display: block; margin-bottom: 6px;">Prénom (fichier de sauvegarde)</label>
           <input type="text" id="settings-user-name" oninput="onUserNameChange(this.value)" placeholder="Ex : Alex" class="m3-field" />
         </div>
 
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; border-top: 1px solid var(--md-sys-color-outline-variant);">
-          <div>
-            <span style="font-size: 0.85rem; font-weight: 600; display: block;">Taille des lots par défaut</span>
-            <span style="font-size: 0.74rem; color: var(--md-sys-color-on-surface-variant);">Notions révisées en boucle par lot</span>
-          </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+          <span style="font-size: 0.85rem; font-weight: 700;">Taille des lots par défaut</span>
           <select id="settings-default-batch" onchange="onBatchSizeChange(this.value)" class="m3-select-compact">
             <option value="1">1 notion</option>
             <option value="2">2 notions</option>
@@ -1588,19 +1466,16 @@
           </select>
         </div>
 
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 12px; border-top: 1px solid var(--md-sys-color-outline-variant);">
-          <div>
-            <span style="font-size: 0.85rem; font-weight: 600; display: block;">Lecture audio auto (Étape 1)</span>
-            <span style="font-size: 0.74rem; color: var(--md-sys-color-on-surface-variant);">Lit la définition dès l’affichage</span>
-          </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+          <span style="font-size: 0.85rem; font-weight: 700;">Lecture audio auto (Étape 1)</span>
           <label class="m3-switch">
             <input type="checkbox" id="toggle-auto-tts" onchange="toggleAutoTts(this.checked)" />
             <span class="m3-switch-track"><span class="m3-switch-thumb"></span></span>
           </label>
         </div>
 
-        <div style="padding-top: 12px; border-top: 1px solid var(--md-sys-color-outline-variant); display: flex; flex-direction: column; gap: 10px;">
-          <span style="font-size: 0.85rem; font-weight: 600;">Sauvegarde locale JSON</span>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-size: 0.85rem; font-weight: 700;">Sauvegarde locale JSON</span>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
             <button type="button" onclick="exportDataJson()" class="m3-btn m3-btn-filled m3-btn-sm">Exporter .json</button>
             <label class="m3-btn m3-btn-tonal m3-btn-sm" style="cursor: pointer;">
@@ -1614,8 +1489,8 @@
         </div>
       </div>
 
-      <div style="padding-top: 10px; border-top: 1px solid var(--md-sys-color-outline-variant); display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--md-sys-color-on-surface-variant);">
-        <span>Memoflow v1.1 — Material You</span>
+      <div style="padding-top: 8px; display: flex; justify-content: space-between; font-size: 0.74rem; font-weight: 600; color: var(--md-sys-color-on-surface-variant);">
+        <span>Memoflow v1.112</span>
         <span>made by lunafish</span>
       </div>
     </div>
@@ -1625,7 +1500,7 @@
   <div id="modal-course" class="m3-modal-backdrop hidden">
     <div class="m3-modal-dialog" role="dialog" aria-modal="true">
       <div style="display: flex; align-items: center; justify-content: space-between;">
-        <h3 id="modal-course-title" style="font-size: 1.05rem; font-weight: 800;">Nouveau cours</h3>
+        <h3 id="modal-course-title" style="font-size: 1.08rem; font-weight: 800;">Nouveau cours</h3>
         <button type="button" onclick="closeModal('modal-course')" class="m3-icon-btn">✕</button>
       </div>
       <form onsubmit="saveCourseForm(event)" style="display: flex; flex-direction: column; gap: 12px;">
@@ -1645,7 +1520,7 @@
   <div id="modal-edit-card" class="m3-modal-backdrop hidden">
     <div class="m3-modal-dialog" role="dialog" aria-modal="true">
       <div style="display: flex; align-items: center; justify-content: space-between;">
-        <h3 style="font-size: 1.05rem; font-weight: 800;">Modifier la notion</h3>
+        <h3 style="font-size: 1.08rem; font-weight: 800;">Modifier la notion</h3>
         <button type="button" onclick="closeModal('modal-edit-card')" class="m3-icon-btn">✕</button>
       </div>
       <form onsubmit="saveEditCardForm(event)" style="display: flex; flex-direction: column; gap: 12px;">
@@ -1665,7 +1540,7 @@
   <!-- MODALE CONFIRMATION -->
   <div id="modal-confirm" class="m3-modal-backdrop hidden">
     <div class="m3-modal-dialog" style="max-width: 380px;" role="dialog" aria-modal="true">
-      <h3 id="confirm-modal-title" style="font-size: 1.05rem; font-weight: 800;">Confirmation</h3>
+      <h3 id="confirm-modal-title" style="font-size: 1.08rem; font-weight: 800;">Confirmation</h3>
       <p id="confirm-modal-message" style="font-size: 0.85rem; color: var(--md-sys-color-on-surface-variant);">Confirmer cette action ?</p>
       <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px;">
         <button type="button" onclick="closeModal('modal-confirm')" class="m3-btn m3-btn-text">Annuler</button>
@@ -1674,23 +1549,20 @@
     </div>
   </div>
 
-  <!-- CONTENEUR SNACKBARS M3 -->
   <div id="toast-container" class="m3-toast-stack"></div>
 
-  <!-- =====================================================================
-       LOGIQUE JAVASCRIPT — MEMOFLOW V1.1 & MOTEUR MATERIAL YOU
-  ====================================================================== -->
+  <!-- SCRIPT -->
   <script>
-    const STORAGE_KEY = 'memoflow_v1_1_state';
+    const STORAGE_KEY = 'memoflow_v1_112_state';
     const M3_SEED_KEY = 'm3-seed';
     const M3_THEME_KEY = 'm3-theme';
 
     const COURSE_COLORS = [
-      { id: 'lavender', hex: '#6750A4' },
-      { id: 'pixel-blue', hex: '#0B57D0' },
-      { id: 'sage', hex: '#386A20' },
-      { id: 'terracotta', hex: '#9C413B' },
-      { id: 'ocean', hex: '#006874' },
+      { id: 'pinkyred', hex: '#B23B69' },
+      { id: 'lavender', hex: '#664998' },
+      { id: 'periwinkle', hex: '#3B5BA9' },
+      { id: 'sage', hex: '#2E6B3E' },
+      { id: 'lagoon', hex: '#006876' },
       { id: 'amber', hex: '#8F4E00' }
     ];
 
@@ -1698,14 +1570,11 @@
       1: { label: 'Étape 1 — Première écoute', pill: '1. Écoute' },
       2: { label: 'Étape 2 — Texte à trous (avec écoute)', pill: '2. Trous + Audio' },
       3: { label: 'Étape 3 — Texte à trous (sans écoute)', pill: '3. Sans écoute' },
-      4: { label: 'Étape 4 — Mode Expert (réécrire l’essentiel)', pill: '4. Expert' }
+      4: { label: 'Étape 4 — Mode Expert', pill: '4. Expert' }
     };
 
-    /* =====================================================================
-       1. MOTEUR DE COULEUR DYNAMIQUE MATERIAL YOU (HCT-INSPIRED TONAL ENGINE)
-    ====================================================================== */
     function hexToHue(hex) {
-      let clean = (hex || '#6750A4').replace('#', '').trim();
+      let clean = (hex || '#B23B69').replace('#', '').trim();
       if (clean.length === 3) {
         clean = clean.split('').map(c => c + c).join('');
       }
@@ -1717,7 +1586,7 @@
       const min = Math.min(r, g, b);
       const delta = max - min;
 
-      if (delta === 0) return 265;
+      if (delta === 0) return 338;
       let h = 0;
       if (max === r) {
         h = ((g - b) / delta) % 6;
@@ -1732,95 +1601,92 @@
 
     function applyMaterialYouTheme(seedHex, isDark) {
       const hue = hexToHue(seedHex);
-      const secondaryHue = (hue + 14) % 360;
-      const tertiaryHue = (hue + 56) % 360;
+      const secondaryHue = (hue + 320) % 360;
+      const tertiaryHue = (hue + 40) % 360;
       const neutralHue = hue;
       const root = document.documentElement;
 
       root.setAttribute('data-theme', isDark ? 'dark' : 'light');
 
       const tokens = isDark ? {
-        '--md-sys-color-primary': `hsl(${hue}, 82%, 82%)`,
-        '--md-sys-color-on-primary': `hsl(${hue}, 62%, 22%)`,
-        '--md-sys-color-primary-container': `hsl(${hue}, 48%, 32%)`,
-        '--md-sys-color-on-primary-container': `hsl(${hue}, 90%, 92%)`,
+        '--md-sys-color-primary': `hsl(${hue}, 88%, 84%)`,
+        '--md-sys-color-on-primary': `hsl(${hue}, 64%, 22%)`,
+        '--md-sys-color-primary-container': `hsl(${hue}, 52%, 34%)`,
+        '--md-sys-color-on-primary-container': `hsl(${hue}, 95%, 93%)`,
 
-        '--md-sys-color-secondary': `hsl(${secondaryHue}, 34%, 78%)`,
-        '--md-sys-color-on-secondary': `hsl(${secondaryHue}, 32%, 22%)`,
-        '--md-sys-color-secondary-container': `hsl(${secondaryHue}, 28%, 30%)`,
-        '--md-sys-color-on-secondary-container': `hsl(${secondaryHue}, 45%, 90%)`,
+        '--md-sys-color-secondary': `hsl(${secondaryHue}, 56%, 82%)`,
+        '--md-sys-color-on-secondary': `hsl(${secondaryHue}, 42%, 22%)`,
+        '--md-sys-color-secondary-container': `hsl(${secondaryHue}, 36%, 32%)`,
+        '--md-sys-color-on-secondary-container': `hsl(${secondaryHue}, 75%, 92%)`,
 
-        '--md-sys-color-tertiary': `hsl(${tertiaryHue}, 58%, 80%)`,
-        '--md-sys-color-on-tertiary': `hsl(${tertiaryHue}, 45%, 22%)`,
-        '--md-sys-color-tertiary-container': `hsl(${tertiaryHue}, 38%, 31%)`,
-        '--md-sys-color-on-tertiary-container': `hsl(${tertiaryHue}, 75%, 92%)`,
+        '--md-sys-color-tertiary': `hsl(${tertiaryHue}, 78%, 82%)`,
+        '--md-sys-color-on-tertiary': `hsl(${tertiaryHue}, 55%, 22%)`,
+        '--md-sys-color-tertiary-container': `hsl(${tertiaryHue}, 46%, 32%)`,
+        '--md-sys-color-on-tertiary-container': `hsl(${tertiaryHue}, 88%, 93%)`,
 
-        '--md-sys-color-background': `hsl(${neutralHue}, 14%, 8%)`,
-        '--md-sys-color-on-background': `hsl(${neutralHue}, 14%, 90%)`,
-        '--md-sys-color-surface': `hsl(${neutralHue}, 14%, 8%)`,
-        '--md-sys-color-on-surface': `hsl(${neutralHue}, 14%, 90%)`,
-        '--md-sys-color-surface-variant': `hsl(${neutralHue}, 12%, 29%)`,
-        '--md-sys-color-on-surface-variant': `hsl(${neutralHue}, 14%, 78%)`,
+        '--md-sys-color-background': `hsl(${neutralHue}, 18%, 8%)`,
+        '--md-sys-color-on-background': `hsl(${neutralHue}, 18%, 92%)`,
+        '--md-sys-color-surface': `hsl(${neutralHue}, 18%, 8%)`,
+        '--md-sys-color-on-surface': `hsl(${neutralHue}, 18%, 92%)`,
+        '--md-sys-color-surface-variant': `hsl(${neutralHue}, 16%, 30%)`,
+        '--md-sys-color-on-surface-variant': `hsl(${neutralHue}, 18%, 80%)`,
 
-        '--md-sys-color-surface-container-lowest': `hsl(${neutralHue}, 16%, 6%)`,
-        '--md-sys-color-surface-container-low': `hsl(${neutralHue}, 13%, 11%)`,
-        '--md-sys-color-surface-container': `hsl(${neutralHue}, 13%, 13%)`,
-        '--md-sys-color-surface-container-high': `hsl(${neutralHue}, 12%, 17%)`,
-        '--md-sys-color-surface-container-highest': `hsl(${neutralHue}, 12%, 22%)`,
+        '--md-sys-color-surface-container-lowest': `hsl(${neutralHue}, 20%, 6%)`,
+        '--md-sys-color-surface-container-low': `hsl(${neutralHue}, 18%, 12%)`,
+        '--md-sys-color-surface-container': `hsl(${neutralHue}, 18%, 15%)`,
+        '--md-sys-color-surface-container-high': `hsl(${neutralHue}, 16%, 19%)`,
+        '--md-sys-color-surface-container-highest': `hsl(${neutralHue}, 16%, 24%)`,
 
-        '--md-sys-color-outline': `hsl(${neutralHue}, 10%, 58%)`,
-        '--md-sys-color-outline-variant': `hsl(${neutralHue}, 12%, 28%)`
+        '--md-sys-color-outline': `hsl(${neutralHue}, 14%, 60%)`,
+        '--md-sys-color-outline-variant': `hsl(${neutralHue}, 16%, 30%)`
       } : {
-        '--md-sys-color-primary': `hsl(${hue}, 56%, 44%)`,
+        '--md-sys-color-primary': `hsl(${hue}, 50%, 46%)`,
         '--md-sys-color-on-primary': '#FFFFFF',
-        '--md-sys-color-primary-container': `hsl(${hue}, 88%, 92%)`,
-        '--md-sys-color-on-primary-container': `hsl(${hue}, 76%, 16%)`,
+        '--md-sys-color-primary-container': `hsl(${hue}, 96%, 90%)`,
+        '--md-sys-color-on-primary-container': `hsl(${hue}, 78%, 16%)`,
 
-        '--md-sys-color-secondary': `hsl(${secondaryHue}, 22%, 40%)`,
+        '--md-sys-color-secondary': `hsl(${secondaryHue}, 36%, 42%)`,
         '--md-sys-color-on-secondary': '#FFFFFF',
-        '--md-sys-color-secondary-container': `hsl(${secondaryHue}, 45%, 90%)`,
-        '--md-sys-color-on-secondary-container': `hsl(${secondaryHue}, 45%, 16%)`,
+        '--md-sys-color-secondary-container': `hsl(${secondaryHue}, 92%, 90%)`,
+        '--md-sys-color-on-secondary-container': `hsl(${secondaryHue}, 58%, 16%)`,
 
-        '--md-sys-color-tertiary': `hsl(${tertiaryHue}, 36%, 40%)`,
+        '--md-sys-color-tertiary': `hsl(${tertiaryHue}, 48%, 42%)`,
         '--md-sys-color-on-tertiary': '#FFFFFF',
-        '--md-sys-color-tertiary-container': `hsl(${tertiaryHue}, 72%, 91%)`,
-        '--md-sys-color-on-tertiary-container': `hsl(${tertiaryHue}, 58%, 16%)`,
+        '--md-sys-color-tertiary-container': `hsl(${tertiaryHue}, 88%, 86%)`,
+        '--md-sys-color-on-tertiary-container': `hsl(${tertiaryHue}, 75%, 16%)`,
 
-        '--md-sys-color-background': `hsl(${neutralHue}, 35%, 98%)`,
-        '--md-sys-color-on-background': `hsl(${neutralHue}, 14%, 11%)`,
-        '--md-sys-color-surface': `hsl(${neutralHue}, 35%, 98%)`,
-        '--md-sys-color-on-surface': `hsl(${neutralHue}, 14%, 11%)`,
-        '--md-sys-color-surface-variant': `hsl(${neutralHue}, 18%, 90%)`,
-        '--md-sys-color-on-surface-variant': `hsl(${neutralHue}, 12%, 29%)`,
+        '--md-sys-color-background': `hsl(${neutralHue}, 60%, 97%)`,
+        '--md-sys-color-on-background': `hsl(${neutralHue}, 22%, 14%)`,
+        '--md-sys-color-surface': `hsl(${neutralHue}, 60%, 97%)`,
+        '--md-sys-color-on-surface': `hsl(${neutralHue}, 22%, 14%)`,
+        '--md-sys-color-surface-variant': `hsl(${neutralHue}, 35%, 89%)`,
+        '--md-sys-color-on-surface-variant': `hsl(${neutralHue}, 16%, 28%)`,
 
         '--md-sys-color-surface-container-lowest': '#FFFFFF',
-        '--md-sys-color-surface-container-low': `hsl(${neutralHue}, 28%, 96%)`,
-        '--md-sys-color-surface-container': `hsl(${neutralHue}, 25%, 94%)`,
-        '--md-sys-color-surface-container-high': `hsl(${neutralHue}, 22%, 91%)`,
-        '--md-sys-color-surface-container-highest': `hsl(${neutralHue}, 20%, 88%)`,
+        '--md-sys-color-surface-container-low': `hsl(${neutralHue}, 55%, 95%)`,
+        '--md-sys-color-surface-container': `hsl(${neutralHue}, 50%, 92%)`,
+        '--md-sys-color-surface-container-high': `hsl(${neutralHue}, 45%, 89%)`,
+        '--md-sys-color-surface-container-highest': `hsl(${neutralHue}, 40%, 86%)`,
 
-        '--md-sys-color-outline': `hsl(${neutralHue}, 8%, 47%)`,
-        '--md-sys-color-outline-variant': `hsl(${neutralHue}, 14%, 79%)`
+        '--md-sys-color-outline': `hsl(${neutralHue}, 14%, 48%)`,
+        '--md-sys-color-outline-variant': `hsl(${neutralHue}, 25%, 80%)`
       };
 
       Object.entries(tokens).forEach(([prop, value]) => {
         root.style.setProperty(prop, value);
       });
 
-      // Synchronisation dynamique du favicon avec la couleur seed choisie
       const faviconEl = document.querySelector("link[rel='icon']");
       if (faviconEl) {
         const cleanHex = seedHex.replace('#', '');
-        faviconEl.href = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23${cleanHex}'/%3E%3Cpath d='M46 35.4A18 18 0 0 1 26.4 16a14 14 0 1 0 19.6 19.4z' fill='none' stroke='%23FFFFFF' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E`;
+        faviconEl.href = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='20' fill='%23${cleanHex}'/%3E%3Cpath d='M46 35.4A18 18 0 0 1 26.4 16a14 14 0 1 0 19.6 19.4z' fill='none' stroke='%23FFFFFF' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E`;
       }
 
-      // Persistance dans localStorage
       try {
         localStorage.setItem(M3_SEED_KEY, seedHex);
         localStorage.setItem(M3_THEME_KEY, isDark ? 'dark' : 'light');
       } catch (e) {}
 
-      // Mise à jour visuelle des pastilles et icônes du header
       const normalizedSeed = seedHex.toUpperCase();
       document.querySelectorAll('.seed-swatch-btn').forEach(btn => {
         const btnHex = (btn.getAttribute('data-seed') || '').toUpperCase();
@@ -1832,9 +1698,13 @@
 
       const moonIcon = document.getElementById('icon-moon');
       const sunIcon = document.getElementById('icon-sun');
+      const modeLabel = document.getElementById('theme-mode-label');
       if (moonIcon && sunIcon) {
         moonIcon.classList.toggle('hidden', isDark);
         sunIcon.classList.toggle('hidden', !isDark);
+      }
+      if (modeLabel) {
+        modeLabel.textContent = isDark ? 'Clair' : 'Sombre';
       }
     }
 
@@ -1848,27 +1718,73 @@
     function toggleDarkMode() {
       const nextIsDark = appState.theme !== 'dark';
       appState.theme = nextIsDark ? 'dark' : 'light';
-      applyMaterialYouTheme(appState.m3Seed || '#6750A4', nextIsDark);
+      applyMaterialYouTheme(appState.m3Seed || '#B23B69', nextIsDark);
       saveState();
     }
 
-    /* =====================================================================
-       2. ÉTAT APPLICATIF & PERSISTANCE
-    ====================================================================== */
+    function buildWavyPath(pct) {
+      const clamped = Math.max(0, Math.min(100, pct));
+      const endX = (clamped / 100) * 194;
+      if (endX <= 2) return '';
+      const midY = 7;
+      const amp = 3.2;
+      const halfWave = 9;
+      let d = `M 2 ${midY}`;
+      let x = 2;
+      let dir = -1;
+      while (x + halfWave <= endX) {
+        const cx = x + halfWave / 2;
+        const cy = midY + dir * amp;
+        const nx = x + halfWave;
+        d += ` Q ${cx.toFixed(1)} ${cy.toFixed(1)}, ${nx.toFixed(1)} ${midY}`;
+        x = nx;
+        dir *= -1;
+      }
+      if (x < endX) {
+        const rem = endX - x;
+        const cx = x + rem / 2;
+        const cy = midY + dir * amp * (rem / halfWave);
+        d += ` Q ${cx.toFixed(1)} ${cy.toFixed(1)}, ${endX.toFixed(1)} ${midY}`;
+      }
+      return d;
+    }
+
+    function toggleFocusFullscreen() {
+      const isFs = document.body.classList.toggle('focus-fullscreen');
+      const enterIcon = document.getElementById('icon-fs-enter');
+      const exitIcon = document.getElementById('icon-fs-exit');
+      if (enterIcon && exitIcon) {
+        enterIcon.classList.toggle('hidden', isFs);
+        exitIcon.classList.toggle('hidden', !isFs);
+      }
+      if (isFs && document.documentElement.requestFullscreen && !document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else if (!isFs && document.fullscreenElement && document.exitFullscreen) {
+        document.exitFullscreen().catch(() => {});
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.body.classList.contains('focus-fullscreen')) {
+        toggleFocusFullscreen();
+      }
+    });
+
     let appState = {
-      version: '1.1',
+      version: '1.112',
       userName: '',
       theme: 'light',
-      m3Seed: '#6750A4',
+      m3Seed: '#B23B69',
       courseLayout: 'grid',
       autoTts: false,
       batchSize: 3,
       selectedCourseFilter: 'all',
       selectedManageCourseId: 'all',
+      sidebarProgressCourseId: '',
       courses: [
-        { id: 'c-droit', title: 'Droit Civil', subtitle: 'Obligations & Contrats', color: '#6750A4' },
-        { id: 'c-bio', title: 'Biologie Cellulaire', subtitle: 'Métabolisme', color: '#386A20' },
-        { id: 'c-eco', title: 'Économie', subtitle: 'Concepts clés', color: '#006874' }
+        { id: 'c-droit', title: 'Droit Civil', subtitle: 'Obligations & Contrats', color: '#B23B69' },
+        { id: 'c-bio', title: 'Biologie Cellulaire', subtitle: 'Métabolisme', color: '#2E6B3E' },
+        { id: 'c-eco', title: 'Économie', subtitle: 'Concepts clés', color: '#3B5BA9' }
       ],
       cards: [
         {
@@ -1921,11 +1837,11 @@
 
     function loadState() {
       try {
-        const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('memoflow_v1_state');
+        const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('memoflow_v1_1_state') || localStorage.getItem('memoflow_v1_state');
         if (raw) {
           const parsed = JSON.parse(raw);
           if (parsed && Array.isArray(parsed.courses) && Array.isArray(parsed.cards)) {
-            appState = { ...appState, ...parsed, version: '1.1' };
+            appState = { ...appState, ...parsed, version: '1.112' };
           }
         }
         const savedSeed = localStorage.getItem(M3_SEED_KEY);
@@ -1935,9 +1851,6 @@
       } catch (e) {}
     }
 
-    /* =====================================================================
-       3. SYNTHÈSE VOCALE (TTS)
-    ====================================================================== */
     let preferredFrenchVoice = null;
     let isSpeakingNow = false;
 
@@ -2007,9 +1920,6 @@
       speakText(`${card.notion}. ${card.definition}`);
     }
 
-    /* =====================================================================
-       4. RÉVISION PAR LOTS PERSONNALISABLES (BATCH LEARNING)
-    ====================================================================== */
     function getFilteredCards() {
       if (batchSession.singleFocusCardId) {
         const single = appState.cards.find(c => c.id === batchSession.singleFocusCardId);
@@ -2068,10 +1978,19 @@
 
     function onCourseFilterChange(val) {
       appState.selectedCourseFilter = val;
+      if (val !== 'all') {
+        appState.sidebarProgressCourseId = val;
+      }
       batchSession.batchIndex = 0;
       batchSession.singleFocusCardId = null;
       saveState();
       selectNextPendingCardInBatch(true);
+    }
+
+    function onSidebarProgressCourseChange(courseId) {
+      appState.sidebarProgressCourseId = courseId;
+      saveState();
+      updateCourseMasteryUI();
     }
 
     function changeBatchIndex(delta) {
@@ -2098,7 +2017,7 @@
         trackerEl.classList.add('hidden');
         completeEl.classList.add('hidden');
         cardEl.classList.add('hidden');
-        updateGlobalMasteryUI();
+        updateCourseMasteryUI();
         return;
       }
 
@@ -2112,15 +2031,12 @@
         completeEl.classList.remove('hidden');
         const isLastBatch = batchSession.batchIndex >= batches.length - 1;
         document.getElementById('batch-complete-title').textContent = batchSession.singleFocusCardId
-          ? 'Notion maîtrisée !'
-          : `Lot ${batchSession.batchIndex + 1} terminé !`;
-        document.getElementById('batch-complete-subtitle').textContent = isLastBatch
-          ? 'Vous avez terminé tous les lots de cette sélection.'
-          : `Toutes les notions de ce lot (${batch.length}) ont validé les 4 étapes.`;
+          ? 'Notion validée'
+          : `Lot ${batchSession.batchIndex + 1} terminé`;
         const nextBtn = document.getElementById('btn-advance-next-batch');
-        nextBtn.textContent = isLastBatch ? 'Recommencer depuis le Lot 1' : `Passer au lot ${batchSession.batchIndex + 2} →`;
+        nextBtn.textContent = isLastBatch ? 'Recommencer depuis le Lot 1' : `Lot ${batchSession.batchIndex + 2} →`;
         renderBatchTrackerUI();
-        updateGlobalMasteryUI();
+        updateCourseMasteryUI();
         return;
       }
 
@@ -2142,9 +2058,14 @@
         batchSession.activeCardId = chosen ? chosen.id : pendingCards[0].id;
       }
 
+      const activeCard = getCurrentActiveCard();
+      if (activeCard && appState.selectedCourseFilter === 'all') {
+        appState.sidebarProgressCourseId = activeCard.courseId;
+      }
+
       renderBatchTrackerUI();
       renderActiveCardStage();
-      updateGlobalMasteryUI();
+      updateCourseMasteryUI();
     }
 
     function repeatCurrentBatch() {
@@ -2177,11 +2098,11 @@
       const activeCard = getCurrentActiveCard();
 
       document.getElementById('batch-index-label').textContent = batchSession.singleFocusCardId
-        ? 'Révision ciblée'
+        ? 'Ciblée'
         : `Lot ${batchSession.batchIndex + 1} / ${batches.length}`;
 
       const activeIdx = activeCard ? batch.findIndex(c => c.id === activeCard.id) + 1 : 1;
-      document.getElementById('batch-card-counter').textContent = `Notion ${activeIdx} / ${batch.length}`;
+      document.getElementById('batch-card-counter').textContent = `${activeIdx} / ${batch.length}`;
 
       document.getElementById('btn-prev-batch').disabled = batchSession.batchIndex <= 0 || !!batchSession.singleFocusCardId;
       document.getElementById('btn-next-batch').disabled = batchSession.batchIndex >= batches.length - 1 || !!batchSession.singleFocusCardId;
@@ -2205,13 +2126,15 @@
     function focusBatchCard(cardId) {
       stopSpeech();
       batchSession.activeCardId = cardId;
+      const card = getCurrentActiveCard();
+      if (card) {
+        appState.sidebarProgressCourseId = card.courseId;
+        updateCourseMasteryUI();
+      }
       renderBatchTrackerUI();
       renderActiveCardStage();
     }
 
-    /* =====================================================================
-       5. PARCOURS D'APPRENTISSAGE EN 4 ÉTAPES
-    ====================================================================== */
     function renderActiveCardStage() {
       const card = getCurrentActiveCard();
       if (!card) return;
@@ -2299,9 +2222,6 @@
       renderActiveCardStage();
     }
 
-    /* =====================================================================
-       6. TEXTE À TROUS & NAVIGATION CLAVIER "ENTRÉE"
-    ====================================================================== */
     const STOP_WORDS = new Set([
       'les', 'des', 'une', 'aux', 'par', 'pour', 'dans', 'sur', 'avec', 'sous',
       'vers', 'chez', 'entre', 'dont', 'que', 'qui', 'est', 'sont', 'etre', 'avoir',
@@ -2400,9 +2320,6 @@
       }
     });
 
-    /* =====================================================================
-       7. CORRECTION SÉMANTIQUE LEVENSHTEIN & RÉSULTATS
-    ====================================================================== */
     function levenshteinDistance(a, b) {
       if (a === b) return 0;
       const alen = a.length, blen = b.length;
@@ -2504,7 +2421,6 @@
       const banner = document.getElementById('result-banner');
       const scorePill = document.getElementById('result-score-pill');
       const titleEl = document.getElementById('result-title');
-      const subEl = document.getElementById('result-subtitle');
 
       scorePill.textContent = `${score}%`;
 
@@ -2513,17 +2429,13 @@
         banner.style.color = 'var(--md-sys-color-on-success-container)';
         scorePill.style.backgroundColor = 'var(--md-sys-color-success)';
         scorePill.style.color = 'var(--md-sys-color-on-success)';
-        titleEl.textContent = currentStage === 4 ? 'Notion validée !' : 'Étape réussie';
-        subEl.textContent = currentStage === 4
-          ? 'Cette notion est validée pour ce lot.'
-          : 'Vous pouvez passer à l’étape suivante.';
+        titleEl.textContent = currentStage === 4 ? 'Notion validée' : 'Étape réussie';
       } else {
         banner.style.backgroundColor = 'var(--md-sys-color-tertiary-container)';
         banner.style.color = 'var(--md-sys-color-on-tertiary-container)';
         scorePill.style.backgroundColor = 'var(--md-sys-color-tertiary)';
         scorePill.style.color = 'var(--md-sys-color-on-tertiary)';
         titleEl.textContent = 'À consolider';
-        subEl.textContent = 'Relisez la correction ci-dessous avant de continuer.';
       }
 
       document.getElementById('result-annotated-text').innerHTML = annotatedTokens.map(tok => {
@@ -2532,21 +2444,21 @@
         return `<span>${escapeHtml(tok.raw)}</span>`;
       }).join(' ');
 
-      document.getElementById('result-user-echo').textContent = userEcho ? `Votre réponse : « ${userEcho} »` : 'Réponse révélée';
+      document.getElementById('result-user-echo').textContent = userEcho ? `« ${userEcho} »` : 'Réponse révélée';
 
       const actionsBar = document.getElementById('result-actions-bar');
       if (currentStage === 2) {
         actionsBar.innerHTML = `
-          <button type="button" onclick="retryCurrentStage()" class="m3-btn m3-btn-outlined">Refaire avec écoute</button>
-          <button type="button" id="btn-result-continue" onclick="confirmStageProgression(3)" class="m3-btn m3-btn-filled">Passer au texte à trous sans écoute →</button>`;
+          <button type="button" onclick="retryCurrentStage()" class="m3-btn m3-btn-outlined">Refaire</button>
+          <button type="button" id="btn-result-continue" onclick="confirmStageProgression(3)" class="m3-btn m3-btn-filled">Sans écoute →</button>`;
       } else if (currentStage === 3) {
         actionsBar.innerHTML = `
-          <button type="button" onclick="retryCurrentStage()" class="m3-btn m3-btn-tonal">↻ Répéter sans écoute</button>
-          <button type="button" id="btn-result-continue" onclick="confirmStageProgression(4)" class="m3-btn m3-btn-filled">Passer au mode Expert →</button>`;
+          <button type="button" onclick="retryCurrentStage()" class="m3-btn m3-btn-tonal">↻ Répéter</button>
+          <button type="button" id="btn-result-continue" onclick="confirmStageProgression(4)" class="m3-btn m3-btn-filled">Mode Expert →</button>`;
       } else if (currentStage === 4) {
         actionsBar.innerHTML = `
-          <button type="button" onclick="retryCurrentStage()" class="m3-btn m3-btn-outlined">Refaire le mode Expert</button>
-          <button type="button" id="btn-result-continue" onclick="completeCardInBatch(${passed})" class="m3-btn m3-btn-filled">${passed ? 'Valider et continuer →' : 'Continuer le lot →'}</button>`;
+          <button type="button" onclick="retryCurrentStage()" class="m3-btn m3-btn-outlined">Refaire</button>
+          <button type="button" id="btn-result-continue" onclick="completeCardInBatch(${passed})" class="m3-btn m3-btn-filled">${passed ? 'Valider →' : 'Continuer →'}</button>`;
       }
 
       setTimeout(() => {
@@ -2582,9 +2494,6 @@
       selectNextPendingCardInBatch(false);
     }
 
-    /* =====================================================================
-       8. NAVIGATION, STATISTIQUES GLOBALES & MODALES
-    ====================================================================== */
     function switchTab(tabName) {
       stopSpeech();
       ['revise', 'courses'].forEach(v => {
@@ -2603,18 +2512,32 @@
       }
     }
 
-    function updateGlobalMasteryUI() {
-      const total = appState.cards.length;
-      const mastered = appState.cards.filter(c => c.mastered).length;
-      const pct = total > 0 ? Math.round((mastered / total) * 100) : 0;
-
-      document.getElementById('sidebar-mastered-pill').textContent = `${mastered}/${total}`;
+    function updateCourseMasteryUI() {
+      const totalAll = appState.cards.length;
+      const masteredAll = appState.cards.filter(c => c.mastered).length;
+      document.getElementById('sidebar-mastered-pill').textContent = `${masteredAll}/${totalAll}`;
       document.getElementById('sidebar-courses-count').textContent = appState.courses.length;
-      document.getElementById('sidebar-global-pct').textContent = `${pct}%`;
-      document.getElementById('sidebar-global-bar').style.width = `${pct}%`;
 
-      const name = (appState.userName || '').trim();
-      document.getElementById('sidebar-user-label').textContent = name || 'Progression globale';
+      const selectEl = document.getElementById('sidebar-progress-course-select');
+      if (selectEl) {
+        selectEl.innerHTML = appState.courses.map(c => `<option value="${c.id}">${escapeHtml(c.title)}</option>`).join('');
+        const targetId = appState.courses.some(c => c.id === appState.sidebarProgressCourseId)
+          ? appState.sidebarProgressCourseId
+          : (appState.courses[0]?.id || '');
+        appState.sidebarProgressCourseId = targetId;
+        selectEl.value = targetId;
+
+        const cCards = appState.cards.filter(c => c.courseId === targetId);
+        const cMastered = cCards.filter(c => c.mastered).length;
+        const pct = cCards.length > 0 ? Math.round((cMastered / cCards.length) * 100) : 0;
+
+        document.getElementById('sidebar-course-pct').textContent = `${pct}%`;
+        const wavyFill = document.getElementById('sidebar-wavy-fill');
+        const wavyTrack = document.getElementById('sidebar-wavy-track');
+        if (wavyFill) wavyFill.setAttribute('d', buildWavyPath(pct));
+        if (wavyTrack) wavyTrack.setAttribute('x1', String(Math.max(0, (pct / 100) * 194)));
+        document.getElementById('sidebar-course-detail').textContent = `${cMastered} / ${cCards.length} validées`;
+      }
     }
 
     function showToast(message) {
@@ -2624,9 +2547,7 @@
       toast.textContent = message;
       container.appendChild(toast);
       setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transition = 'opacity 0.22s';
-        setTimeout(() => toast.remove(), 220);
+        toast.remove();
       }, 2400);
     }
 
@@ -2660,7 +2581,6 @@
     function onUserNameChange(val) {
       appState.userName = val;
       saveState();
-      updateGlobalMasteryUI();
     }
 
     function toggleAutoTts(checked) {
@@ -2672,11 +2592,11 @@
       const raw = (appState.userName || '').trim();
       const slug = raw ? raw.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9_-]+/g, '_') : 'memoflow';
       const dateStr = new Date().toISOString().slice(0, 10);
-      const filename = `${slug}_v1_1_${dateStr}.json`;
+      const filename = `${slug}_v1_112_${dateStr}.json`;
 
       const payload = {
         app: 'Memoflow',
-        version: '1.1',
+        version: '1.112',
         exportedAt: new Date().toISOString(),
         userName: appState.userName,
         m3Seed: appState.m3Seed,
@@ -2719,7 +2639,7 @@
           populateCourseSelects();
           renderCoursesView();
           selectNextPendingCardInBatch(true);
-          showToast('Données importées avec succès.');
+          showToast('Données importées.');
         } catch (err) {
           showToast('Fichier JSON invalide.');
         } finally {
@@ -2740,11 +2660,8 @@
       });
     }
 
-    /* =====================================================================
-       9. GESTION DES COURS & NOTIONS
-    ====================================================================== */
     function getCourseById(courseId) {
-      return appState.courses.find(c => c.id === courseId) || { id: 'unknown', title: 'Sans cours', color: '#6750A4' };
+      return appState.courses.find(c => c.id === courseId) || { id: 'unknown', title: 'Sans cours', color: '#B23B69' };
     }
 
     function populateCourseSelects() {
@@ -2777,7 +2694,7 @@
 
     function renderCoursesView() {
       populateCourseSelects();
-      updateGlobalMasteryUI();
+      updateCourseMasteryUI();
       updateLayoutButtons();
 
       const grid = document.getElementById('courses-grid');
@@ -2789,24 +2706,25 @@
       let html = `
         <div onclick="selectManageCourse('all')" class="course-card-item ${appState.selectedManageCourseId === 'all' ? 'selected' : ''}" style="${isList ? 'flex-direction: row; align-items: center;' : ''}">
           <div>
-            <span style="font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.8;">Vue globale</span>
-            <h3 style="font-size: 0.98rem; font-weight: 700; margin-top: 2px;">Tous les cours</h3>
+            <h3 style="font-size: 1rem; font-weight: 800;">Tous les cours</h3>
           </div>
-          <span class="tabular-nums" style="font-size: 0.78rem; font-weight: 600; opacity: 0.85;">${appState.cards.length} notions</span>
+          <span class="tabular-nums" style="font-size: 0.78rem; font-weight: 700; opacity: 0.85;">${appState.cards.length} notions</span>
         </div>`;
 
       html += appState.courses.map(c => {
         const cCards = appState.cards.filter(card => card.courseId === c.id);
         const masteredCount = cCards.filter(card => card.mastered).length;
+        const pct = cCards.length > 0 ? Math.round((masteredCount / cCards.length) * 100) : 0;
         const isSel = appState.selectedManageCourseId === c.id;
+        const trackStart = Math.max(0, (pct / 100) * 194);
 
         if (isList) {
           return `
             <div onclick="selectManageCourse('${c.id}')" class="course-card-item ${isSel ? 'selected' : ''}" style="flex-direction: row; align-items: center;">
-              <div style="display: flex; align-items: center; gap: 10px; min-width: 0;">
+              <div style="display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1;">
                 <span class="course-dot" style="background-color: ${c.color};"></span>
-                <span style="font-weight: 700; font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHtml(c.title)}</span>
-                <span class="tabular-nums" style="font-size: 0.75rem; opacity: 0.75;">(${masteredCount}/${cCards.length})</span>
+                <span style="font-weight: 800; font-size: 0.92rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHtml(c.title)}</span>
+                <span class="tabular-nums" style="font-size: 0.76rem; font-weight: 700; opacity: 0.8;">${pct}% (${masteredCount}/${cCards.length})</span>
               </div>
               <div style="display: flex; align-items: center; gap: 6px;" onclick="event.stopPropagation()">
                 <button type="button" onclick="reviseCourseDirectly('${c.id}')" class="m3-btn m3-btn-tonal m3-btn-sm">Réviser</button>
@@ -2822,16 +2740,27 @@
               <div style="display: flex; align-items: center; justify-content: space-between;">
                 <span class="course-dot" style="background-color: ${c.color};"></span>
                 <div style="display: flex; align-items: center; gap: 4px;" onclick="event.stopPropagation()">
-                  <button type="button" onclick="openCourseModal('${c.id}')" title="Modifier" class="m3-icon-btn" style="width: 28px; height: 28px; font-size: 0.75rem;">✎</button>
-                  <button type="button" onclick="confirmDeleteCourse('${c.id}')" title="Supprimer" class="m3-icon-btn" style="width: 28px; height: 28px; font-size: 0.75rem;">✕</button>
+                  <button type="button" onclick="openCourseModal('${c.id}')" title="Modifier" class="m3-icon-btn" style="width: 30px; height: 30px; font-size: 0.75rem;">✎</button>
+                  <button type="button" onclick="confirmDeleteCourse('${c.id}')" title="Supprimer" class="m3-icon-btn" style="width: 30px; height: 30px; font-size: 0.75rem;">✕</button>
                 </div>
               </div>
-              <h3 style="font-size: 1rem; font-weight: 700; margin-top: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHtml(c.title)}</h3>
-              ${c.subtitle ? `<p style="font-size: 0.76rem; opacity: 0.78; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 2px;">${escapeHtml(c.subtitle)}</p>` : ''}
+              <h3 style="font-size: 1.05rem; font-weight: 800; margin-top: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHtml(c.title)}</h3>
+              ${c.subtitle ? `<p style="font-size: 0.78rem; opacity: 0.78; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 2px;">${escapeHtml(c.subtitle)}</p>` : ''}
             </div>
-            <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--md-sys-color-outline-variant); font-size: 0.78rem;">
-              <span class="tabular-nums" style="opacity: 0.8;">${masteredCount}/${cCards.length} validées</span>
-              <button type="button" onclick="event.stopPropagation(); reviseCourseDirectly('${c.id}')" class="m3-btn m3-btn-text m3-btn-sm" style="padding: 2px 8px;">Réviser →</button>
+
+            <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 10px;">
+              <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.75rem; font-weight: 700;">
+                <span class="tabular-nums" style="opacity: 0.85;">${masteredCount}/${cCards.length} validées</span>
+                <span class="tabular-nums" style="color: ${c.color};">${pct}%</span>
+              </div>
+              <svg class="m3-wavy-progress" viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true">
+                <line x1="${trackStart}" y1="7" x2="200" y2="7" stroke="var(--md-sys-color-surface-container-highest)" stroke-width="3.5" stroke-linecap="round" />
+                <path d="${buildWavyPath(pct)}" fill="none" stroke="${c.color}" stroke-width="3.5" stroke-linecap="round" />
+                <circle cx="197" cy="7" r="2.2" fill="${c.color}" />
+              </svg>
+              <div style="display: flex; justify-content: flex-end; margin-top: 2px;">
+                <button type="button" onclick="event.stopPropagation(); reviseCourseDirectly('${c.id}')" class="m3-btn m3-btn-tonal m3-btn-sm">Réviser →</button>
+              </div>
             </div>
           </div>`;
       }).join('');
@@ -2842,11 +2771,15 @@
 
     function selectManageCourse(id) {
       appState.selectedManageCourseId = id;
+      if (id !== 'all') {
+        appState.sidebarProgressCourseId = id;
+      }
       renderCoursesView();
     }
 
     function reviseCourseDirectly(courseId) {
       appState.selectedCourseFilter = courseId;
+      appState.sidebarProgressCourseId = courseId;
       batchSession.batchIndex = 0;
       batchSession.singleFocusCardId = null;
       saveState();
@@ -2854,6 +2787,8 @@
     }
 
     function reviseSingleCardDirectly(cardId) {
+      const card = appState.cards.find(c => c.id === cardId);
+      if (card) appState.sidebarProgressCourseId = card.courseId;
       batchSession.singleFocusCardId = cardId;
       batchSession.batchIndex = 0;
       batchSession.progressMap[cardId] = { stage: 1, completed: false };
@@ -2877,7 +2812,7 @@
       }
 
       if (cards.length === 0) {
-        listEl.innerHTML = `<div style="padding: 24px 0; text-align: center; font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant);">Aucune notion trouvée</div>`;
+        listEl.innerHTML = `<div style="padding: 24px 0; text-align: center; font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant);">Aucune notion</div>`;
         return;
       }
 
@@ -2888,15 +2823,15 @@
             <div style="min-width: 0; flex: 1;">
               <div style="display: flex; align-items: center; gap: 8px;">
                 <span class="course-dot" style="background-color: ${course.color};"></span>
-                <span style="font-weight: 700; font-size: 0.88rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHtml(card.notion)}</span>
-                ${card.mastered ? `<span style="font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 9999px; background-color: var(--md-sys-color-success-container); color: var(--md-sys-color-on-success-container);">Validée</span>` : ''}
+                <span style="font-weight: 800; font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${escapeHtml(card.notion)}</span>
+                ${card.mastered ? `<span style="font-size: 0.68rem; font-weight: 700; padding: 2px 9px; border-radius: 9999px; background-color: var(--md-sys-color-success-container); color: var(--md-sys-color-on-success-container);">Validée</span>` : ''}
               </div>
-              <p style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 3px;">${escapeHtml(card.definition)}</p>
+              <p style="font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-top: 3px;">${escapeHtml(card.definition)}</p>
             </div>
             <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
               <button type="button" onclick="reviseSingleCardDirectly('${card.id}')" class="m3-btn m3-btn-tonal m3-btn-sm">Réviser</button>
-              <button type="button" onclick="openEditCardModal('${card.id}')" title="Modifier" class="m3-icon-btn" style="width: 30px; height: 30px;">✎</button>
-              <button type="button" onclick="confirmDeleteCard('${card.id}')" title="Supprimer" class="m3-icon-btn" style="width: 30px; height: 30px;">✕</button>
+              <button type="button" onclick="openEditCardModal('${card.id}')" title="Modifier" class="m3-icon-btn" style="width: 32px; height: 32px;">✎</button>
+              <button type="button" onclick="confirmDeleteCard('${card.id}')" title="Supprimer" class="m3-icon-btn" style="width: 32px; height: 32px;">✕</button>
             </div>
           </div>`;
       }).join('');
@@ -2959,6 +2894,7 @@
         const nc = { id: 'c-' + Date.now(), title, subtitle, color: selectedModalColor };
         appState.courses.push(nc);
         appState.selectedManageCourseId = nc.id;
+        appState.sidebarProgressCourseId = nc.id;
         showToast('Cours créé.');
       }
       saveState();
@@ -2976,6 +2912,7 @@
         appState.cards = appState.cards.filter(c => c.courseId !== id);
         if (appState.selectedCourseFilter === id) appState.selectedCourseFilter = 'all';
         if (appState.selectedManageCourseId === id) appState.selectedManageCourseId = 'all';
+        if (appState.sidebarProgressCourseId === id) appState.sidebarProgressCourseId = appState.courses[0]?.id || '';
         saveState();
         renderCoursesView();
         showToast('Cours supprimé.');
@@ -3092,14 +3029,10 @@
         .replace(/"/g, '&quot;');
     }
 
-    /* =====================================================================
-       10. INITIALISATION AU CHARGEMENT
-    ====================================================================== */
     window.addEventListener('DOMContentLoaded', () => {
       loadState();
-      applyMaterialYouTheme(appState.m3Seed || '#6750A4', appState.theme === 'dark');
+      applyMaterialYouTheme(appState.m3Seed || '#B23B69', appState.theme === 'dark');
 
-      // Écouteurs des pastilles de couleur Material You dans le header
       document.querySelectorAll('.seed-swatch-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const seed = btn.getAttribute('data-seed');
@@ -3114,7 +3047,6 @@
         });
       }
 
-      // Adaptation responsive bouton paramètres mobile
       const syncMobileBtnVisibility = () => {
         const mobBtn = document.getElementById('mobile-settings-btn');
         if (mobBtn) mobBtn.style.display = window.innerWidth >= 840 ? 'none' : 'inline-flex';
@@ -3128,7 +3060,7 @@
       const topBatchSelect = document.getElementById('revise-batch-size');
       if (topBatchSelect) topBatchSelect.value = String(appState.batchSize || 3);
 
-      updateGlobalMasteryUI();
+      updateCourseMasteryUI();
       selectNextPendingCardInBatch(true);
     });
   </script>
