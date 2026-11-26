@@ -17,7 +17,7 @@
 
   <style>
     /* =====================================================================
-       1. TOKENS MATERIAL 3 EXPRESSIVE (LIGHT PINKY RED V1.115)
+       1. TOKENS MATERIAL 3 EXPRESSIVE (LIGHT PINKY RED V1.116)
     ====================================================================== */
     :root {
       --md-sys-color-primary: #B23B69;
@@ -153,13 +153,15 @@
     .app-shell { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; }
     @media (min-width: 840px) { .app-shell { flex-direction: row; } }
 
+    /* SIDEBAR RESPONSIVE CORRIGÉE */
     .m3-nav-sidebar {
       position: sticky; top: 0; z-index: 40;
       background-color: var(--md-sys-color-surface-container-low);
       padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      border-bottom: 1px solid color-mix(in srgb, var(--md-sys-color-outline-variant) 30%, transparent);
     }
     @media (min-width: 840px) {
-      .m3-nav-sidebar { height: 100vh; width: 244px; flex-shrink: 0; flex-direction: column; align-items: stretch; padding: 22px 14px; }
+      .m3-nav-sidebar { height: 100vh; width: 244px; flex-shrink: 0; flex-direction: column; align-items: stretch; padding: 22px 14px; border-bottom: none; border-right: 1px solid color-mix(in srgb, var(--md-sys-color-outline-variant) 30%, transparent); }
     }
 
     .brand-trigger {
@@ -173,20 +175,25 @@
       font-size: 0.72rem; font-weight: 700;
     }
 
-    .nav-drawer-list { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
-    @media (min-width: 840px) { .nav-drawer-list { margin-top: 24px; } }
+    /* NAVIGATION DESKTOP / MOBILE ADAPTATIVE */
+    .nav-drawer-list { display: flex; flex-direction: row; align-items: center; gap: 6px; }
+    @media (min-width: 840px) { .nav-drawer-list { flex-direction: column; align-items: stretch; gap: 8px; margin-top: 24px; } }
 
     .m3-nav-item {
-      position: relative; display: flex; align-items: center; justify-content: space-between; width: 100%;
-      padding: 12px 16px; border: none; border-radius: var(--md-sys-shape-corner-full); background: transparent;
-      color: var(--md-sys-color-on-surface-variant); font-size: 0.88rem; font-weight: 600; cursor: pointer;
+      position: relative; display: flex; align-items: center; justify-content: space-between; width: auto;
+      padding: 8px 14px; border: none; border-radius: var(--md-sys-shape-corner-full); background: transparent;
+      color: var(--md-sys-color-on-surface-variant); font-size: 0.84rem; font-weight: 600; cursor: pointer;
     }
+    @media (min-width: 840px) { .m3-nav-item { width: 100%; padding: 12px 16px; font-size: 0.88rem; } }
     .m3-nav-item:hover { background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 6%, transparent); }
     .m3-nav-item.active { background-color: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); font-weight: 700; }
-    .nav-item-left { display: flex; align-items: center; gap: 12px; }
-    .nav-counter-pill { padding: 3px 9px; border-radius: var(--md-sys-shape-corner-full); font-size: 0.72rem; font-weight: 700; background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) 12%, transparent); }
+    .nav-item-left { display: flex; align-items: center; gap: 8px; }
+    @media (min-width: 840px) { .nav-item-left { gap: 12px; } }
+    .nav-counter-pill { padding: 2px 8px; border-radius: var(--md-sys-shape-corner-full); font-size: 0.7rem; font-weight: 700; background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) 12%, transparent); }
+    @media (min-width: 840px) { .nav-counter-pill { padding: 3px 9px; font-size: 0.72rem; } }
 
-    .sidebar-footer { display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 12px; }
+    /* FOOTER SIDEBAR CACHÉ SUR MOBILE (Intégré dans la modale paramètres ou épuré) */
+    .sidebar-footer { display: none; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 12px; }
     @media (min-width: 840px) { .sidebar-footer { display: flex; } }
 
     .mastery-summary-card { padding: 14px; border-radius: var(--md-sys-shape-corner-large); background-color: var(--md-sys-color-surface-container); display: flex; flex-direction: column; gap: 10px; }
@@ -194,18 +201,13 @@
     .sidebar-course-select { flex: 1; min-width: 0; background: transparent; border: none; font-size: 0.78rem; font-weight: 700; color: var(--md-sys-color-on-surface); outline: none; cursor: pointer; padding: 0; }
     .m3-wavy-progress { width: 100%; height: 14px; display: block; overflow: visible; }
 
-    .m3-bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 40; background-color: var(--md-sys-color-surface-container-low); padding: 10px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-    @media (min-width: 840px) { .m3-bottom-bar { display: none; } }
-    .m3-bottom-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 4px 12px; border: none; background: transparent; color: var(--md-sys-color-on-surface-variant); font-size: 0.74rem; font-weight: 600; cursor: pointer; }
-    .m3-bottom-item .icon-pill { padding: 6px 24px; border-radius: var(--md-sys-shape-corner-full); display: flex; align-items: center; justify-content: center; }
-    .m3-bottom-item.active { color: var(--md-sys-color-on-surface); font-weight: 700; }
-    .m3-bottom-item.active .icon-pill { background-color: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); }
+    /* BARRE MOBILE INFÉRIEURE SUPPRIMÉE (Tout est géré dans le header mobile) */
+    .m3-bottom-bar { display: none; }
 
-    .main-workspace { flex: 1; min-width: 0; max-width: 1100px; width: 100%; margin: 0 auto; padding: 16px 16px 96px; display: flex; flex-direction: column; gap: 14px; }
+    .main-workspace { flex: 1; min-width: 0; max-width: 1100px; width: 100%; margin: 0 auto; padding: 16px 16px 36px; display: flex; flex-direction: column; gap: 14px; }
     @media (min-width: 840px) { .main-workspace { padding: 22px 28px 36px; gap: 16px; } }
 
     body.focus-fullscreen .m3-nav-sidebar,
-    body.focus-fullscreen .m3-bottom-bar,
     body.focus-fullscreen #revise-controls-bar,
     body.focus-fullscreen #batch-tracker-bar { display: none !important; }
     body.focus-fullscreen .main-workspace { max-width: 100%; min-height: 100vh; padding: 16px; justify-content: center; }
@@ -296,8 +298,7 @@
     .tts-wave span:nth-child(2) { animation-delay: 0.15s; }
     .tts-wave span:nth-child(3) { animation-delay: 0.3s; }
 
-    .m3-toast-stack { position: fixed; bottom: 84px; right: 20px; z-index: 70; display: flex; flex-direction: column; gap: 8px; pointer-events: none; }
-    @media (min-width: 840px) { .m3-toast-stack { bottom: 24px; } }
+    .m3-toast-stack { position: fixed; bottom: 20px; right: 20px; z-index: 70; display: flex; flex-direction: column; gap: 8px; pointer-events: none; }
     .m3-snackbar { pointer-events: auto; padding: 12px 20px; border-radius: var(--md-sys-shape-corner-full); background-color: var(--md-sys-color-on-surface); color: var(--md-sys-color-surface); font-size: 0.82rem; font-weight: 700; }
   </style>
 </head>
@@ -306,30 +307,38 @@
   <div class="m3-ambient-halo" aria-hidden="true"></div>
 
   <div class="app-shell">
+    <!-- TOPBAR / SIDEBAR RESPONSIVE -->
     <aside aria-label="Navigation principale" class="m3-nav-sidebar">
-      <div>
-        <button type="button" onclick="switchTab('revise')" class="brand-trigger">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button type="button" onclick="switchTab('revise')" class="brand-trigger" style="padding: 0;">
           <span class="brand-name">Memoflow</span>
         </button>
-
-        <nav class="nav-drawer-list">
-          <button type="button" id="nav-btn-revise" onclick="switchTab('revise')" class="m3-nav-item active">
-            <span class="nav-item-left">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-              <span>Réviser</span>
-            </span>
-            <span id="sidebar-mastered-pill" class="nav-counter-pill tabular-nums">0/0</span>
-          </button>
-          <button type="button" id="nav-btn-courses" onclick="switchTab('courses')" class="m3-nav-item">
-            <span class="nav-item-left">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
-              <span>Mes Cours</span>
-            </span>
-            <span id="sidebar-courses-count" class="nav-counter-pill tabular-nums">0</span>
-          </button>
-        </nav>
       </div>
 
+      <nav class="nav-drawer-list">
+        <button type="button" id="nav-btn-revise" onclick="switchTab('revise')" class="m3-nav-item active">
+          <span class="nav-item-left">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+            <span>Réviser</span>
+          </span>
+          <span id="sidebar-mastered-pill" class="nav-counter-pill tabular-nums">0/0</span>
+        </button>
+        <button type="button" id="nav-btn-courses" onclick="switchTab('courses')" class="m3-nav-item">
+          <span class="nav-item-left">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+            <span>Mes Cours</span>
+          </span>
+          <span id="sidebar-courses-count" class="nav-counter-pill tabular-nums">0</span>
+        </button>
+        <button type="button" onclick="openSettingsModal()" class="m3-nav-item">
+          <span class="nav-item-left">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+            <span>Paramètres</span>
+          </span>
+        </button>
+      </nav>
+
+      <!-- Footer desktop uniquement -->
       <div class="sidebar-footer">
         <div class="mastery-summary-card">
           <div class="mastery-summary-header">
@@ -343,25 +352,8 @@
           </svg>
           <span id="sidebar-course-detail" class="tabular-nums" style="font-size: 0.72rem; font-weight: 600; color: var(--md-sys-color-on-surface-variant);">0 / 0 validées</span>
         </div>
-        <button type="button" onclick="openSettingsModal()" class="m3-nav-item" style="padding: 11px 14px;">
-          <span class="nav-item-left">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-            <span>Paramètres</span>
-          </span>
-        </button>
       </div>
     </aside>
-
-    <nav aria-label="Navigation mobile" class="m3-bottom-bar">
-      <button type="button" id="mob-nav-btn-revise" onclick="switchTab('revise')" class="m3-bottom-item active">
-        <span class="icon-pill"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg></span>
-        <span>Réviser</span>
-      </button>
-      <button type="button" id="mob-nav-btn-courses" onclick="switchTab('courses')" class="m3-bottom-item">
-        <span class="icon-pill"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg></span>
-        <span>Mes Cours</span>
-      </button>
-    </nav>
 
     <main class="main-workspace">
       <section id="view-revise" style="display: flex; flex-direction: column; gap: 14px;">
@@ -503,7 +495,6 @@
       </section>
 
       <section id="view-courses" class="hidden" style="display: flex; flex-direction: column; gap: 20px;">
-        <!-- En-tête gestion cours -->
         <div class="m3-card" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <h2 style="font-size: 1.18rem; font-weight: 800;">Mes Cours</h2>
@@ -520,7 +511,6 @@
 
         <div id="courses-grid" class="courses-grid-layout"></div>
 
-        <!-- Formulaires d'ajout unitaire et import en masse -->
         <div class="two-col-forms">
           <div class="m3-card" style="display: flex; flex-direction: column; gap: 14px;">
             <h3 style="font-size: 1.02rem; font-weight: 800;">Ajouter une notion</h3>
@@ -546,7 +536,6 @@
           </div>
         </div>
 
-        <!-- Liste des définitions existantes avec filtre -->
         <div class="m3-card" style="display: flex; flex-direction: column; gap: 14px;">
           <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;">
             <div style="display: flex; align-items: center; gap: 10px;">
@@ -585,7 +574,7 @@
         </div>
       </div>
       <div style="font-size: 0.74rem; opacity: 0.7; display: flex; justify-content: space-between;">
-        <span>Memoflow v1.115</span><span>made by lunafish</span>
+        <span>Memoflow v1.116</span><span>made by lunafish</span>
       </div>
     </div>
   </div>
@@ -593,12 +582,12 @@
   <div id="toast-container" class="m3-toast-stack"></div>
 
   <script>
-    const STORAGE_KEY = 'memoflow_v1_115_state';
+    const STORAGE_KEY = 'memoflow_v1_116_state';
     const M3_SEED_KEY = 'm3-seed';
     const M3_THEME_KEY = 'm3-theme';
 
     let appState = {
-      version: '1.115',
+      version: '1.116',
       userName: '',
       theme: 'light',
       m3Seed: '#B23B69',
@@ -628,13 +617,13 @@
     function loadState() {
       try {
         const raw = localStorage.getItem(STORAGE_KEY) 
+                 || localStorage.getItem('memoflow_v1_115_state') 
                  || localStorage.getItem('memoflow_v1_114_state') 
-                 || localStorage.getItem('memoflow_v1_113_state') 
-                 || localStorage.getItem('memoflow_v1_112_state');
+                 || localStorage.getItem('memoflow_v1_113_state');
         if (raw) {
           const parsed = JSON.parse(raw);
           if (parsed && Array.isArray(parsed.courses) && Array.isArray(parsed.cards)) {
-            appState = { ...appState, ...parsed, version: '1.115' };
+            appState = { ...appState, ...parsed, version: '1.116' };
           }
         }
         const savedSeed = localStorage.getItem(M3_SEED_KEY);
@@ -1173,8 +1162,6 @@
         if (view) view.classList.toggle('hidden', v !== tabName);
         const deskBtn = document.getElementById(`nav-btn-${v}`);
         if (deskBtn) deskBtn.classList.toggle('active', v === tabName);
-        const mobBtn = document.getElementById(`mob-nav-btn-${v}`);
-        if (mobBtn) mobBtn.classList.toggle('active', v === tabName);
       });
       if (tabName === 'revise') {
         selectNextPendingCardInBatch(true);
@@ -1371,7 +1358,7 @@
       batchSession.batchIndex = 0;
       batchSession.activeCardId = cardId;
       switchTab('revise');
-      batchSession.singleFocusCardId = null; // reset after launching
+      batchSession.singleFocusCardId = null;
     }
 
     function openCourseModal() {
@@ -1443,7 +1430,7 @@
         try {
           const parsed = JSON.parse(e.target.result);
           if (parsed && Array.isArray(parsed.courses) && Array.isArray(parsed.cards)) {
-            appState = { ...appState, ...parsed, version: '1.115' };
+            appState = { ...appState, ...parsed, version: '1.116' };
             saveState();
             applyMaterialYouTheme(appState.m3Seed || '#B23B69', appState.theme === 'dark');
             const themeLabel = document.getElementById('theme-mode-label');
