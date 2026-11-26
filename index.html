@@ -17,7 +17,7 @@
 
   <style>
     /* =====================================================================
-       1. TOKENS MATERIAL 3 EXPRESSIVE (LIGHT PINKY RED V1.113)
+       1. TOKENS MATERIAL 3 EXPRESSIVE (LIGHT PINKY RED V1.115)
     ====================================================================== */
     :root {
       --md-sys-color-primary: #B23B69;
@@ -166,10 +166,6 @@
       display: inline-flex; align-items: center; gap: 12px; background: transparent; border: none;
       padding: 6px 8px; border-radius: var(--md-sys-shape-corner-large); cursor: pointer; text-align: left;
     }
-    .brand-icon {
-      width: 40px; height: 40px; border-radius: 15px; background-color: var(--md-sys-color-primary);
-      color: var(--md-sys-color-on-primary); display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    }
     .brand-name { font-family: var(--md-sys-typescale-display); font-weight: 800; font-size: 1.12rem; letter-spacing: -0.02em; color: var(--md-sys-color-on-surface); }
     .m3-badge-pill {
       display: inline-flex; align-items: center; padding: 4px 11px; border-radius: var(--md-sys-shape-corner-full);
@@ -177,8 +173,8 @@
       font-size: 0.72rem; font-weight: 700;
     }
 
-    .nav-drawer-list { display: none; flex-direction: column; gap: 8px; margin-top: 24px; }
-    @media (min-width: 840px) { .nav-drawer-list { display: flex; } }
+    .nav-drawer-list { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+    @media (min-width: 840px) { .nav-drawer-list { margin-top: 24px; } }
 
     .m3-nav-item {
       position: relative; display: flex; align-items: center; justify-content: space-between; width: 100%;
@@ -190,7 +186,7 @@
     .nav-item-left { display: flex; align-items: center; gap: 12px; }
     .nav-counter-pill { padding: 3px 9px; border-radius: var(--md-sys-shape-corner-full); font-size: 0.72rem; font-weight: 700; background-color: color-mix(in srgb, var(--md-sys-color-on-secondary-container) 12%, transparent); }
 
-    .sidebar-footer { display: none; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 12px; }
+    .sidebar-footer { display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 12px; }
     @media (min-width: 840px) { .sidebar-footer { display: flex; } }
 
     .mastery-summary-card { padding: 14px; border-radius: var(--md-sys-shape-corner-large); background-color: var(--md-sys-color-surface-container); display: flex; flex-direction: column; gap: 10px; }
@@ -222,9 +218,6 @@
     .seed-swatch-btn { width: 26px; height: 26px; border-radius: var(--md-sys-shape-corner-full); border: 2px solid transparent; padding: 0; cursor: pointer; position: relative; }
     .seed-swatch-btn.active { box-shadow: 0 0 0 2px var(--md-sys-color-surface-container-lowest), 0 0 0 4px var(--md-sys-color-primary); }
 
-    .custom-color-label { width: 26px; height: 26px; border-radius: var(--md-sys-shape-corner-full); background: conic-gradient(from 0deg, #ff595e, #ffca3a, #8ac926, #1982c4, #b23b69, #ff595e); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; position: relative; overflow: hidden; }
-    .custom-color-label input[type="color"] { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; cursor: pointer; border: none; padding: 0; }
-
     .theme-mode-btn { height: 32px; padding: 0 14px; border-radius: var(--md-sys-shape-corner-full); border: none; background-color: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 700; cursor: pointer; }
 
     .m3-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 22px; border-radius: var(--md-sys-shape-corner-full); font-size: 0.85rem; font-weight: 700; cursor: pointer; border: none; overflow: hidden; }
@@ -235,7 +228,6 @@
     .m3-btn-expressive { background-color: var(--md-sys-color-tertiary-container); color: var(--md-sys-color-on-tertiary-container); }
     .m3-btn-outlined { background-color: var(--md-sys-color-surface-container-lowest); color: var(--md-sys-color-primary); }
     .m3-btn-text { background-color: transparent; color: var(--md-sys-color-primary); padding: 9px 16px; }
-    .m3-btn-danger-tonal { background-color: var(--md-sys-color-error-container); color: var(--md-sys-color-on-error-container); }
     .m3-btn-sm { padding: 7px 15px; font-size: 0.78rem; }
 
     .m3-icon-btn { width: 36px; height: 36px; border-radius: 14px; border: none; background-color: var(--md-sys-color-surface-container-lowest); color: var(--md-sys-color-on-surface-variant); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
@@ -244,13 +236,6 @@
     .m3-field { width: 100%; padding: 12px 16px; border-radius: var(--md-sys-shape-corner-medium); background-color: var(--md-sys-color-surface-container-lowest); border: 2px solid transparent; color: var(--md-sys-color-on-surface); font-size: 0.88rem; outline: none; }
     .m3-field:focus { border-color: var(--md-sys-color-primary); }
     .m3-select-compact { padding: 9px 16px; border-radius: var(--md-sys-shape-corner-full); background-color: var(--md-sys-color-surface-container-lowest); border: none; color: var(--md-sys-color-on-surface); font-size: 0.82rem; font-weight: 700; outline: none; cursor: pointer; }
-
-    .m3-switch { position: relative; display: inline-block; width: 52px; height: 32px; flex-shrink: 0; cursor: pointer; }
-    .m3-switch input { opacity: 0; width: 0; height: 0; }
-    .m3-switch-track { position: absolute; inset: 0; border-radius: var(--md-sys-shape-corner-full); background-color: var(--md-sys-color-surface-container-highest); border: 2px solid var(--md-sys-color-outline); }
-    .m3-switch-thumb { position: absolute; top: 50%; left: 6px; width: 16px; height: 16px; border-radius: var(--md-sys-shape-corner-full); background-color: var(--md-sys-color-outline); transform: translateY(-50%); }
-    .m3-switch input:checked + .m3-switch-track { background-color: var(--md-sys-color-primary); border-color: var(--md-sys-color-primary); }
-    .m3-switch input:checked + .m3-switch-track .m3-switch-thumb { left: 24px; width: 24px; height: 24px; background-color: var(--md-sys-color-on-primary); }
 
     .m3-card { background-color: var(--md-sys-color-surface-container-low); border: none; border-radius: var(--md-sys-shape-corner-large); padding: 18px 20px; }
     .m3-hero-learning-card {
@@ -289,21 +274,18 @@
     .batch-notion-chip.current { background-color: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); }
     .batch-notion-chip.completed { background-color: var(--md-sys-color-success-container); color: var(--md-sys-color-on-success-container); }
 
-    .tok-matched { background-color: var(--md-sys-color-success-container); color: var(--md-sys-color-on-success-container); font-weight: 700; padding: 2px 7px; border-radius: 8px; }
-    .tok-missed { background-color: var(--md-sys-color-error-container); color: var(--md-sys-color-on-error-container); font-weight: 700; text-decoration: underline; text-decoration-thickness: 2px; padding: 2px 7px; border-radius: 8px; }
-
     .courses-grid-layout { display: grid; grid-template-columns: 1fr; gap: 14px; }
     @media (min-width: 600px) { .courses-grid-layout { grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 960px) { .courses-grid-layout { grid-template-columns: repeat(3, 1fr); } }
     .courses-list-layout { display: flex; flex-direction: column; gap: 10px; }
     .course-card-item { background-color: var(--md-sys-color-surface-container-low); border-radius: var(--md-sys-shape-corner-extra-large); padding: 20px; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; gap: 14px; }
     .course-card-item:hover { background-color: var(--md-sys-color-surface-container); }
-    .course-card-item.selected { background-color: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); }
 
-    .two-col-forms { display: grid; grid-template-columns: 1fr; gap: 14px; }
-    @media (min-width: 760px) { .two-col-forms { grid-template-columns: 1fr 1fr; } }
-    .manage-list-row { padding: 13px 16px; border-radius: var(--md-sys-shape-corner-medium); background-color: var(--md-sys-color-surface-container-lowest); display: flex; flex-direction: column; gap: 8px; }
-    @media (min-width: 600px) { .manage-list-row { flex-direction: row; align-items: center; justify-content: space-between; } }
+    .two-col-forms { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 900px) { .two-col-forms { grid-template-columns: 1fr 1fr; } }
+
+    .definition-row-item { padding: 14px 18px; border-radius: var(--md-sys-shape-corner-medium); background-color: var(--md-sys-color-surface-container-low); display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+    @media (min-width: 700px) { .definition-row-item { flex-direction: row; align-items: center; justify-content: space-between; } }
 
     .m3-modal-backdrop { position: fixed; inset: 0; z-index: 60; background-color: rgba(26, 17, 21, 0.48); display: flex; align-items: center; justify-content: center; padding: 16px; }
     .m3-modal-dialog { width: 100%; max-width: 460px; max-height: 90vh; overflow-y: auto; background-color: var(--md-sys-color-surface-container-low); color: var(--md-sys-color-on-surface); border-radius: var(--md-sys-shape-corner-extra-large); padding: 26px; display: flex; flex-direction: column; gap: 18px; }
@@ -327,11 +309,6 @@
     <aside aria-label="Navigation principale" class="m3-nav-sidebar">
       <div>
         <button type="button" onclick="switchTab('revise')" class="brand-trigger">
-          <div class="brand-icon">
-            <svg width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
-            </svg>
-          </div>
           <span class="brand-name">Memoflow</span>
         </button>
 
@@ -351,12 +328,6 @@
             <span id="sidebar-courses-count" class="nav-counter-pill tabular-nums">0</span>
           </button>
         </nav>
-      </div>
-
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <button type="button" onclick="openSettingsModal()" aria-label="Paramètres" class="m3-icon-btn" id="mobile-settings-btn">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-        </button>
       </div>
 
       <div class="sidebar-footer">
@@ -531,7 +502,8 @@
         </article>
       </section>
 
-      <section id="view-courses" class="hidden" style="display: flex; flex-direction: column; gap: 16px;">
+      <section id="view-courses" class="hidden" style="display: flex; flex-direction: column; gap: 20px;">
+        <!-- En-tête gestion cours -->
         <div class="m3-card" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
           <div style="display: flex; align-items: center; gap: 10px;">
             <h2 style="font-size: 1.18rem; font-weight: 800;">Mes Cours</h2>
@@ -545,12 +517,51 @@
             <button type="button" onclick="openCourseModal()" class="m3-btn m3-btn-expressive m3-btn-sm">+ Nouveau cours</button>
           </div>
         </div>
+
         <div id="courses-grid" class="courses-grid-layout"></div>
+
+        <!-- Formulaires d'ajout unitaire et import en masse -->
+        <div class="two-col-forms">
+          <div class="m3-card" style="display: flex; flex-direction: column; gap: 14px;">
+            <h3 style="font-size: 1.02rem; font-weight: 800;">Ajouter une notion</h3>
+            <select id="new-card-course-select" aria-label="Cours cible" class="m3-field" style="padding: 10px 14px;"></select>
+            <input type="text" id="new-card-notion" placeholder="Notion (ex: Contrat synallagmatique)" class="m3-field" />
+            <textarea id="new-card-def" rows="3" placeholder="Définition précise..." class="m3-field" style="resize: none;"></textarea>
+            <input type="text" id="new-card-example" placeholder="Exemple (optionnel)" class="m3-field" />
+            <div style="display: flex; justify-content: flex-end;">
+              <button type="button" onclick="addNewCard()" class="m3-btn m3-btn-filled m3-btn-sm">Ajouter</button>
+            </div>
+          </div>
+
+          <div class="m3-card" style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <h3 style="font-size: 1.02rem; font-weight: 800;">Import en masse</h3>
+              <span class="m3-badge-pill" style="background-color: var(--md-sys-color-surface-container-highest);">Notion : Définition</span>
+            </div>
+            <select id="batch-import-course-select" aria-label="Cours cible pour l'import" class="m3-field" style="padding: 10px 14px;"></select>
+            <textarea id="batch-import-textarea" rows="5" placeholder="Contrat synallagmatique : Contrat qui fait naître..." class="m3-field" style="resize: none; font-size: 0.82rem;"></textarea>
+            <div style="display: flex; justify-content: flex-end;">
+              <button type="button" onclick="executeBatchImport()" class="m3-btn m3-btn-filled m3-btn-sm">Importer</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Liste des définitions existantes avec filtre -->
+        <div class="m3-card" style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <h3 style="font-size: 1.05rem; font-weight: 800;">Définitions</h3>
+              <span id="definitions-count-badge" class="m3-badge-pill tabular-nums">0 notions</span>
+            </div>
+            <input type="text" id="definitions-search-input" oninput="renderDefinitionsList()" placeholder="Filtrer..." class="m3-field" style="max-width: 240px; padding: 8px 14px; font-size: 0.8rem;" />
+          </div>
+          <div id="definitions-list-container" style="display: flex; flex-direction: column; gap: 8px; margin-top: 6px;"></div>
+        </div>
       </section>
     </main>
   </div>
 
-  <!-- MODALES (Paramètres, Cours, etc.) -->
+  <!-- MODALES -->
   <div id="modal-settings" class="m3-modal-backdrop hidden">
     <div class="m3-modal-dialog">
       <div style="display: flex; align-items: center; justify-content: space-between;">
@@ -560,17 +571,21 @@
       <div style="display: flex; flex-direction: column; gap: 16px;">
         <div class="m3-theme-pill">
           <div class="seed-swatches">
-            <button type="button" class="seed-swatch-btn active" data-seed="#B23B69" style="background-color: #B23B69;"></button>
-            <button type="button" class="seed-swatch-btn" data-seed="#664998" style="background-color: #664998;"></button>
-            <button type="button" class="seed-swatch-btn" data-seed="#3B5BA9" style="background-color: #3B5BA9;"></button>
-            <button type="button" class="seed-swatch-btn" data-seed="#2E6B3E" style="background-color: #2E6B3E;"></button>
+            <button type="button" class="seed-swatch-btn active" data-seed="#B23B69" style="background-color: #B23B69;" onclick="setSeedColor('#B23B69')"></button>
+            <button type="button" class="seed-swatch-btn" data-seed="#664998" style="background-color: #664998;" onclick="setSeedColor('#664998')"></button>
+            <button type="button" class="seed-swatch-btn" data-seed="#3B5BA9" style="background-color: #3B5BA9;" onclick="setSeedColor('#3B5BA9')"></button>
+            <button type="button" class="seed-swatch-btn" data-seed="#2E6B3E" style="background-color: #2E6B3E;" onclick="setSeedColor('#2E6B3E')"></button>
           </div>
           <button type="button" onclick="toggleDarkMode()" class="theme-mode-btn"><span id="theme-mode-label">Sombre</span></button>
         </div>
-        <button type="button" onclick="exportDataJson()" class="m3-btn m3-btn-filled m3-btn-sm">Exporter .json</button>
+        <div style="display: flex; gap: 8px;">
+          <button type="button" onclick="exportDataJson()" class="m3-btn m3-btn-filled m3-btn-sm" style="flex: 1;">Exporter .json</button>
+          <button type="button" onclick="document.getElementById('import-file-input').click()" class="m3-btn m3-btn-tonal m3-btn-sm" style="flex: 1;">Importer .json</button>
+          <input type="file" id="import-file-input" accept=".json" style="display: none;" onchange="importDataJson(event)" />
+        </div>
       </div>
-      <div style="font-size: 0.74font; opacity: 0.7; display: flex; justify-content: space-between;">
-        <span>Memoflow v1.113</span><span>made by lunafish</span>
+      <div style="font-size: 0.74rem; opacity: 0.7; display: flex; justify-content: space-between;">
+        <span>Memoflow v1.115</span><span>made by lunafish</span>
       </div>
     </div>
   </div>
@@ -578,12 +593,920 @@
   <div id="toast-container" class="m3-toast-stack"></div>
 
   <script>
-    const STORAGE_KEY = 'memoflow_v1_113_state';
+    const STORAGE_KEY = 'memoflow_v1_115_state';
     const M3_SEED_KEY = 'm3-seed';
     const M3_THEME_KEY = 'm3-theme';
-    // (Le reste de la logique JS reste identique aux versions précédentes avec la v1.113)
-    let appState = { version: '1.113', theme: 'light', m3Seed: '#B23B69', courses: [], cards: [] };
-    // ...
+
+    let appState = {
+      version: '1.115',
+      userName: '',
+      theme: 'light',
+      m3Seed: '#B23B69',
+      courseLayout: 'grid',
+      autoTts: false,
+      batchSize: 3,
+      selectedCourseFilter: 'all',
+      sidebarProgressCourseId: '',
+      courses: [
+        { id: 'c-droit', title: 'Droit Civil', subtitle: 'Obligations & Contrats', color: '#B23B69' },
+        { id: 'c-bio', title: 'Biologie Cellulaire', subtitle: 'Métabolisme', color: '#2E6B3E' }
+      ],
+      cards: [
+        { id: 'card-1', courseId: 'c-droit', notion: 'Contrat synallagmatique', definition: 'Contrat qui fait naître des obligations réciproques et interdépendantes à la charge de chacune des parties.', example: 'Ex : La vente oblige le vendeur à livrer et l’acheteur à payer.', mastered: false }
+      ]
+    };
+
+    let batchSession = {
+      batchIndex: 0,
+      singleFocusCardId: null,
+      progressMap: {},
+      activeCardId: null,
+      tokens: [],
+      clozeShowInitials: false
+    };
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY) 
+                 || localStorage.getItem('memoflow_v1_114_state') 
+                 || localStorage.getItem('memoflow_v1_113_state') 
+                 || localStorage.getItem('memoflow_v1_112_state');
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed && Array.isArray(parsed.courses) && Array.isArray(parsed.cards)) {
+            appState = { ...appState, ...parsed, version: '1.115' };
+          }
+        }
+        const savedSeed = localStorage.getItem(M3_SEED_KEY);
+        const savedTheme = localStorage.getItem(M3_THEME_KEY);
+        if (savedSeed) appState.m3Seed = savedSeed;
+        if (savedTheme === 'dark' || savedTheme === 'light') appState.theme = savedTheme;
+      } catch (e) {}
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {}
+    }
+
+    function hexToHue(hex) {
+      let clean = (hex || '#B23B69').replace('#', '').trim();
+      if (clean.length === 3) clean = clean.split('').map(c => c + c).join('');
+      const r = parseInt(clean.substring(0, 2), 16) / 255;
+      const g = parseInt(clean.substring(2, 4), 16) / 255;
+      const b = parseInt(clean.substring(4, 6), 16) / 255;
+      const max = Math.max(r, g, b), min = Math.min(r, g, b), delta = max - min;
+      if (delta === 0) return 338;
+      let h = max === r ? ((g - b) / delta) % 6 : max === g ? (b - r) / delta + 2 : (r - g) / delta + 4;
+      h = Math.round(h * 60);
+      return h < 0 ? h + 360 : h;
+    }
+
+    function applyMaterialYouTheme(seedHex, isDark) {
+      const hue = hexToHue(seedHex);
+      const secondaryHue = (hue + 320) % 360;
+      const tertiaryHue = (hue + 40) % 360;
+      const root = document.documentElement;
+      root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+
+      const tokens = isDark ? {
+        '--md-sys-color-primary': `hsl(${hue}, 88%, 84%)`,
+        '--md-sys-color-on-primary': `hsl(${hue}, 64%, 22%)`,
+        '--md-sys-color-primary-container': `hsl(${hue}, 52%, 34%)`,
+        '--md-sys-color-on-primary-container': `hsl(${hue}, 95%, 93%)`,
+        '--md-sys-color-secondary': `hsl(${secondaryHue}, 56%, 82%)`,
+        '--md-sys-color-on-secondary': `hsl(${secondaryHue}, 42%, 22%)`,
+        '--md-sys-color-secondary-container': `hsl(${secondaryHue}, 36%, 32%)`,
+        '--md-sys-color-on-secondary-container': `hsl(${secondaryHue}, 75%, 92%)`,
+        '--md-sys-color-tertiary': `hsl(${tertiaryHue}, 78%, 82%)`,
+        '--md-sys-color-on-tertiary': `hsl(${tertiaryHue}, 55%, 22%)`,
+        '--md-sys-color-tertiary-container': `hsl(${tertiaryHue}, 46%, 32%)`,
+        '--md-sys-color-on-tertiary-container': `hsl(${tertiaryHue}, 88%, 93%)`,
+        '--md-sys-color-background': `hsl(${hue}, 18%, 8%)`,
+        '--md-sys-color-on-background': `hsl(${hue}, 18%, 92%)`,
+        '--md-sys-color-surface': `hsl(${hue}, 18%, 8%)`,
+        '--md-sys-color-on-surface': `hsl(${hue}, 18%, 92%)`,
+        '--md-sys-color-surface-variant': `hsl(${hue}, 16%, 30%)`,
+        '--md-sys-color-on-surface-variant': `hsl(${hue}, 18%, 80%)`,
+        '--md-sys-color-surface-container-lowest': `hsl(${hue}, 20%, 6%)`,
+        '--md-sys-color-surface-container-low': `hsl(${hue}, 18%, 12%)`,
+        '--md-sys-color-surface-container': `hsl(${hue}, 18%, 15%)`,
+        '--md-sys-color-surface-container-high': `hsl(${hue}, 16%, 19%)`,
+        '--md-sys-color-surface-container-highest': `hsl(${hue}, 16%, 24%)`,
+        '--md-sys-color-outline': `hsl(${hue}, 14%, 60%)`,
+        '--md-sys-color-outline-variant': `hsl(${hue}, 16%, 30%)`
+      } : {
+        '--md-sys-color-primary': `hsl(${hue}, 50%, 46%)`,
+        '--md-sys-color-on-primary': '#FFFFFF',
+        '--md-sys-color-primary-container': `hsl(${hue}, 96%, 90%)`,
+        '--md-sys-color-on-primary-container': `hsl(${hue}, 78%, 16%)`,
+        '--md-sys-color-secondary': `hsl(${secondaryHue}, 36%, 42%)`,
+        '--md-sys-color-on-secondary': '#FFFFFF',
+        '--md-sys-color-secondary-container': `hsl(${secondaryHue}, 92%, 90%)`,
+        '--md-sys-color-on-secondary-container': `hsl(${secondaryHue}, 58%, 16%)`,
+        '--md-sys-color-tertiary': `hsl(${tertiaryHue}, 48%, 42%)`,
+        '--md-sys-color-on-tertiary': '#FFFFFF',
+        '--md-sys-color-tertiary-container': `hsl(${tertiaryHue}, 88%, 86%)`,
+        '--md-sys-color-on-tertiary-container': `hsl(${tertiaryHue}, 75%, 16%)`,
+        '--md-sys-color-background': `hsl(${hue}, 60%, 97%)`,
+        '--md-sys-color-on-background': `hsl(${hue}, 22%, 14%)`,
+        '--md-sys-color-surface': `hsl(${hue}, 60%, 97%)`,
+        '--md-sys-color-on-surface': `hsl(${hue}, 22%, 14%)`,
+        '--md-sys-color-surface-variant': `hsl(${hue}, 35%, 89%)`,
+        '--md-sys-color-on-surface-variant': `hsl(${hue}, 16%, 28%)`,
+        '--md-sys-color-surface-container-lowest': '#FFFFFF',
+        '--md-sys-color-surface-container-low': `hsl(${hue}, 55%, 95%)`,
+        '--md-sys-color-surface-container': `hsl(${hue}, 50%, 92%)`,
+        '--md-sys-color-surface-container-high': `hsl(${hue}, 45%, 89%)`,
+        '--md-sys-color-surface-container-highest': `hsl(${hue}, 40%, 86%)`,
+        '--md-sys-color-outline': `hsl(${hue}, 14%, 48%)`,
+        '--md-sys-color-outline-variant': `hsl(${hue}, 25%, 80%)`
+      };
+
+      Object.entries(tokens).forEach(([prop, val]) => root.style.setProperty(prop, val));
+      try {
+        localStorage.setItem(M3_SEED_KEY, seedHex);
+        localStorage.setItem(M3_THEME_KEY, isDark ? 'dark' : 'light');
+      } catch (e) {}
+    }
+
+    function getFilteredCards() {
+      if (batchSession.singleFocusCardId) {
+        const single = appState.cards.find(c => c.id === batchSession.singleFocusCardId);
+        return single ? [single] : [];
+      }
+      return appState.selectedCourseFilter === 'all'
+        ? appState.cards
+        : appState.cards.filter(c => c.courseId === appState.selectedCourseFilter);
+    }
+
+    function getAllBatches() {
+      const pool = getFilteredCards();
+      if (pool.length === 0) return [];
+      const size = Math.max(1, parseInt(appState.batchSize, 10) || 3);
+      const batches = [];
+      for (let i = 0; i < pool.length; i += size) batches.push(pool.slice(i, i + size));
+      return batches;
+    }
+
+    function getCurrentBatch() {
+      const batches = getAllBatches();
+      if (batches.length === 0) return [];
+      if (batchSession.batchIndex >= batches.length) batchSession.batchIndex = Math.max(0, batches.length - 1);
+      return batches[batchSession.batchIndex];
+    }
+
+    function getCurrentActiveCard() {
+      const batch = getCurrentBatch();
+      if (batch.length === 0) return null;
+      const found = batch.find(c => c.id === batchSession.activeCardId);
+      return found || batch[0];
+    }
+
+    function getCardBatchState(cardId) {
+      if (!batchSession.progressMap[cardId]) batchSession.progressMap[cardId] = { stage: 1, completed: false };
+      return batchSession.progressMap[cardId];
+    }
+
+    function getCourseById(courseId) {
+      return appState.courses.find(c => c.id === courseId) || { id: 'unknown', title: 'Sans cours', color: '#B23B69' };
+    }
+
+    function buildWavyPath(pct) {
+      const clamped = Math.max(0, Math.min(100, pct));
+      const endX = (clamped / 100) * 194;
+      if (endX <= 2) return '';
+      const midY = 7, amp = 3.2, halfWave = 9;
+      let d = `M 2 ${midY}`, x = 2, dir = -1;
+      while (x + halfWave <= endX) {
+        d += ` Q ${(x + halfWave / 2).toFixed(1)} ${(midY + dir * amp).toFixed(1)}, ${(x + halfWave).toFixed(1)} ${midY}`;
+        x += halfWave; dir *= -1;
+      }
+      return d;
+    }
+
+    function updateCourseMasteryUI() {
+      const totalAll = appState.cards.length;
+      const masteredAll = appState.cards.filter(c => c.mastered).length;
+      const masteredPill = document.getElementById('sidebar-mastered-pill');
+      const coursesCount = document.getElementById('sidebar-courses-count');
+      if (masteredPill) masteredPill.textContent = `${masteredAll}/${totalAll}`;
+      if (coursesCount) coursesCount.textContent = appState.courses.length;
+
+      const selectEl = document.getElementById('sidebar-progress-course-select');
+      if (selectEl) {
+        selectEl.innerHTML = appState.courses.map(c => `<option value="${c.id}">${escapeHtml(c.title)}</option>`).join('');
+        const targetId = appState.courses.some(c => c.id === appState.sidebarProgressCourseId)
+          ? appState.sidebarProgressCourseId
+          : (appState.courses[0]?.id || '');
+        appState.sidebarProgressCourseId = targetId;
+        selectEl.value = targetId;
+
+        const cCards = appState.cards.filter(c => c.courseId === targetId);
+        const cMastered = cCards.filter(c => c.mastered).length;
+        const pct = cCards.length > 0 ? Math.round((cMastered / cCards.length) * 100) : 0;
+
+        const pctEl = document.getElementById('sidebar-course-pct');
+        const detailEl = document.getElementById('sidebar-course-detail');
+        if (pctEl) pctEl.textContent = `${pct}%`;
+        if (detailEl) detailEl.textContent = `${cMastered} / ${cCards.length} validées`;
+        
+        const wavyFill = document.getElementById('sidebar-wavy-fill');
+        if (wavyFill) wavyFill.setAttribute('d', buildWavyPath(pct));
+      }
+    }
+
+    function selectNextPendingCardInBatch(preferFirst = false) {
+      const batches = getAllBatches();
+      const batch = getCurrentBatch();
+      const emptyEl = document.getElementById('revise-empty-state');
+      const trackerEl = document.getElementById('batch-tracker-bar');
+      const completeEl = document.getElementById('batch-complete-card');
+      const cardEl = document.getElementById('flashcard-container');
+
+      if (batch.length === 0) {
+        if (emptyEl) emptyEl.classList.remove('hidden');
+        if (trackerEl) trackerEl.classList.add('hidden');
+        if (completeEl) completeEl.classList.add('hidden');
+        if (cardEl) cardEl.classList.add('hidden');
+        updateCourseMasteryUI();
+        return;
+      }
+
+      if (emptyEl) emptyEl.classList.add('hidden');
+      if (trackerEl) trackerEl.classList.remove('hidden');
+
+      const pendingCards = batch.filter(c => !getCardBatchState(c.id).completed);
+      if (pendingCards.length === 0) {
+        if (cardEl) cardEl.classList.add('hidden');
+        if (completeEl) completeEl.classList.remove('hidden');
+        updateCourseMasteryUI();
+        return;
+      }
+
+      if (completeEl) completeEl.classList.add('hidden');
+      if (cardEl) cardEl.classList.remove('hidden');
+
+      if (preferFirst || !batchSession.activeCardId || !batch.some(c => c.id === batchSession.activeCardId)) {
+        batchSession.activeCardId = pendingCards[0].id;
+      }
+
+      renderBatchTrackerUI();
+      renderActiveCardStage();
+      updateCourseMasteryUI();
+    }
+
+    function renderBatchTrackerUI() {
+      const batches = getAllBatches();
+      const batch = getCurrentBatch();
+      const activeCard = getCurrentActiveCard();
+      const idxLabel = document.getElementById('batch-index-label');
+      const counterLabel = document.getElementById('batch-card-counter');
+      const pillsContainer = document.getElementById('batch-cards-pills');
+
+      if (idxLabel) idxLabel.textContent = `Lot ${batchSession.batchIndex + 1} / ${batches.length}`;
+      if (counterLabel && activeCard) {
+        const activeIdx = batch.findIndex(c => c.id === activeCard.id) + 1;
+        counterLabel.textContent = `${activeIdx} / ${batch.length}`;
+      }
+
+      if (pillsContainer) {
+        pillsContainer.innerHTML = batch.map(c => {
+          const st = getCardBatchState(c.id);
+          const isCurr = activeCard && c.id === activeCard.id;
+          let cls = 'batch-notion-chip';
+          if (isCurr) cls += ' current';
+          else if (st.completed) cls += ' completed';
+          return `<button type="button" onclick="jumpToCardInBatch('${c.id}')" class="${cls}">● ${escapeHtml(c.notion)}</button>`;
+        }).join('');
+      }
+    }
+
+    function jumpToCardInBatch(cardId) {
+      batchSession.activeCardId = cardId;
+      renderBatchTrackerUI();
+      renderActiveCardStage();
+    }
+
+    function renderActiveCardStage() {
+      const card = getCurrentActiveCard();
+      const titleEl = document.getElementById('card-notion-title');
+      const defEl = document.getElementById('stage-1-definition');
+      const subtitleEl = document.getElementById('stage-subtitle-label');
+      
+      const stage1View = document.getElementById('stage-1-view');
+      const clozeView = document.getElementById('stage-cloze-view');
+      const expertView = document.getElementById('stage-expert-view');
+      const resultView = document.getElementById('stage-result-view');
+
+      if (!card) {
+        if (titleEl) titleEl.textContent = 'Aucune notion';
+        if (defEl) defEl.textContent = 'Ajoutez des cours et des notions pour commencer.';
+        return;
+      }
+
+      const state = getCardBatchState(card.id);
+      const course = getCourseById(card.courseId);
+
+      const dot = document.getElementById('card-course-dot');
+      const name = document.getElementById('card-course-name');
+      if (dot) dot.style.backgroundColor = course.color;
+      if (name) name.textContent = course.title;
+      if (titleEl) titleEl.textContent = card.notion;
+
+      for (let i = 1; i <= 4; i++) {
+        const pill = document.getElementById(`step-pill-${i}`);
+        if (pill) {
+          pill.className = 'm3-step-chip' + (i === state.stage ? ' active' : (i < state.stage ? ' done' : ''));
+        }
+      }
+
+      if (subtitleEl) {
+        const stageTitles = ['', 'Étape 1 : Écoute active', 'Étape 2 : Texte à trous', 'Étape 3 : Restitution libre', 'Étape 4 : Expert validé'];
+        subtitleEl.textContent = stageTitles[state.stage] || 'Révision';
+      }
+
+      if (stage1View) stage1View.classList.toggle('hidden', state.stage !== 1);
+      if (clozeView) clozeView.classList.toggle('hidden', state.stage !== 2);
+      if (expertView) expertView.classList.toggle('hidden', state.stage !== 3);
+      if (resultView) resultView.classList.toggle('hidden', state.stage !== 4);
+
+      if (state.stage === 1) {
+        if (defEl) defEl.textContent = card.definition;
+        const exEl = document.getElementById('stage-1-example');
+        if (card.example) {
+          exEl.textContent = card.example;
+          exEl.classList.remove('hidden');
+        } else {
+          exEl.classList.add('hidden');
+        }
+      } else if (state.stage === 2) {
+        setupClozeStage(card);
+      } else if (state.stage === 3) {
+        const inputEl = document.getElementById('expert-answer-input');
+        if (inputEl) inputEl.value = '';
+      }
+    }
+
+    function jumpToStage(stageNum) {
+      const card = getCurrentActiveCard();
+      if (!card) return;
+      const state = getCardBatchState(card.id);
+      state.stage = stageNum;
+      renderActiveCardStage();
+    }
+
+    function advanceFromStage1() {
+      jumpToStage(2);
+    }
+
+    function setupClozeStage(card) {
+      const container = document.getElementById('cloze-sentence-container');
+      if (!container) return;
+      const words = card.definition.split(' ');
+      batchSession.tokens = words.map((w, idx) => {
+        const isBlank = idx % 3 === 1 && w.length > 3;
+        return { original: w, isBlank, userVal: '' };
+      });
+      renderClozeHtml();
+    }
+
+    function renderClozeHtml() {
+      const container = document.getElementById('cloze-sentence-container');
+      if (!container) return;
+      container.innerHTML = batchSession.tokens.map((tok, idx) => {
+        if (!tok.isBlank) return escapeHtml(tok.original) + ' ';
+        const displayVal = batchSession.clozeShowInitials && tok.original.length > 0 
+          ? tok.original[0] + '...' 
+          : tok.userVal;
+        return `<input type="text" class="cloze-blank-input" data-index="${idx}" value="${escapeHtml(displayVal)}" placeholder="..." oninput="onClozeInput(${idx}, this.value)" /> `;
+      }).join('');
+    }
+
+    function onClozeInput(idx, val) {
+      if (batchSession.tokens[idx]) {
+        batchSession.tokens[idx].userVal = val;
+      }
+    }
+
+    function toggleClozeInitials() {
+      batchSession.clozeShowInitials = !batchSession.clozeShowInitials;
+      renderClozeHtml();
+    }
+
+    function submitClozeExercise(reveal = false) {
+      const card = getCurrentActiveCard();
+      if (!card) return;
+      let matchedCount = 0, totalBlanks = 0;
+      batchSession.tokens.forEach(tok => {
+        if (tok.isBlank) {
+          totalBlanks++;
+          if (reveal) {
+            tok.userVal = tok.original;
+          }
+          if (tok.userVal.trim().toLowerCase() === tok.original.trim().toLowerCase()) {
+            matchedCount++;
+          }
+        }
+      });
+      const score = totalBlanks > 0 ? Math.round((matchedCount / totalBlanks) * 100) : 100;
+      showResultView(score, card.definition, batchSession.tokens.map(t => t.isBlank ? t.userVal : t.original).join(' '));
+    }
+
+    function submitExpertExercise(reveal = false) {
+      const card = getCurrentActiveCard();
+      if (!card) return;
+      const inputEl = document.getElementById('expert-answer-input');
+      const userText = reveal ? card.definition : (inputEl ? inputEl.value : '');
+      const refWords = card.definition.toLowerCase().split(/\s+/);
+      const userWords = userText.toLowerCase().split(/\s+/);
+      let matches = 0;
+      refWords.forEach(rw => {
+        if (userWords.includes(rw)) matches++;
+      });
+      const score = refWords.length > 0 ? Math.round((matches / refWords.length) * 100) : 100;
+      showResultView(score, card.definition, userText);
+    }
+
+    function showResultView(score, referenceText, userText) {
+      const card = getCurrentActiveCard();
+      if (!card) return;
+      const state = getCardBatchState(card.id);
+      state.stage = 4;
+      state.completed = true;
+      card.mastered = true;
+      saveState();
+
+      const banner = document.getElementById('result-banner');
+      const scorePill = document.getElementById('result-score-pill');
+      const titleEl = document.getElementById('result-title');
+      const annotatedEl = document.getElementById('result-annotated-text');
+      const echoEl = document.getElementById('result-user-echo');
+      const actionsBar = document.getElementById('result-actions-bar');
+
+      if (score >= 70) {
+        banner.style.backgroundColor = 'var(--md-sys-color-success-container)';
+        banner.style.color = 'var(--md-sys-color-on-success-container)';
+        scorePill.style.backgroundColor = 'var(--md-sys-color-success)';
+        scorePill.style.color = 'var(--md-sys-color-on-success)';
+        titleEl.textContent = 'Notion validée avec succès !';
+      } else {
+        banner.style.backgroundColor = 'var(--md-sys-color-error-container)';
+        banner.style.color = 'var(--md-sys-color-on-error-container)';
+        scorePill.style.backgroundColor = 'var(--md-sys-color-error)';
+        scorePill.style.color = 'var(--md-sys-color-on-error)';
+        titleEl.textContent = 'À revoir prochainement';
+      }
+      scorePill.textContent = `${score}%`;
+
+      if (annotatedEl) {
+        annotatedEl.textContent = referenceText;
+      }
+      if (echoEl) {
+        echoEl.textContent = userText ? `Votre saisie : "${userText}"` : '';
+      }
+      if (actionsBar) {
+        actionsBar.innerHTML = `<button type="button" onclick="proceedToNextCardInBatch()" class="m3-btn m3-btn-filled">Continuer →</button>`;
+      }
+
+      renderActiveCardStage();
+      updateCourseMasteryUI();
+    }
+
+    function proceedToNextCardInBatch() {
+      selectNextPendingCardInBatch(false);
+    }
+
+    function repeatCurrentBatch() {
+      const batch = getCurrentBatch();
+      batch.forEach(c => {
+        const st = getCardBatchState(c.id);
+        st.stage = 1;
+        st.completed = false;
+      });
+      batchSession.activeCardId = batch[0]?.id || null;
+      document.getElementById('batch-complete-card').classList.add('hidden');
+      document.getElementById('flashcard-container').classList.remove('hidden');
+      selectNextPendingCardInBatch(true);
+    }
+
+    function advanceToNextBatch() {
+      const batches = getAllBatches();
+      if (batchSession.batchIndex < batches.length - 1) {
+        batchSession.batchIndex++;
+        batchSession.activeCardId = null;
+        document.getElementById('batch-complete-card').classList.add('hidden');
+        document.getElementById('flashcard-container').classList.remove('hidden');
+        selectNextPendingCardInBatch(true);
+      } else {
+        showToast('Vous avez terminé tous les lots de cette sélection ! 🎉');
+      }
+    }
+
+    function changeBatchIndex(dir) {
+      const batches = getAllBatches();
+      const newIdx = batchSession.batchIndex + dir;
+      if (newIdx >= 0 && newIdx < batches.length) {
+        batchSession.batchIndex = newIdx;
+        batchSession.activeCardId = null;
+        selectNextPendingCardInBatch(true);
+      }
+    }
+
+    function onCourseFilterChange(val) {
+      appState.selectedCourseFilter = val;
+      batchSession.batchIndex = 0;
+      batchSession.activeCardId = null;
+      selectNextPendingCardInBatch(true);
+    }
+
+    function onBatchSizeChange(val) {
+      appState.batchSize = parseInt(val, 10) || 3;
+      batchSession.batchIndex = 0;
+      batchSession.activeCardId = null;
+      selectNextPendingCardInBatch(true);
+    }
+
+    function onSidebarProgressCourseChange(val) {
+      appState.sidebarProgressCourseId = val;
+      updateCourseMasteryUI();
+    }
+
+    function toggleFocusFullscreen() {
+      const isFs = document.body.classList.toggle('focus-fullscreen');
+      const enterIcon = document.getElementById('icon-fs-enter');
+      const exitIcon = document.getElementById('icon-fs-exit');
+      if (enterIcon) enterIcon.classList.toggle('hidden', isFs);
+      if (exitIcon) exitIcon.classList.toggle('hidden', !isFs);
+    }
+
+    function speakCurrentCard() {
+      const card = getCurrentActiveCard();
+      if (!card) return;
+      const textToSpeak = `${card.notion}. ${card.definition}`;
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(textToSpeak);
+        utterance.lang = 'fr-FR';
+        const waveAnim = document.getElementById('tts-wave-anim');
+        const staticIcon = document.getElementById('tts-icon-static');
+        if (waveAnim) waveAnim.classList.remove('hidden');
+        if (staticIcon) staticIcon.classList.add('hidden');
+        utterance.onend = () => {
+          if (waveAnim) waveAnim.classList.add('hidden');
+          if (staticIcon) staticIcon.classList.remove('hidden');
+        };
+        utterance.onerror = () => {
+          if (waveAnim) waveAnim.classList.add('hidden');
+          if (staticIcon) staticIcon.classList.remove('hidden');
+        };
+        window.speechSynthesis.speak(utterance);
+      } else {
+        showToast("Synthèse vocale non supportée par votre navigateur.");
+      }
+    }
+
+    function switchTab(tabName) {
+      ['revise', 'courses'].forEach(v => {
+        const view = document.getElementById(`view-${v}`);
+        if (view) view.classList.toggle('hidden', v !== tabName);
+        const deskBtn = document.getElementById(`nav-btn-${v}`);
+        if (deskBtn) deskBtn.classList.toggle('active', v === tabName);
+        const mobBtn = document.getElementById(`mob-nav-btn-${v}`);
+        if (mobBtn) mobBtn.classList.toggle('active', v === tabName);
+      });
+      if (tabName === 'revise') {
+        selectNextPendingCardInBatch(true);
+      } else if (tabName === 'courses') {
+        renderCoursesView();
+        populateCourseSelects();
+        renderDefinitionsList();
+      }
+    }
+
+    function setCourseLayout(layout) {
+      appState.courseLayout = layout;
+      renderCoursesView();
+    }
+
+    function populateCourseSelects() {
+      const optionsHtml = appState.courses.map(c => `<option value="${c.id}">${escapeHtml(c.title)}</option>`).join('');
+      const newCardSelect = document.getElementById('new-card-course-select');
+      const batchImportSelect = document.getElementById('batch-import-course-select');
+      if (newCardSelect) newCardSelect.innerHTML = optionsHtml;
+      if (batchImportSelect) batchImportSelect.innerHTML = optionsHtml;
+    }
+
+    function renderCoursesView() {
+      const gridEl = document.getElementById('courses-grid');
+      const subEl = document.getElementById('courses-summary-sub');
+      if (subEl) subEl.textContent = `${appState.courses.length} cours`;
+      if (!gridEl) return;
+
+      gridEl.className = appState.courseLayout === 'list' ? 'courses-list-layout' : 'courses-grid-layout';
+      gridEl.innerHTML = appState.courses.map(c => {
+        const cCards = appState.cards.filter(card => card.courseId === c.id);
+        const mastered = cCards.filter(card => card.mastered).length;
+        return `
+          <div class="course-card-item">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span class="course-dot" style="background-color: ${c.color};"></span>
+                <div>
+                  <h3 style="font-size: 1rem; font-weight: 800;">${escapeHtml(c.title)}</h3>
+                  <p style="font-size: 0.78rem; color: var(--md-sys-color-on-surface-variant);">${escapeHtml(c.subtitle || '')}</p>
+                </div>
+              </div>
+              <span class="m3-badge-pill tabular-nums">${mastered}/${cCards.length}</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px; border-top: 1px solid color-mix(in srgb, var(--md-sys-color-outline-variant) 35%, transparent); padding-top: 12px;">
+              <button type="button" onclick="startRevisionForCourse('${c.id}')" class="m3-btn m3-btn-tonal m3-btn-sm">Réviser</button>
+              <button type="button" onclick="deleteCourse('${c.id}')" class="m3-icon-btn" title="Supprimer"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg></button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderDefinitionsList() {
+      const container = document.getElementById('definitions-list-container');
+      const badge = document.getElementById('definitions-count-badge');
+      const searchInput = document.getElementById('definitions-search-input');
+      if (!container) return;
+
+      const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+      const filtered = appState.cards.filter(c => {
+        if (!query) return true;
+        return c.notion.toLowerCase().includes(query) || c.definition.toLowerCase().includes(query);
+      });
+
+      if (badge) badge.textContent = `${filtered.length} notions`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<p style="font-size: 0.85rem; color: var(--md-sys-color-on-surface-variant); text-align: center; padding: 16px;">Aucune notion trouvée.</p>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map(card => {
+        const course = getCourseById(card.courseId);
+        return `
+          <div class="definition-row-item">
+            <div style="display: flex; align-items: flex-start; gap: 10px; min-width: 0; flex: 1;">
+              <span class="course-dot" style="background-color: ${course.color}; margin-top: 5px;"></span>
+              <div style="min-width: 0;">
+                <h4 style="font-size: 0.92rem; font-weight: 800; color: var(--md-sys-color-on-surface);">${escapeHtml(card.notion)}</h4>
+                <p style="font-size: 0.82rem; color: var(--md-sys-color-on-surface-variant); line-height: 1.4; margin-top: 2px;">${escapeHtml(card.definition)}</p>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 6px; flex-shrink: 0; margin-top: 6px;">
+              <button type="button" onclick="startRevisionForCard('${card.id}')" class="m3-btn m3-btn-tonal m3-btn-sm">Réviser</button>
+              <button type="button" onclick="editCard('${card.id}')" class="m3-icon-btn" title="Modifier"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 11h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg></button>
+              <button type="button" onclick="deleteCard('${card.id}')" class="m3-icon-btn" title="Supprimer"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg></button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function addNewCard() {
+      const courseId = document.getElementById('new-card-course-select').value;
+      const notion = document.getElementById('new-card-notion').value.trim();
+      const definition = document.getElementById('new-card-def').value.trim();
+      const example = document.getElementById('new-card-example').value.trim();
+
+      if (!notion || !definition) {
+        showToast("Veuillez renseigner la notion et sa définition ❌");
+        return;
+      }
+
+      const newId = 'card-' + Date.now();
+      appState.cards.push({ id: newId, courseId, notion, definition, example, mastered: false });
+      saveState();
+
+      document.getElementById('new-card-notion').value = '';
+      document.getElementById('new-card-def').value = '';
+      document.getElementById('new-card-example').value = '';
+
+      updateCourseMasteryUI();
+      renderDefinitionsList();
+      showToast("Notion ajoutée avec succès ! ✨");
+    }
+
+    function executeBatchImport() {
+      const courseId = document.getElementById('batch-import-course-select').value;
+      const text = document.getElementById('batch-import-textarea').value.trim();
+      if (!text) {
+        showToast("Veuillez coller des notions à importer ❌");
+        return;
+      }
+
+      const lines = text.split('\n');
+      let count = 0;
+      lines.forEach(line => {
+        const parts = line.split(':');
+        if (parts.length >= 2) {
+          const notion = parts[0].trim();
+          const definition = parts.slice(1).join(':').trim();
+          if (notion && definition) {
+            appState.cards.push({
+              id: 'card-' + Date.now() + '-' + Math.random().toString(36).substr(2, 4),
+              courseId,
+              notion,
+              definition,
+              example: '',
+              mastered: false
+            });
+            count++;
+          }
+        }
+      });
+
+      if (count > 0) {
+        saveState();
+        document.getElementById('batch-import-textarea').value = '';
+        updateCourseMasteryUI();
+        renderDefinitionsList();
+        showToast(`${count} notions importées avec succès ! 🚀`);
+      } else {
+        showToast("Format invalide. Utilisez Notion : Définition ❌");
+      }
+    }
+
+    function deleteCard(cardId) {
+      if (!confirm("Voulez-vous supprimer cette notion ?")) return;
+      appState.cards = appState.cards.filter(c => c.id !== cardId);
+      saveState();
+      updateCourseMasteryUI();
+      renderDefinitionsList();
+      showToast("Notion supprimée.");
+    }
+
+    function editCard(cardId) {
+      const card = appState.cards.find(c => c.id === cardId);
+      if (!card) return;
+      const newNotion = prompt("Modifier la notion :", card.notion);
+      if (newNotion === null) return;
+      const newDef = prompt("Modifier la définition :", card.definition);
+      if (newDef === null) return;
+
+      card.notion = newNotion.trim() || card.notion;
+      card.definition = newDef.trim() || card.definition;
+      saveState();
+      renderDefinitionsList();
+      showToast("Notion mise à jour ! ✏️");
+    }
+
+    function startRevisionForCourse(courseId) {
+      appState.selectedCourseFilter = courseId;
+      const filterSelect = document.getElementById('revise-course-filter');
+      if (filterSelect) filterSelect.value = courseId;
+      batchSession.batchIndex = 0;
+      batchSession.activeCardId = null;
+      switchTab('revise');
+    }
+
+    function startRevisionForCard(cardId) {
+      batchSession.singleFocusCardId = cardId;
+      batchSession.batchIndex = 0;
+      batchSession.activeCardId = cardId;
+      switchTab('revise');
+      batchSession.singleFocusCardId = null; // reset after launching
+    }
+
+    function openCourseModal() {
+      const title = prompt("Titre du nouveau cours :");
+      if (!title) return;
+      const subtitle = prompt("Sous-description (ex: Chapitre 1) :") || "";
+      const newId = 'c-' + Date.now();
+      appState.courses.push({ id: newId, title, subtitle, color: '#B23B69' });
+      saveState();
+      updateCourseMasteryUI();
+      renderCoursesView();
+      populateCourseSelects();
+      showToast("Cours créé avec succès ! 📚");
+    }
+
+    function deleteCourse(courseId) {
+      if (!confirm("Voulez-vous vraiment supprimer ce cours et toutes ses notions ?")) return;
+      appState.courses = appState.courses.filter(c => c.id !== courseId);
+      appState.cards = appState.cards.filter(c => c.courseId !== courseId);
+      saveState();
+      updateCourseMasteryUI();
+      renderCoursesView();
+      populateCourseSelects();
+      renderDefinitionsList();
+      showToast("Cours supprimé.");
+    }
+
+    function openSettingsModal() {
+      document.getElementById('modal-settings').classList.remove('hidden');
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.add('hidden');
+    }
+
+    function setSeedColor(hex) {
+      appState.m3Seed = hex;
+      applyMaterialYouTheme(hex, appState.theme === 'dark');
+      document.querySelectorAll('.seed-swatch-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-seed') === hex);
+      });
+      saveState();
+    }
+
+    function toggleDarkMode() {
+      appState.theme = appState.theme === 'dark' ? 'light' : 'dark';
+      applyMaterialYouTheme(appState.m3Seed || '#B23B69', appState.theme === 'dark');
+      const label = document.getElementById('theme-mode-label');
+      if (label) label.textContent = appState.theme === 'dark' ? 'Clair' : 'Sombre';
+      saveState();
+    }
+
+    function exportDataJson() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appState, null, 2));
+      const dlAnchor = document.createElement('a');
+      dlAnchor.setAttribute("href", dataStr);
+      dlAnchor.setAttribute("download", `memoflow_export_${Date.now()}.json`);
+      document.body.appendChild(dlAnchor);
+      dlAnchor.click();
+      dlAnchor.remove();
+      showToast("Export JSON réussi ! 💾");
+    }
+
+    function importDataJson(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          if (parsed && Array.isArray(parsed.courses) && Array.isArray(parsed.cards)) {
+            appState = { ...appState, ...parsed, version: '1.115' };
+            saveState();
+            applyMaterialYouTheme(appState.m3Seed || '#B23B69', appState.theme === 'dark');
+            const themeLabel = document.getElementById('theme-mode-label');
+            if (themeLabel) themeLabel.textContent = appState.theme === 'dark' ? 'Clair' : 'Sombre';
+            const filterSelect = document.getElementById('revise-course-filter');
+            if (filterSelect) {
+              filterSelect.innerHTML = '<option value="all">Tous les cours</option>' + 
+                appState.courses.map(c => `<option value="${c.id}">${escapeHtml(c.title)}</option>`).join('');
+              filterSelect.value = appState.selectedCourseFilter;
+            }
+            updateCourseMasteryUI();
+            populateCourseSelects();
+            renderDefinitionsList();
+            selectNextPendingCardInBatch(true);
+            closeModal('modal-settings');
+            showToast("Import JSON réussi ! 🎉");
+          } else {
+            showToast("Format de fichier invalide ❌");
+          }
+        } catch (err) {
+          showToast("Erreur lors de la lecture du JSON ❌");
+        }
+        event.target.value = '';
+      };
+      reader.readAsText(file);
+    }
+
+    function showToast(msg) {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+      const snack = document.createElement('div');
+      snack.className = 'm3-snackbar';
+      snack.textContent = msg;
+      container.appendChild(snack);
+      setTimeout(() => snack.remove(), 3200);
+    }
+
+    function escapeHtml(str) {
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      loadState();
+      applyMaterialYouTheme(appState.m3Seed || '#B23B69', appState.theme === 'dark');
+      
+      const themeLabel = document.getElementById('theme-mode-label');
+      if (themeLabel) themeLabel.textContent = appState.theme === 'dark' ? 'Clair' : 'Sombre';
+
+      const filterSelect = document.getElementById('revise-course-filter');
+      if (filterSelect) {
+        filterSelect.innerHTML = '<option value="all">Tous les cours</option>' + 
+          appState.courses.map(c => `<option value="${c.id}">${escapeHtml(c.title)}</option>`).join('');
+        filterSelect.value = appState.selectedCourseFilter;
+      }
+
+      const batchSizeSelect = document.getElementById('revise-batch-size');
+      if (batchSizeSelect) batchSizeSelect.value = appState.batchSize;
+
+      updateCourseMasteryUI();
+      populateCourseSelects();
+      renderDefinitionsList();
+      selectNextPendingCardInBatch(true);
+    });
   </script>
 </body>
 </html>
